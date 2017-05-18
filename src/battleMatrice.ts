@@ -1,6 +1,6 @@
 import * as MatriceCase from "matriceCase"; 
 
-export default BattleMatrice {
+export default class BattleMatrice {
 
 	let battleMatrice = '{"battleCases":[]}';
 
