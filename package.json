@@ -1,0 +1,30 @@
+{
+  "name": "naval-battle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lerio29/navalBattle.git"
+  },
+  "author": "lerio29",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lerio29/navalBattle/issues"
+  },
+  "homepage": "https://github.com/lerio29/navalBattle#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-typescript": "^3.1.6",
+    "gulp-uglify": "^2.1.2",
+    "jshint": "^2.9.4",
+    "typescript": "^2.3.2"
+  }
+}
