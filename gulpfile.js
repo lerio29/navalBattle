@@ -22,8 +22,7 @@ gulp.task('sass', function() {
 gulp.task('tsc', function () {
 	    return gulp.src('src/**/*.ts')
 	        .pipe(ts({
-			            noImplicitAny: true,
-			            out: 'output.js'
+			            noImplicitAny: true
 			        }))
 	        .pipe(gulp.dest('built/'));
 	});
