@@ -1,6 +1,4 @@
-
-
-cexport default  class MatriceCase{
+export default  class MatriceCase{
 
 	constructor(hor,vert,status){
 		this.hor = hor;

@@ -6,14 +6,14 @@ export default class BattleMatrice {
 
 	constructor(sizeMatrice){
 
-		let initLoopH = 0;			
+		let initLoopH: number = 0;			
 
-		let hMatrice = sizeMatrice,
-		vMatrice = sizeMatrice;
+		let hMatrice: number = sizeMatrice,
+		vMatrice: number = sizeMatrice;
 
 
 		while(initLoopH <= hMatrice ){
-			let initLoopV = 0,
+			let initLoopV: number = 0,
 			vMatrice = sizeMatrice;		
 
 			while(initLoopV <= vMatrice){
