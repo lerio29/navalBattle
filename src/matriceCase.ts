@@ -1,12 +1,15 @@
-export default  class MatriceCase{
+import * as EnumStatus from "./enumStatus";
 
-	constructor(hor,vert,status){
+export class MatriceCase{
+
+	hor: number;
+	vert: number;
+	state: EnumStatus.EnumStatus;
+
+
+	constructor(hor: number,vert: number,state: EnumStatus.EnumStatus){
 		this.hor = hor;
 		this.vert = vert;
 		this.state = state;
-	}
-
-
-	
-	
+	}	
 }
