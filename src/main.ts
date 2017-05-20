@@ -1,3 +1,5 @@
 import * as BattleMatrice from "./battleMatrice"; 
 
-let grille = new BattleMatrice(12);
+console.log("dsknkdsk");
+
+let grille = new BattleMatrice.BattleMatrice(12);
