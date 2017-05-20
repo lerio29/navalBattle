@@ -8,26 +8,32 @@ export class BattleMatrice {
 
 	constructor(sizeMatrice: number){
 
-		let initLoopH: number = 0;			
+		let initLoopH: number = 1;	
 
 		let hMatrice: number = sizeMatrice;
 		let vMatrice: number = sizeMatrice;
 
+		this.battleMatrice = new Collections.Set<MatriceCase.MatriceCase>();
+
+		let caseMat: MatriceCase.MatriceCase;
+
 
 		while(initLoopH <= hMatrice ){
-			let initLoopV: number = 0;
-			let vMatrice: number = sizeMatrice;		
-
+			
+			let initLoopV: number = 1;	
 			while(initLoopV <= vMatrice){
-				//battleMatrice.battleMatrice.put;;;;//ajouter case dans la matrice
-				this.battleMatrice = new Collections.Set<MatriceCase.MatriceCase>();
-				let case: MatriceCase.MatriceCase = new MatriceCase(initLoopV,initLoopH,);
-				this.battleMatrice.add(case);
 
-				console.log("(" + initLoopH + ":" + initLoopV + ")");
-				initLoopV++;
+				
+				caseMat = new MatriceCase.MatriceCase(initLoopV,initLoopH,EnumStatus.EnumStatus.STATUS_EMPTY);
+				this.battleMatrice.add(caseMat);//çàdeconne
+				console.log(caseMat);
+				console.log( "(initLoopH:" + initLoopH + "|initLoopV:" + initLoopV + ")" );
+				initLoopV++ ;
 			}
 			initLoopH++;
+		    
 		}
+		
+		console.log(this.battleMatrice);
 	}
 }
