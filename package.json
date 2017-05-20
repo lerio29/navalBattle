@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/lerio29/navalBattle#readme",
   "devDependencies": {
+    "browserify": "^14.3.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.0.4",
