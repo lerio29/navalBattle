@@ -1,11 +1,12 @@
 const gulp = require('gulp');
 
-var jshint = require('gulp-jshint');
-var sass = require('gulp-sass');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var ts = require('gulp-typescript');
+const jshint = require('gulp-jshint');
+const sass = require('gulp-sass');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
+const rollup = require('gulp-rollup');
+const ts = require('gulp-typescript');
 
 gulp.task('lint', function() {
 	    return gulp.src('js/*.js')
@@ -28,6 +29,13 @@ gulp.task('tsc', function () {
 			        }))
 	        .pipe(gulp.dest('built/'));
 	});
+
+gulp.task('bundle', function() {
+  gulp.src('./src/**/*.ts')
+    // transform the files here. 
+    .pipe(rollup())
+    .pipe(gulp.dest('./built'));
+});
 
 
 gulp.task('scripts', function() {
