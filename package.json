@@ -18,17 +18,21 @@
   "homepage": "https://github.com/lerio29/navalBattle#readme",
   "devDependencies": {
     "browserify": "^14.3.0",
+    "@types/jsdom": "^2.0.30",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.0.4",
     "gulp-rename": "^1.2.2",
+    "gulp-rollup": "^2.11.0",
     "gulp-sass": "^3.1.0",
     "gulp-typescript": "^3.1.6",
     "gulp-uglify": "^2.1.2",
     "jshint": "^2.9.4",
+    "rollup-plugin-typescript": "^0.8.1",
     "typescript": "^2.3.2"
   },
   "dependencies": {
+    "jsdom": "^11.0.0",
     "typescript-collections": "^1.2.3"
   }
 }
