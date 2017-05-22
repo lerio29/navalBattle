@@ -1,5 +1,12 @@
 import * as BattleMatrice from "./battleMatrice"; 
+import * as Jsdom from "jsdom";
 
-console.log("dsknkdsk");
 
-let grille = new BattleMatrice.BattleMatrice(12);
+
+let grille: BattleMatrice.BattleMatrice = new BattleMatrice.BattleMatrice(12);
+
+let documentFragment:any = Jsdom.jsdom();
+
+let elem:any = documentFragment.querySelector("#grid");
+
+console.log(elem);
