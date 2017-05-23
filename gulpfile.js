@@ -5,8 +5,9 @@ const sass = require('gulp-sass');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
-const rollup = require('gulp-rollup');
-const ts = require('gulp-typescript');
+const browserify = require('browserify');
+const source = require('vinyl-source-stream');
+const tsify = require('tsify');
 
 gulp.task('lint', function() {
 	    return gulp.src('js/*.js')
@@ -20,21 +21,19 @@ gulp.task('sass', function() {
 	        .pipe(gulp.dest('dist/css'));
 	});
 
-gulp.task('tsc', function () {
-	    return gulp.src('src/**/*.ts')
-	        .pipe(ts({
-			            noImplicitAny: true,
-			            module: 'commonjs',
-			            target: 'es5'
-			        }))
-	        .pipe(gulp.dest('built/'));
-	});
-
-gulp.task('bundle', function() {
-  gulp.src('./src/**/*.ts')
-    // transform the files here. 
-    .pipe(rollup())
-    .pipe(gulp.dest('./built'));
+//https://www.typescriptlang.org/docs/handbook/gulp.html
+gulp.task('bundle', function () {
+    return browserify({
+        basedir: '.',
+        debug: true,
+        entries: ['src/main.ts'],
+        cache: {},
+        packageCache: {}
+    })
+    .plugin(tsify)
+    .bundle()
+    .pipe(source('bro.js'))
+    .pipe(gulp.dest('dist'));
 });
 
 
