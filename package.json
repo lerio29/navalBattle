@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/lerio29/navalBattle#readme",
   "devDependencies": {
+    "@types/jquery": "^2.0.45",
     "@types/jsdom": "^2.0.30",
     "browserify": "^14.3.0",
     "gulp": "^3.9.1",
@@ -32,6 +33,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "jquery": "^3.2.1",
     "jsdom": "^11.0.0",
     "typescript-collections": "^1.2.3"
   }
