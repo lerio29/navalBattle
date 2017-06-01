@@ -4,7 +4,7 @@ import * as EnumStatus from "./enumStatus";
 
 export class BattleMatrice {
 
-	battleMatrice: Collections.Set<MatriceCase.MatriceCase>;
+	matrice: Collections.Set<MatriceCase.MatriceCase>;
 
 	constructor(sizeMatrice: number){
 
@@ -13,7 +13,7 @@ export class BattleMatrice {
 		let hMatrice: number = sizeMatrice;
 		let vMatrice: number = sizeMatrice;
 
-		this.battleMatrice = new Collections.Set<MatriceCase.MatriceCase>();
+		this.matrice = new Collections.Set<MatriceCase.MatriceCase>();
 
 		let caseMat: MatriceCase.MatriceCase;
 
@@ -25,15 +25,17 @@ export class BattleMatrice {
 
 				
 				caseMat = new MatriceCase.MatriceCase(initLoopV,initLoopH,EnumStatus.EnumStatus.STATUS_EMPTY);
-				this.battleMatrice.add(caseMat);//çàdeconne
-				console.log(caseMat);
-				console.log( "(initLoopH:" + initLoopH + "|initLoopV:" + initLoopV + ")" );
+				this.matrice.add(caseMat);
+				console.log("caseMat : " + caseMat.hor);
+				// console.log( "(initLoopH:" + initLoopH + "|initLoopV:" + initLoopV + ")" );
 				initLoopV++ ;
 			}
 			initLoopH++;
 		    
 		}
-		
-		console.log(this.battleMatrice);
+	}
+
+	get getMatrice():Collections.Set<MatriceCase.MatriceCase>{
+		return this.matrice;
 	}
 }

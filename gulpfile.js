@@ -30,7 +30,7 @@ gulp.task('bundle', function () {
         cache: {},
         packageCache: {}
     })
-    .plugin(tsify)
+    .plugin(tsify, { target: 'es5' })
     .bundle()
     .pipe(source('bro.js'))
     .pipe(gulp.dest('dist'));
