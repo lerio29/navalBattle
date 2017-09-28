@@ -4,7 +4,7 @@ import * as EnumStatus from "./enumStatus";
 
 export class BattleMatrice {
 
-	matrice: Collections.Set<MatriceCase.MatriceCase>;
+	private _matrice: Collections.Set<MatriceCase.MatriceCase>;
 
 	constructor(sizeMatrice: number){
 
@@ -13,7 +13,7 @@ export class BattleMatrice {
 		let hMatrice: number = sizeMatrice;
 		let vMatrice: number = sizeMatrice;
 
-		this.matrice = new Collections.Set<MatriceCase.MatriceCase>();
+		this._matrice = new Collections.Set<MatriceCase.MatriceCase>();
 
 		let caseMat: MatriceCase.MatriceCase;
 
@@ -23,19 +23,23 @@ export class BattleMatrice {
 			let initLoopV: number = 1;	
 			while(initLoopV <= vMatrice){
 
-				
+				//verifier que le set n accepte pas les doublons du style 1:1 ou 2:2 etc...
 				caseMat = new MatriceCase.MatriceCase(initLoopV,initLoopH,EnumStatus.EnumStatus.STATUS_EMPTY);
-				this.matrice.add(caseMat);
-				console.log("caseMat : " + caseMat.hor);
-				// console.log( "(initLoopH:" + initLoopH + "|initLoopV:" + initLoopV + ")" );
+				// console.log("case :" + caseMat.toString());
+
+
+				this._matrice.add(caseMat);
+		
 				initLoopV++ ;
 			}
 			initLoopH++;
 		    
 		}
+		console.log("size : " + this._matrice.toArray().length);
+		console.log("toString : " + this._matrice.toArray().toString());
 	}
 
 	get getMatrice():Collections.Set<MatriceCase.MatriceCase>{
-		return this.matrice;
+		return this._matrice;
 	}
 }
