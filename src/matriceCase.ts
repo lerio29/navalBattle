@@ -12,4 +12,9 @@ export class MatriceCase{
 		this.vert = vert;
 		this.state = state;
 	}	
+
+
+	toString() {
+		return "hor: " + this.hor + ", vert: " + this.vert + ", state: " + this.state;
+	}
 }
