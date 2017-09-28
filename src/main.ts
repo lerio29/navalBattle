@@ -19,7 +19,6 @@ let grille: BattleMatrice.BattleMatrice = new BattleMatrice.BattleMatrice(12);
 
 for(let item of grille.getMatrice.toArray()) {
 	console.log("item : " + item.toString());
-	// console.log("loop: " + item.toString() );
 }
 
 
