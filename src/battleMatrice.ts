@@ -2,6 +2,9 @@ import * as Collections from 'typescript-collections';
 import * as MatriceCase from "./matriceCase"; 
 import * as EnumStatus from "./enumStatus";
 
+/**
+ * Classe de generation de matrice/grille de bataille navale
+ */
 export class BattleMatrice {
 
 	private _matrice: Collections.Set<MatriceCase.MatriceCase>;
@@ -39,6 +42,14 @@ export class BattleMatrice {
 		console.log("toString : " + this._matrice.toArray().toString());
 	}
 
+	updateCase(status :MatriceCase.MatriceCase){
+
+	}
+
+/**
+ * [getMatrice Retourne un set de MatriceCase correspondant à la grille de la bataille navale]
+ * @return {Collections.Set<MatriceCase.MatriceCase>} [description]
+ */
 	get getMatrice():Collections.Set<MatriceCase.MatriceCase>{
 		return this._matrice;
 	}

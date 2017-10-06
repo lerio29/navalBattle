@@ -13,6 +13,10 @@ export class MatriceCase{
 		this.state = state;
 	}	
 
+	updateStatus(state: EnumStatus.EnumStatus){
+		this.state = state;
+	}
+
 
 	toString() {
 		return "hor: " + this.hor + ", vert: " + this.vert + ", state: " + this.state;
