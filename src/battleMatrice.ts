@@ -11,7 +11,8 @@ import * as BattleUtils from "./battleUtils";
  */
 export class BattleMatrice {
 
-	private  _matrice: Collections.Set<MatriceCase.MatriceCase>;
+	// private  _matrice: Collections.Set<MatriceCase.MatriceCase>;
+	private  _matrice: Collections.Dictionary<string,MatriceCase.MatriceCase>;
 
 	constructor(sizeMatrice: number){
 		
@@ -20,7 +21,7 @@ export class BattleMatrice {
 		let hMatrice: number = sizeMatrice;
 		let vMatrice: number = sizeMatrice;
 
-		this._matrice = new Collections.Set<MatriceCase.MatriceCase>();
+		this._matrice = new Collections.Dictionary<string,MatriceCase.MatriceCase>();
 
 		let caseMat: MatriceCase.MatriceCase;
 
@@ -32,26 +33,28 @@ export class BattleMatrice {
 
 				caseMat = new MatriceCase.MatriceCase(BattleUtils.BattleUtils.positionToAlpha(initLoopV),initLoopH,EnumStatus.EnumStatus.STATUS_EMPTY);
 
-				this._matrice.add(caseMat);
+				this._matrice.setValue(BattleUtils.BattleUtils.positionToAlpha(initLoopV) + initLoopH ,caseMat);
 		
 				initLoopV++ ;
 			}
 			initLoopH++;
 		    
 		}
-		console.log("size : " + this._matrice.toArray().length);
-		console.log("toString : " + this._matrice.toArray().toString());
+		
 	}
 
-	updateCase(status :MatriceCase.MatriceCase){
-
+	updateMatrice(status :MatriceCase.MatriceCase){
+		//on MAJ la case qui correspond à la cle 
+		let tmpKey = status.hor + status.vert;
+		this._matrice.setValue(tmpKey,status);
+		
 	}
 
 /**
  * [getMatrice Retourne un set de MatriceCase correspondant à la grille de la bataille navale]
  * @return {Collections.Set<MatriceCase.MatriceCase>} [description]
  */
-	get getMatrice():Collections.Set<MatriceCase.MatriceCase>{
+	get getMatrice():Collections.Dictionary<string,MatriceCase.MatriceCase>{
 		return this._matrice;
 	}
 }
