@@ -1,16 +1,20 @@
 import * as Collections from 'typescript-collections';
 import * as MatriceCase from "./matriceCase"; 
 import * as EnumStatus from "./enumStatus";
+import * as BattleUtils from "./battleUtils";
+
+
+
 
 /**
  * Classe de generation de matrice/grille de bataille navale
  */
 export class BattleMatrice {
 
-	private _matrice: Collections.Set<MatriceCase.MatriceCase>;
+	private  _matrice: Collections.Set<MatriceCase.MatriceCase>;
 
 	constructor(sizeMatrice: number){
-
+		
 		let initLoopH: number = 1;	
 
 		let hMatrice: number = sizeMatrice;
@@ -26,10 +30,7 @@ export class BattleMatrice {
 			let initLoopV: number = 1;	
 			while(initLoopV <= vMatrice){
 
-				//verifier que le set n accepte pas les doublons du style 1:1 ou 2:2 etc...
-				caseMat = new MatriceCase.MatriceCase(initLoopV,initLoopH,EnumStatus.EnumStatus.STATUS_EMPTY);
-				// console.log("case :" + caseMat.toString());
-
+				caseMat = new MatriceCase.MatriceCase(BattleUtils.BattleUtils.positionToAlpha(initLoopV),initLoopH,EnumStatus.EnumStatus.STATUS_EMPTY);
 
 				this._matrice.add(caseMat);
 		
@@ -54,3 +55,4 @@ export class BattleMatrice {
 		return this._matrice;
 	}
 }
+

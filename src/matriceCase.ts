@@ -1,13 +1,14 @@
 import * as EnumStatus from "./enumStatus";
 
+
 export class MatriceCase{
 
-	hor: number;
+	hor: string;
 	vert: number;
 	state: EnumStatus.EnumStatus;
 
 
-	constructor(hor: number,vert: number,state: EnumStatus.EnumStatus){
+	constructor(hor: string,vert: number,state: EnumStatus.EnumStatus){
 		this.hor = hor;
 		this.vert = vert;
 		this.state = state;
