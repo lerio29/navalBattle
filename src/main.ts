@@ -1,3 +1,4 @@
+
 import * as Collections from 'typescript-collections';
 import * as BattleMatrice from "./battleMatrice"; 
 
@@ -7,8 +8,10 @@ import * as Angular from "angular";
 import * as $ from "jquery";
 
 
+let grillePlayer1: BattleMatrice.BattleMatrice = new BattleMatrice.BattleMatrice(10);
+// grillePlayer1.addShip(new Ship());
 
-let grille: BattleMatrice.BattleMatrice = new BattleMatrice.BattleMatrice(12);
+// let grillePlayer2: BattleMatrice.BattleMatrice = new BattleMatrice.BattleMatrice(10);
 
 // let documentFragment:any = Jsdom.jsdom();
 
@@ -17,7 +20,7 @@ let grille: BattleMatrice.BattleMatrice = new BattleMatrice.BattleMatrice(12);
 
 
 
-for(let item of grille.getMatrice.toArray()) {
+for(let item of grillePlayer1.getMatrice.toArray()) {
 	console.log("item : " + item.toString());
 }
 
