@@ -6,7 +6,7 @@ export class BattleUtils {
 	
 	static positionToAlpha(position: number){
 		
-		return BattleUtils._alphabet[position - 1];
+		return BattleUtils._alphabet[position-1];
 	}
 
 	
