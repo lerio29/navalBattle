@@ -28,11 +28,14 @@ let grillePlayer1: BattleMatrice.BattleMatrice = new BattleMatrice.BattleMatrice
 // let elem:any = documentFragment.querySelector(".grid");
 
 
+for(let tmpKey  in grillePlayer1.getMatrice.keys()){
+	console.log("key : " + tmpKey);
+	// console.log("valhor : " + grillePlayer1.getMatrice.getValue(tmpKey).hor);
+	// console.log("valvert : " + grillePlayer1.getMatrice.getValue(tmpKey).vert);
+	// console.log("valstat : " + grillePlayer1.getMatrice.getValue(tmpKey).state);
 
-//TODO
-for(let item in grillePlayer1.getMatrice.values) {
-	console.log("item : " + item.toString);
 }
+
 
 
 // console.log($(".grid").attr("toto-data"));

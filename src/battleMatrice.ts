@@ -11,6 +11,8 @@ import * as Ship from "./ship";
  */
 export class BattleMatrice {
 
+	static readonly separator :string = "-";
+
 	// private  _matrice: Collections.Set<MatriceCase.MatriceCase>;
 	private  _matrice: Collections.Dictionary<string,MatriceCase.MatriceCase>;
 
@@ -21,7 +23,6 @@ export class BattleMatrice {
 	 */
 	constructor(sizeMatrice: number){
 
-		const separator: string = '-'; 
 		
 		let initLoopH: number = 1;	
 
@@ -40,7 +41,8 @@ export class BattleMatrice {
 
 				caseMat = new MatriceCase.MatriceCase(initLoopV,initLoopH,EnumStatus.EnumStatus.STATUS_EMPTY);
 
-				this._matrice.setValue(BattleUtils.BattleUtils.positionToAlpha(initLoopV) + separator + initLoopH ,caseMat);
+				console.log("GenKey: " + BattleUtils.BattleUtils.positionToAlpha(initLoopV) + BattleMatrice.separator + initLoopH );
+				this._matrice.setValue(BattleUtils.BattleUtils.positionToAlpha(initLoopV) + BattleMatrice.separator + initLoopH ,caseMat);
 		
 				initLoopV++ ;
 			}
@@ -55,10 +57,9 @@ export class BattleMatrice {
 	 * @param {MatriceCase.MatriceCase} status [description]
 	 */
 	updateMatrice(status :MatriceCase.MatriceCase){
-		const separator: string = '-'; 
-
+		
 		//on MAJ la case qui correspond à la cle 
-		let tmpKey: string = status.hor + separator + status.vert;
+		let tmpKey: string = status.hor + BattleMatrice.separator + status.vert;
 		this._matrice.setValue(tmpKey,status);
 		
 	}
