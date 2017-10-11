@@ -2,7 +2,7 @@ import * as Collections from 'typescript-collections';
 import * as MatriceCase from "./matriceCase"; 
 import * as EnumStatus from "./enumStatus";
 import * as BattleUtils from "./battleUtils";
-
+import * as Ship from "./ship";
 
 
 
@@ -15,7 +15,10 @@ export class BattleMatrice {
 	private  _matrice: Collections.Dictionary<string,MatriceCase.MatriceCase>;
 
 
-
+	/**
+	 * [constructor description]
+	 * @param {number} sizeMatrice [description]
+	 */
 	constructor(sizeMatrice: number){
 
 		const separator: string = '-'; 
@@ -47,17 +50,31 @@ export class BattleMatrice {
 		
 	}
 
+	/**
+	 * [updateMatrice description]
+	 * @param {MatriceCase.MatriceCase} status [description]
+	 */
 	updateMatrice(status :MatriceCase.MatriceCase){
+		const separator: string = '-'; 
+
 		//on MAJ la case qui correspond à la cle 
-		let tmpKey = status.hor + status.vert;
+		let tmpKey: string = status.hor + separator + status.vert;
 		this._matrice.setValue(tmpKey,status);
 		
 	}
 
-/**
- * [getMatrice Retourne un set de MatriceCase correspondant à la grille de la bataille navale]
- * @return {Collections.Set<MatriceCase.MatriceCase>} [description]
- */
+	/**
+	 * [addShip description]
+	 * @param {Ship.Ship} ship [description]
+	 */
+	addShip(ship :Ship.Ship){
+		//associer des bateau à une grille
+	}
+
+	/**
+	 * [getMatrice Retourne un set de MatriceCase correspondant à la grille de la bataille navale]
+	 * @return {Collections.Set<MatriceCase.MatriceCase>} [description]
+	 */
 	get getMatrice() :Collections.Dictionary<string,MatriceCase.MatriceCase>{
 		return this._matrice;
 	}

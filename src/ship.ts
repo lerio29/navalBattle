@@ -6,6 +6,7 @@ import * as EnumStatus from "./enumStatus";
 
 
 
+
 	export abstract class Ship {
 
 		protected _shipName: string;
