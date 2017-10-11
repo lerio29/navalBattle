@@ -21,7 +21,7 @@ let grillePlayer1: BattleMatrice.BattleMatrice = new BattleMatrice.BattleMatrice
 
 //TODO
 for(let item in grillePlayer1.getMatrice.values) {
-	console.log("item : " + item.toString);
+	console.log("item : " + item.);
 }
 
 

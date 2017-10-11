@@ -14,7 +14,11 @@ export class BattleMatrice {
 	// private  _matrice: Collections.Set<MatriceCase.MatriceCase>;
 	private  _matrice: Collections.Dictionary<string,MatriceCase.MatriceCase>;
 
+
+
 	constructor(sizeMatrice: number){
+
+		const separator: string = '-'; 
 		
 		let initLoopH: number = 1;	
 
@@ -31,9 +35,9 @@ export class BattleMatrice {
 			let initLoopV: number = 1;	
 			while(initLoopV <= vMatrice){
 
-				caseMat = new MatriceCase.MatriceCase(BattleUtils.BattleUtils.positionToAlpha(initLoopV),initLoopH,EnumStatus.EnumStatus.STATUS_EMPTY);
+				caseMat = new MatriceCase.MatriceCase(initLoopV,initLoopH,EnumStatus.EnumStatus.STATUS_EMPTY);
 
-				this._matrice.setValue(BattleUtils.BattleUtils.positionToAlpha(initLoopV) + initLoopH ,caseMat);
+				this._matrice.setValue(BattleUtils.BattleUtils.positionToAlpha(initLoopV) + separator + initLoopH ,caseMat);
 		
 				initLoopV++ ;
 			}
@@ -54,7 +58,7 @@ export class BattleMatrice {
  * [getMatrice Retourne un set de MatriceCase correspondant à la grille de la bataille navale]
  * @return {Collections.Set<MatriceCase.MatriceCase>} [description]
  */
-	get getMatrice():Collections.Dictionary<string,MatriceCase.MatriceCase>{
+	get getMatrice() :Collections.Dictionary<string,MatriceCase.MatriceCase>{
 		return this._matrice;
 	}
 }
