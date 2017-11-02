@@ -11,8 +11,7 @@ import * as Ship from "./ship";
  */
 export class BattleMatrice {
 
-	static readonly separator :string = "-";
-
+	
 	// private  _matrice: Collections.Set<MatriceCase.MatriceCase>;
 	private  _matrice: Collections.Dictionary<string,MatriceCase.MatriceCase>;
 
@@ -41,11 +40,12 @@ export class BattleMatrice {
 
 				caseMat = new MatriceCase.MatriceCase(initLoopV,initLoopH,EnumStatus.EnumStatus.STATUS_EMPTY);
 
-				console.log("GenKey: " + BattleUtils.BattleUtils.positionToAlpha(initLoopV) + BattleMatrice.separator + initLoopH );
-				this._matrice.setValue(BattleUtils.BattleUtils.positionToAlpha(initLoopV) + BattleMatrice.separator + initLoopH ,caseMat);
+				console.log("GenKey: " + BattleUtils.BattleUtils.generateKeyGridByVal(initLoopV,initLoopH));
+				this._matrice.setValue(BattleUtils.BattleUtils.generateKeyGridByVal(initLoopV,initLoopH) ,caseMat);
 		
 				initLoopV++ ;
 			}
+
 			initLoopH++;
 		    
 		}
@@ -59,7 +59,7 @@ export class BattleMatrice {
 	updateMatrice(status :MatriceCase.MatriceCase){
 		
 		//on MAJ la case qui correspond à la cle 
-		let tmpKey: string = status.hor + BattleMatrice.separator + status.vert;
+		let tmpKey: string = BattleUtils.BattleUtils.generateKeyGridByVal(status.vert,status.hor)
 		this._matrice.setValue(tmpKey,status);
 		
 	}

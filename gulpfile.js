@@ -32,7 +32,7 @@ gulp.task('bundle', function () {
     })
     .plugin(tsify, { target: 'es5' })
     .bundle()
-    .pipe(source('bro.js'))
+    .pipe(source('navBattle.js'))
     .pipe(gulp.dest('dist'));
 });
 
