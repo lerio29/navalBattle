@@ -3,6 +3,7 @@ import * as Collections from 'typescript-collections';
 import * as MatriceCase from "./matriceCase"; 
 import * as EnumShip from "./enumShip";
 import * as EnumStatus from "./enumStatus";
+import * as EnumOrientation from "./enumOrientation";
 
 
 
@@ -13,6 +14,7 @@ import * as EnumStatus from "./enumStatus";
 		protected _shipType: EnumShip.EnumShip;
 		protected _shipPosition: Collections.Dictionary<string,MatriceCase.MatriceCase>;
 		protected _shipSize: number;
+		protected _shipOrient: EnumOrientation.EnumOrientation;
 		protected _startCase: MatriceCase.MatriceCase;
 		protected _endCase: MatriceCase.MatriceCase;
 
@@ -26,23 +28,26 @@ import * as EnumStatus from "./enumStatus";
 		 * @param {MatriceCase.MatriceCase}                                startCase    [description]
 		 * @param {MatriceCase.MatriceCase}                                endCase      [description]
 		 */
-		constructor(shipName: string, shipType: EnumShip.EnumShip, shipSize: number, 
-			shipPosition: Collections.Dictionary<string,MatriceCase.MatriceCase>,
-			startCase?: MatriceCase.MatriceCase, endCase?: MatriceCase.MatriceCase){
+		constructor(shipName: string, shipType: EnumShip.EnumShip, shipSize: number, shipOrient: EnumOrientation.EnumOrientation,
+			shipPosition: Collections.Dictionary<string,MatriceCase.MatriceCase> ){
 			
 			this._shipName = shipName;
 			this._shipType = shipType;
 			this._shipSize = shipSize;
+			this._shipOrient = shipOrient;
 			this._shipPosition = shipPosition;
 
-			//TODO optionnelle puisque peuvent être deduit a partir du shipPosition 			
-			this._startCase = startCase;
-			this._endCase = endCase;
 		}
 
-		abstract calStartCase(): void;
+		/**
+		 * [calCulStartCase description]
+		 */
+		abstract calCulStartCase(): void;
 
-		abstract calEndCase(): void;
+		/**
+		 * [calCulEndCase description]
+		 */
+		abstract calCulEndCase(): void;
 		
 
 		get getShipName() :string{
@@ -67,6 +72,14 @@ import * as EnumStatus from "./enumStatus";
 
 		set setShipSize(size :number){
 			this._shipSize = size;
+		}
+
+		get getShipOrient() :EnumOrientation.EnumOrientation{
+			return this._shipOrient;
+		}
+
+		set setShipOrient(orient :EnumOrientation.EnumOrientation){
+			this._shipOrient = orient;
 		}
 
 		get getPosition() :Collections.Dictionary<string,MatriceCase.MatriceCase>{
