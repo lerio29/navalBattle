@@ -16,7 +16,7 @@ import * as Angular from "angular";
 import * as $ from "jquery";
 
 
-
+let player1 :Player.Player = new Player.Player("player1",undefined,new BattleMatrice.BattleMatrice(10));
 
 let grillePlayer1: BattleMatrice.BattleMatrice = new BattleMatrice.BattleMatrice(10);
 
@@ -33,6 +33,7 @@ grillePlayer1.addShip(player1pa);
 
 //////////////////////////////
 
+let player2 :Player.Player = new Player.Player("player2",undefined,new BattleMatrice.BattleMatrice(10));
 let grillePlayer2: BattleMatrice.BattleMatrice = new BattleMatrice.BattleMatrice(10);
 
 let paPosition2: Collections.Dictionary<string,MatriceCase.MatriceCase> = new Collections.Dictionary<string,MatriceCase.MatriceCase>(); 
@@ -48,13 +49,14 @@ grillePlayer2.addShip(player2pa);
 
 /////////////////////////////
 
-let player1 :Player.Player = new Player.Player("player1",grillePlayer1);
+player1.setGrille(grillePlayer1);
 
-let player2 :Player.Player = new Player.Player("player2",grillePlayer2);
+player2.setGrille(grillePlayer2);
 
 let party :Party.Party = new Party.Party(player1,player2);
 
-Party.Party.hit(player1, player2, 1, 1);
+party.hit(player1, player2, 1, 1);
+party.hit(player2, player1, 1, 1);
 
 
 

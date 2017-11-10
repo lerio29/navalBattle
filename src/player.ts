@@ -5,15 +5,22 @@
  export class Player {
 
  	private _name :string = undefined;
- 	private _grille :BattleMatrice.BattleMatrice = undefined;
+ 	private _grid :BattleMatrice.BattleMatrice = undefined;
+ 	private _targetGrid :BattleMatrice.BattleMatrice = undefined;
 
- 	//TODO ajouter une deuxième grille pour avoir le bilan du tir sur la grille ennemie
+ 	//TODO ajouter une deuxième grid pour avoir le bilan du tir sur la grid ennemie
  	
 
-
- 	constructor(name :string, grille ?:BattleMatrice.BattleMatrice){
+ 	/**
+ 	 * [Constructeur du joueur et des grilles de jeu associées]
+ 	 * @param {string}                      name       [Nom du joueur]
+ 	 * @param {BattleMatrice.BattleMatrice} grid       [Grille du joueur]
+ 	 * @param {BattleMatrice.BattleMatrice} targetGrid [Grille recapitulative des tirs sur l ennemi ]
+ 	 */
+ 	constructor(name :string, grid ?:BattleMatrice.BattleMatrice, targetGrid ?:BattleMatrice.BattleMatrice){
  		this._name = name;
- 		this._grille = grille;
+ 		this._grid = grid;
+ 		this._targetGrid = targetGrid;
  	}
 
 
@@ -26,13 +33,23 @@
 		this._name = name;
 	}
 
-	get getGrille() :BattleMatrice.BattleMatrice{
-			return this._grille;
+	get getGrid() :BattleMatrice.BattleMatrice{
+			return this._grid;
 		}
 
-	set setGrille(grille :BattleMatrice.BattleMatrice){
-		this._grille = grille;
+	set setGrid(grid :BattleMatrice.BattleMatrice){
+		this._grid = grid;
 	}
+
+	get getTargetGrid() :BattleMatrice.BattleMatrice{
+			return this._targetGrid;
+		}
+
+	set setTargetGrid(targetGrid :BattleMatrice.BattleMatrice){
+		this._targetGrid = targetGrid;
+	}
+
+
 
 
 
