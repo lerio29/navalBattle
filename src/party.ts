@@ -25,8 +25,8 @@ export class Party {
 	}
 
 	hit(fromPlayer :Player.Player, intoPlayer :Player.Player, hor :number, vert :number) :void{
-		 let grilleFromPlayer :BattleMatrice.BattleMatrice = fromPlayer.getGrille();
-		 let grilleIntoPlayer :BattleMatrice.BattleMatrice = intoPlayer.getGrille();
+		 let grilleFromPlayer :BattleMatrice.BattleMatrice = fromPlayer.getGrid();
+		 let grilleIntoPlayer :BattleMatrice.BattleMatrice = intoPlayer.getGrid();
 
 		 
 

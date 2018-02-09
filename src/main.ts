@@ -49,9 +49,9 @@ grillePlayer2.addShip(player2pa);
 
 /////////////////////////////
 
-player1.setGrille(grillePlayer1);
+player1.setGrid(grillePlayer1);
 
-player2.setGrille(grillePlayer2);
+player2.setGrid(grillePlayer2);
 
 let party :Party.Party = new Party.Party(player1,player2);
 
