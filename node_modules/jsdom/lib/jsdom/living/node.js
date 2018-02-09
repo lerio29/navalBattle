@@ -1,13 +1,12 @@
 "use strict";
 const attributes = require("./attributes");
-const cloningSteps = require("./helpers/internal-constants").cloningSteps;
-const domSymbolTree = require("./helpers/internal-constants").domSymbolTree;
+const { cloningSteps, domSymbolTree } = require("./helpers/internal-constants");
 const NODE_TYPE = require("./node-type");
-const orderedSetParser = require("./helpers/ordered-set-parser");
+const orderedSetParse = require("./helpers/ordered-set").parse;
+const { asciiCaseInsensitiveMatch, asciiLowercase } = require("./helpers/strings");
 const HTMLCollection = require("./generated/HTMLCollection");
-const domTokenListContains = require("./dom-token-list").contains;
 
-module.exports.clone = function (core, node, document, cloneChildren) {
+module.exports.clone = function (node, document, cloneChildren) {
   if (document === undefined) {
     document = node._ownerDocument;
   }
@@ -31,9 +30,7 @@ module.exports.clone = function (core, node, document, cloneChildren) {
 
     case NODE_TYPE.ELEMENT_NODE:
       copy = document._createElementWithCorrectElementInterface(node._localName, node._namespaceURI);
-      copy._namespaceURI = node._namespaceURI;
       copy._prefix = node._prefix;
-      copy._localName = node._localName;
       attributes.copyAttributeList(node, copy);
       break;
 
@@ -64,7 +61,7 @@ module.exports.clone = function (core, node, document, cloneChildren) {
 
   if (cloneChildren) {
     for (const child of domSymbolTree.childrenIterator(node)) {
-      const childCopy = module.exports.clone(core, child, document, true);
+      const childCopy = module.exports.clone(child, document, true);
       copy.appendChild(childCopy);
     }
   }
@@ -77,7 +74,7 @@ module.exports.clone = function (core, node, document, cloneChildren) {
 module.exports.listOfElementsWithClassNames = (classNames, root) => {
   // https://dom.spec.whatwg.org/#concept-getElementsByClassName
 
-  const classes = orderedSetParser(classNames);
+  const classes = orderedSetParse(classNames);
 
   if (classes.size === 0) {
     return HTMLCollection.createImpl([], { element: root, query: () => [] });
@@ -93,9 +90,18 @@ module.exports.listOfElementsWithClassNames = (classNames, root) => {
           return false;
         }
 
-        for (const className of classes) {
-          if (!domTokenListContains(node.classList, className, { caseInsensitive: isQuirksMode })) {
-            return false;
+        const { classList } = node;
+        if (isQuirksMode) {
+          for (const className of classes) {
+            if (!classList.tokenSet.some(cur => asciiCaseInsensitiveMatch(cur, className))) {
+              return false;
+            }
+          }
+        } else {
+          for (const className of classes) {
+            if (!classList.tokenSet.contains(className)) {
+              return false;
+            }
           }
         }
 
@@ -118,7 +124,7 @@ module.exports.listOfElementsWithQualifiedName = (qualifiedName, root) => {
   }
 
   if (root._ownerDocument._parsingMode === "html") {
-    const lowerQualifiedName = qualifiedName.toLowerCase();
+    const lowerQualifiedName = asciiLowercase(qualifiedName);
 
     return HTMLCollection.createImpl([], {
       element: root,
@@ -210,4 +216,17 @@ module.exports.listOfElementsWithNamespaceAndLocalName = (namespace, localName, 
       }
     })
   });
+};
+
+// https://dom.spec.whatwg.org/#converting-nodes-into-a-node
+// create a fragment (or just return a node for one item)
+exports.convertNodesIntoNode = (document, nodes) => {
+  if (nodes.length === 1) { // note: I'd prefer to check instanceof Node rather than string
+    return typeof nodes[0] === "string" ? document.createTextNode(nodes[0]) : nodes[0];
+  }
+  const fragment = document.createDocumentFragment();
+  for (let i = 0; i < nodes.length; i++) {
+    fragment.appendChild(typeof nodes[i] === "string" ? document.createTextNode(nodes[i]) : nodes[i]);
+  }
+  return fragment;
 };

@@ -1,13 +1,13 @@
 "use strict";
 
 const EventTargetImpl = require("../events/EventTarget-impl").implementation;
-const domSymbolTree = require("../helpers/internal-constants").domSymbolTree;
-const simultaneousIterators = require("../../utils").simultaneousIterators;
-const DOMException = require("../../web-idl/DOMException");
+const { domSymbolTree } = require("../helpers/internal-constants");
+const { simultaneousIterators } = require("../../utils");
+const DOMException = require("domexception");
 const NODE_TYPE = require("../node-type");
 const NODE_DOCUMENT_POSITION = require("../node-document-position");
 const NodeList = require("../generated/NodeList");
-const documentBaseURLSerialized = require("../helpers/document-base-url").documentBaseURLSerialized;
+const { documentBaseURLSerialized } = require("../helpers/document-base-url");
 const cloneNode = require("../node").clone;
 const attributes = require("../attributes");
 
@@ -15,7 +15,7 @@ function isObsoleteNodeType(node) {
   return node.nodeType === NODE_TYPE.ENTITY_NODE ||
     node.nodeType === NODE_TYPE.ENTITY_REFERENCE_NODE ||
     node.nodeType === NODE_TYPE.NOTATION_NODE ||
-//  node.nodeType === NODE_TYPE.ATTRIBUTE_NODE ||  // this is missing how do we handle?
+  //  node.nodeType === NODE_TYPE.ATTRIBUTE_NODE ||  // this is missing how do we handle?
     node.nodeType === NODE_TYPE.CDATA_SECTION_NODE;
 }
 
@@ -74,7 +74,6 @@ class NodeImpl extends EventTargetImpl {
 
     domSymbolTree.initialize(this);
 
-    this._core = privateData.core;
     this._ownerDocument = privateData.ownerDocument;
 
     this._childNodesList = null;
@@ -135,6 +134,15 @@ class NodeImpl extends EventTargetImpl {
     return domSymbolTree.firstChild(this);
   }
 
+  get isConnected() {
+    for (const ancestor of domSymbolTree.ancestorsIterator(this)) {
+      if (ancestor.nodeType === NODE_TYPE.DOCUMENT_NODE) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   get ownerDocument() {
     return this.nodeType === NODE_TYPE.DOCUMENT_NODE ? null : this._ownerDocument;
   }
@@ -171,7 +179,7 @@ class NodeImpl extends EventTargetImpl {
     }
 
     if (newChildImpl.nodeType && newChildImpl.nodeType === NODE_TYPE.ATTRIBUTE_NODE) {
-      throw new DOMException(DOMException.HIERARCHY_REQUEST_ERR);
+      throw new DOMException("The operation would yield an incorrect node tree.", "HierarchyRequestError");
     }
 
     if (this._ownerDocument !== newChildImpl._ownerDocument) {
@@ -181,7 +189,7 @@ class NodeImpl extends EventTargetImpl {
       // search for parents matching the newChild
       for (const ancestor of domSymbolTree.ancestorsIterator(this)) {
         if (ancestor === newChildImpl) {
-          throw new DOMException(DOMException.HIERARCHY_REQUEST_ERR);
+          throw new DOMException("The operation would yield an incorrect node tree.", "HierarchyRequestError");
         }
       }
     }
@@ -206,7 +214,7 @@ class NodeImpl extends EventTargetImpl {
         domSymbolTree.appendChild(this, newChildImpl);
       } else {
         if (domSymbolTree.parent(refChildImpl) !== this) {
-          throw new DOMException(DOMException.NOT_FOUND_ERR);
+          throw new DOMException("The object can not be found here.", "NotFoundError");
         }
 
         domSymbolTree.insertBefore(refChildImpl, newChildImpl);
@@ -299,7 +307,7 @@ class NodeImpl extends EventTargetImpl {
 
   removeChild(/* Node */ oldChildImpl) {
     if (!oldChildImpl || domSymbolTree.parent(oldChildImpl) !== this) {
-      throw new DOMException(DOMException.NOT_FOUND_ERR);
+      throw new DOMException("The object can not be found here.", "NotFoundError");
     }
 
     if (this._ownerDocument) {
@@ -398,10 +406,18 @@ class NodeImpl extends EventTargetImpl {
     return nodeEquals(this, node);
   }
 
+  isSameNode(node) {
+    if (this === node) {
+      return true;
+    }
+
+    return false;
+  }
+
   cloneNode(deep) {
     deep = Boolean(deep);
 
-    return cloneNode(this._core, this, undefined, deep);
+    return cloneNode(this, undefined, deep);
   }
 
   get textContent() {

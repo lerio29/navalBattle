@@ -36,6 +36,20 @@ gulp.task('bundle', function () {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('bundleEs6', function () {
+    return browserify({
+        basedir: '.',
+        debug: true,
+        entries: ['src/main.ts'],
+        cache: {},
+        packageCache: {}
+    })
+    .plugin(tsify, { target: 'es6' })
+    .bundle()
+    .pipe(source('navBattleEs6.js'))
+    .pipe(gulp.dest('dist'));
+});
+
 
 gulp.task('scripts', function() {
 	    return gulp.src('js/*.js')

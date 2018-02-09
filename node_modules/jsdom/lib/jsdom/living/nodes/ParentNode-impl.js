@@ -1,13 +1,14 @@
 "use strict";
 
+const DOMException = require("domexception");
 const idlUtils = require("../generated/utils");
 const NodeList = require("../generated/NodeList");
 const HTMLCollection = require("../generated/HTMLCollection");
 const { addNwmatcher } = require("../helpers/selectors");
-const DOMException = require("../../web-idl/DOMException");
-const domSymbolTree = require("../helpers/internal-constants").domSymbolTree;
+const { domSymbolTree } = require("../helpers/internal-constants");
 const NODE_TYPE = require("../node-type");
-const memoizeQuery = require("../../utils").memoizeQuery;
+const { memoizeQuery } = require("../../utils");
+const { convertNodesIntoNode } = require("../node");
 
 class ParentNodeImpl {
   get children() {
@@ -47,6 +48,14 @@ class ParentNodeImpl {
   get childElementCount() {
     return this.children.length;
   }
+
+  append(...nodes) {
+    this.appendChild(convertNodesIntoNode(this._ownerDocument, nodes));
+  }
+
+  prepend(...nodes) {
+    this.insertBefore(convertNodesIntoNode(this._ownerDocument, nodes), this.firstChild);
+  }
 }
 
 ParentNodeImpl.prototype.querySelector = memoizeQuery(function (selectors) {
@@ -58,7 +67,7 @@ ParentNodeImpl.prototype.querySelector = memoizeQuery(function (selectors) {
   try {
     return idlUtils.implForWrapper(matcher.first(selectors, idlUtils.wrapperForImpl(this)));
   } catch (e) {
-    throw new DOMException(DOMException.SYNTAX_ERR, e.message);
+    throw new DOMException(e.message, "SyntaxError");
   }
 });
 
@@ -73,7 +82,7 @@ ParentNodeImpl.prototype.querySelectorAll = memoizeQuery(function (selectors) {
   try {
     list = matcher.select(selectors, idlUtils.wrapperForImpl(this));
   } catch (e) {
-    throw new DOMException(DOMException.SYNTAX_ERR, e.message);
+    throw new DOMException(e.message, "SyntaxError");
   }
 
   return NodeList.create([], { nodes: list.map(n => idlUtils.tryImplForWrapper(n)) });

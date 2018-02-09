@@ -2,12 +2,12 @@
 
 const HTMLElementImpl = require("./HTMLElement-impl").implementation;
 
-const DOMException = require("../../web-idl/DOMException");
+const DOMException = require("domexception");
 const { closest } = require("../helpers/traversal");
 const { normalizeToCRLF } = require("../helpers/form-controls");
 const { childTextContent } = require("../helpers/text");
 
-class HTMLTextAreaElement extends HTMLElementImpl {
+class HTMLTextAreaElementImpl extends HTMLElementImpl {
   constructor(args, privateData) {
     super(args, privateData);
 
@@ -105,12 +105,12 @@ class HTMLTextAreaElement extends HTMLElementImpl {
     this._selectionDirection = dir === "forward" || dir === "backward" ? dir : "none";
     this._dispatchSelectEvent();
   }
-  setRangeText(repl, start, end, selectionMode) {
+  setRangeText(repl, start, end, selectionMode = "preserve") {
     if (arguments.length < 2) {
       start = this._selectionStart;
       end = this._selectionEnd;
     } else if (start > end) {
-      throw new DOMException(DOMException.INDEX_SIZE_ERR);
+      throw new DOMException("The index is not in the allowed range.", "IndexSizeError");
     }
 
     start = Math.min(start, this._getValueLength());
@@ -158,7 +158,7 @@ class HTMLTextAreaElement extends HTMLElementImpl {
 
   set cols(value) {
     if (value <= 0) {
-      throw new DOMException(DOMException.INDEX_SIZE_ERR);
+      throw new DOMException("The index is not in the allowed range.", "IndexSizeError");
     }
     this.setAttribute("cols", String(value));
   }
@@ -172,12 +172,12 @@ class HTMLTextAreaElement extends HTMLElementImpl {
 
   set rows(value) {
     if (value <= 0) {
-      throw new DOMException(DOMException.INDEX_SIZE_ERR);
+      throw new DOMException("The index is not in the allowed range.", "IndexSizeError");
     }
     this.setAttribute("rows", String(value));
   }
 }
 
 module.exports = {
-  implementation: HTMLTextAreaElement
+  implementation: HTMLTextAreaElementImpl
 };
