@@ -1,18 +1,18 @@
-import * as Ship from "./ship";
+import {Ship} from "./ship";
 import * as Collections from 'typescript-collections';
-import * as MatriceCase from "./matriceCase"; 
-import * as EnumShip from "./enumShip";
-import * as EnumStatus from "./enumStatus";
-import * as EnumOrientation from "./enumOrientation";
+import {MatriceCase} from "./matriceCase"; 
+import {EnumShip} from "./enumShip";
+import {EnumStatus} from "./enumStatus";
+import {EnumOrientation} from "./enumOrientation";
 
 
-export class PorteAvion extends Ship.Ship{
+export class PorteAvion extends Ship{
 
-	constructor(shipPosition: Collections.Dictionary<string,MatriceCase.MatriceCase>, shipOrient: EnumOrientation.EnumOrientation){
+	constructor(shipPosition: Collections.Dictionary<string,MatriceCase>, shipOrient: EnumOrientation){
 
 		const name :string = 'PorteAvion';
 
-		super(name, EnumShip.EnumShip.SHIP_PORTE_AVION, 5, shipOrient ,shipPosition);
+		super(name, EnumShip.SHIP_PORTE_AVION, 5, shipOrient ,shipPosition);
 	}
 
 	
@@ -23,7 +23,7 @@ export class PorteAvion extends Ship.Ship{
 
 		let min :number = 50; //valeur simplement plus grande que la taille de la grille
 
-		if(this._shipOrient === EnumOrientation.EnumOrientation.OR_HORIZONTAL){
+		if(this._shipOrient === EnumOrientation.OR_HORIZONTAL){
 
 			for(let itemHor of this._shipPosition.values()){
 				min = Math.min(min, itemHor.hor);
@@ -50,7 +50,7 @@ export class PorteAvion extends Ship.Ship{
 
 		let max :number = -10; //valeur simplement plus petite que la taille de la grille
 
-		if(this._shipOrient === EnumOrientation.EnumOrientation.OR_HORIZONTAL){
+		if(this._shipOrient === EnumOrientation.OR_HORIZONTAL){
 
 			for(let itemHor of this._shipPosition.values()){
 				max = Math.max(max, itemHor.hor);

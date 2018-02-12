@@ -1,4 +1,4 @@
-import * as MatriceCase from "./matriceCase";
+import {MatriceCase} from "./matriceCase";
 
 
 export class BattleUtils {
@@ -18,7 +18,7 @@ export class BattleUtils {
 		return this._alphabet.indexOf(letter) +1 ;
 	}
 
-	static generateKeyGrid(mCase: MatriceCase.MatriceCase) :string{
+	static generateKeyGrid(mCase: MatriceCase) :string{
 		return this.horizontalPositionToAlpha(mCase.vert) + this._separator + mCase.hor;
 	}
 
