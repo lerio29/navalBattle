@@ -1,8 +1,8 @@
 import * as Collections from 'typescript-collections';
-import * as MatriceCase from "./matriceCase"; 
-import * as EnumStatus from "./enumStatus";
-import * as BattleUtils from "./battleUtils";
-import * as Ship from "./ship";
+import { MatriceCase } from "./matriceCase"; 
+import { EnumStatus } from "./enumStatus";
+import {BattleUtils} from "./battleUtils";
+import {Ship} from "./ship";
 
 
 
@@ -13,7 +13,7 @@ export class BattleMatrice {
 
 	
 	// private  _matrice: Collections.Set<MatriceCase.MatriceCase>;
-	private  _matrice: Collections.Dictionary<string,MatriceCase.MatriceCase>;
+	private  _matrice: Collections.Dictionary<string,MatriceCase>;
 
 
 	/**
@@ -28,9 +28,9 @@ export class BattleMatrice {
 		let hMatrice: number = sizeMatrice;
 		let vMatrice: number = sizeMatrice;
 
-		this._matrice = new Collections.Dictionary<string,MatriceCase.MatriceCase>();
+		this._matrice = new Collections.Dictionary<string,MatriceCase>();
 
-		let caseMat: MatriceCase.MatriceCase;
+		let caseMat: MatriceCase;
 
 
 		while(initLoopH <= hMatrice ){
@@ -38,10 +38,10 @@ export class BattleMatrice {
 			let initLoopV: number = 1;	
 			while(initLoopV <= vMatrice){
 
-				caseMat = new MatriceCase.MatriceCase(initLoopV,initLoopH,EnumStatus.EnumStatus.STATUS_EMPTY);
+				caseMat = new MatriceCase(initLoopV,initLoopH,EnumStatus.STATUS_EMPTY);
 
-				console.log("GenKey: " + BattleUtils.BattleUtils.generateKeyGridByVal(initLoopV,initLoopH));
-				this._matrice.setValue(BattleUtils.BattleUtils.generateKeyGridByVal(initLoopV,initLoopH) ,caseMat);
+				console.log("GenKey: " + BattleUtils.generateKeyGridByVal(initLoopV,initLoopH));
+				this._matrice.setValue(BattleUtils.generateKeyGridByVal(initLoopV,initLoopH) ,caseMat);
 		
 				initLoopV++ ;
 			}
@@ -54,12 +54,12 @@ export class BattleMatrice {
 
 	/**
 	 * [updateMatrice description]
-	 * @param {MatriceCase.MatriceCase} status [description]
+	 * @param {MatriceCase} status [description]
 	 */
-	updateMatrice(status :MatriceCase.MatriceCase){
+	updateMatrice(status :MatriceCase){
 		
 		//on MAJ la case qui correspond à la cle 
-		let tmpKey: string = BattleUtils.BattleUtils.generateKeyGridByVal(status.vert,status.hor)
+		let tmpKey: string = BattleUtils.generateKeyGridByVal(status.vert,status.hor)
 		this._matrice.setValue(tmpKey,status);
 		
 	}
@@ -68,15 +68,15 @@ export class BattleMatrice {
 	 * [addShip description]
 	 * @param {Ship.Ship} ship [description]
 	 */
-	addShip(ship :Ship.Ship){
+	addShip(ship :Ship){
 		//associer des bateau à une grille
 	}
 
 	/**
 	 * [getMatrice Retourne un set de MatriceCase correspondant à la grille de la bataille navale]
-	 * @return {Collections.Set<MatriceCase.MatriceCase>} [description]
+	 * @return {Collections.Set<MatriceCase>} [description]
 	 */
-	get getMatrice() :Collections.Dictionary<string,MatriceCase.MatriceCase>{
+	get getMatrice() :Collections.Dictionary<string,MatriceCase>{
 		return this._matrice;
 	}
 }

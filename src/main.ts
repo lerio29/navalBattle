@@ -1,14 +1,14 @@
 
 import * as Collections from 'typescript-collections';
-import * as BattleMatrice from "./battleMatrice"; 
-import * as MatriceCase from "./matriceCase"; 
-import * as Ship from "./ship";
-import * as Pa from "./porteAvion";
-import * as EnumOrientation from "./enumOrientation";
-import * as EnumStatus from "./enumStatus";
-import * as BattleUtils from "./battleUtils";
-import * as Player from "./player";
-import * as Party from "./party";
+import {BattleMatrice} from "./battleMatrice"; 
+import {MatriceCase} from "./matriceCase"; 
+import {Ship} from "./ship";
+import {PorteAvion} from "./porteAvion";
+import {EnumOrientation} from "./enumOrientation";
+import {EnumStatus} from "./enumStatus";
+import {BattleUtils} from "./battleUtils";
+import {Player} from "./player";
+import {Party} from "./party";
 
 //ajout des @types pour TypeScript
 import * as Jsdom from "jsdom";
@@ -16,44 +16,44 @@ import * as Angular from "angular";
 import * as $ from "jquery";
 
 
-let player1 :Player.Player = new Player.Player("player1",undefined,new BattleMatrice.BattleMatrice(10));
+let player1 :Player = new Player("player1",undefined,new BattleMatrice(10));
 
-let grillePlayer1: BattleMatrice.BattleMatrice = new BattleMatrice.BattleMatrice(10);
+let grillePlayer1: BattleMatrice = new BattleMatrice(10);
 
-let paPosition: Collections.Dictionary<string,MatriceCase.MatriceCase> = new Collections.Dictionary<string,MatriceCase.MatriceCase>(); 
-paPosition.setValue(BattleUtils.BattleUtils.generateKeyGridByVal(1,1),new MatriceCase.MatriceCase(1,1,EnumStatus.EnumStatus.STATUS_EMPTY));
-paPosition.setValue(BattleUtils.BattleUtils.generateKeyGridByVal(2,1),new MatriceCase.MatriceCase(2,1,EnumStatus.EnumStatus.STATUS_EMPTY));
-paPosition.setValue(BattleUtils.BattleUtils.generateKeyGridByVal(3,1),new MatriceCase.MatriceCase(3,1,EnumStatus.EnumStatus.STATUS_EMPTY));
-paPosition.setValue(BattleUtils.BattleUtils.generateKeyGridByVal(4,1),new MatriceCase.MatriceCase(4,1,EnumStatus.EnumStatus.STATUS_EMPTY));
-paPosition.setValue(BattleUtils.BattleUtils.generateKeyGridByVal(5,1),new MatriceCase.MatriceCase(5,1,EnumStatus.EnumStatus.STATUS_EMPTY));
+let paPosition: Collections.Dictionary<string,MatriceCase> = new Collections.Dictionary<string,MatriceCase>(); 
+paPosition.setValue(BattleUtils.generateKeyGridByVal(1,1),new MatriceCase(1,1,EnumStatus.STATUS_EMPTY));
+paPosition.setValue(BattleUtils.generateKeyGridByVal(2,1),new MatriceCase(2,1,EnumStatus.STATUS_EMPTY));
+paPosition.setValue(BattleUtils.generateKeyGridByVal(3,1),new MatriceCase(3,1,EnumStatus.STATUS_EMPTY));
+paPosition.setValue(BattleUtils.generateKeyGridByVal(4,1),new MatriceCase(4,1,EnumStatus.STATUS_EMPTY));
+paPosition.setValue(BattleUtils.generateKeyGridByVal(5,1),new MatriceCase(5,1,EnumStatus.STATUS_EMPTY));
 
-let player1pa: Ship.Ship = new Pa.PorteAvion(paPosition,EnumOrientation.EnumOrientation.OR_HORIZONTAL);
+let player1pa: Ship = new PorteAvion(paPosition,EnumOrientation.OR_HORIZONTAL);
 
 grillePlayer1.addShip(player1pa);
 
 //////////////////////////////
 
-let player2 :Player.Player = new Player.Player("player2",undefined,new BattleMatrice.BattleMatrice(10));
-let grillePlayer2: BattleMatrice.BattleMatrice = new BattleMatrice.BattleMatrice(10);
+let player2 :Player = new Player("player2",undefined,new BattleMatrice(10));
+let grillePlayer2: BattleMatrice = new BattleMatrice(10);
 
-let paPosition2: Collections.Dictionary<string,MatriceCase.MatriceCase> = new Collections.Dictionary<string,MatriceCase.MatriceCase>(); 
-paPosition2.setValue(BattleUtils.BattleUtils.generateKeyGridByVal(1,1),new MatriceCase.MatriceCase(1,1,EnumStatus.EnumStatus.STATUS_EMPTY));
-paPosition2.setValue(BattleUtils.BattleUtils.generateKeyGridByVal(2,1),new MatriceCase.MatriceCase(2,1,EnumStatus.EnumStatus.STATUS_EMPTY));
-paPosition2.setValue(BattleUtils.BattleUtils.generateKeyGridByVal(3,1),new MatriceCase.MatriceCase(3,1,EnumStatus.EnumStatus.STATUS_EMPTY));
-paPosition2.setValue(BattleUtils.BattleUtils.generateKeyGridByVal(4,1),new MatriceCase.MatriceCase(4,1,EnumStatus.EnumStatus.STATUS_EMPTY));
-paPosition2.setValue(BattleUtils.BattleUtils.generateKeyGridByVal(5,1),new MatriceCase.MatriceCase(5,1,EnumStatus.EnumStatus.STATUS_EMPTY));
+let paPosition2: Collections.Dictionary<string,MatriceCase> = new Collections.Dictionary<string,MatriceCase>(); 
+paPosition2.setValue(BattleUtils.generateKeyGridByVal(1,1),new MatriceCase(1,1,EnumStatus.STATUS_EMPTY));
+paPosition2.setValue(BattleUtils.generateKeyGridByVal(2,1),new MatriceCase(2,1,EnumStatus.STATUS_EMPTY));
+paPosition2.setValue(BattleUtils.generateKeyGridByVal(3,1),new MatriceCase(3,1,EnumStatus.STATUS_EMPTY));
+paPosition2.setValue(BattleUtils.generateKeyGridByVal(4,1),new MatriceCase(4,1,EnumStatus.STATUS_EMPTY));
+paPosition2.setValue(BattleUtils.generateKeyGridByVal(5,1),new MatriceCase(5,1,EnumStatus.STATUS_EMPTY));
 
-let player2pa: Ship.Ship = new Pa.PorteAvion(paPosition,EnumOrientation.EnumOrientation.OR_HORIZONTAL);
+let player2pa: Ship = new PorteAvion(paPosition,EnumOrientation.OR_HORIZONTAL);
 
 grillePlayer2.addShip(player2pa);
 
 /////////////////////////////
 
-player1.setGrid(grillePlayer1);
+player1.grid = grillePlayer1;
 
-player2.setGrid(grillePlayer2);
+player2.grid = grillePlayer2;
 
-let party :Party.Party = new Party.Party(player1,player2);
+let party :Party = new Party(player1,player2);
 
 party.hit(player1, player2, 1, 1);
 party.hit(player2, player1, 1, 1);

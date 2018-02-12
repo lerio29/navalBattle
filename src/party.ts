@@ -1,8 +1,8 @@
-import * as Player from "./player";
-import * as BattleMatrice from "./battleMatrice"; 
-import * as BattleUtils from "./battleUtils";
-import * as EnumStatus from "./enumStatus";
-import * as MatriceCase from "./matriceCase"; 
+import {Player} from "./player";
+import {BattleMatrice} from "./battleMatrice"; 
+import {BattleUtils} from "./battleUtils";
+import {EnumStatus} from "./enumStatus";
+import {MatriceCase} from "./matriceCase"; 
 
 export class Party {
 	
@@ -10,11 +10,11 @@ export class Party {
 	private _timestamp :number =  undefined;
 	private _id :string = undefined;
 
-	constructor(player1:Player.Player, player2 :Player.Player){
+	constructor(player1:Player, player2 :Player){
 
 		this._timestamp = Date.now();
-		this._players.push(player1.getName);
-		this._players.push(player2.getName);
+		this._players.push(player1.name);
+		this._players.push(player2.name);
 
 		this._id = this._players.toString().trim() + this._timestamp.toString();
 
@@ -24,16 +24,22 @@ export class Party {
 		return  this._id;
 	}
 
-	hit(fromPlayer :Player.Player, intoPlayer :Player.Player, hor :number, vert :number) :void{
-		 let grilleFromPlayer :BattleMatrice.BattleMatrice = fromPlayer.getGrid();
-		 let grilleIntoPlayer :BattleMatrice.BattleMatrice = intoPlayer.getGrid();
+	hit(fromPlayer :Player, intoPlayer :Player, hor :number, vert :number) :void{
+		 let grilleFromPlayer = fromPlayer.grid;
+		 let grilleIntoPlayer :BattleMatrice = intoPlayer.grid;
 
 		 
 
-		 if(grilleIntoPlayer.getMatrice.getValue(BattleUtils.BattleUtils.generateKeyGridByVal(vert, hor)).state === EnumStatus.EnumStatus.STATUS_EMPTY){
-		 	grilleIntoPlayer.getMatrice.getValue(BattleUtils.BattleUtils.generateKeyGridByVal(vert, hor)).updateStatus(EnumStatus.EnumStatus.STATUS_FAIL);
+		 if(grilleIntoPlayer.getMatrice.getValue(BattleUtils.generateKeyGridByVal(vert, hor)).state === EnumStatus.STATUS_EMPTY){
+		 	console.log("before hit  : " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + BattleUtils.generateKeyGridByVal(vert, hor) + "; state :" + grilleIntoPlayer.getMatrice.getValue(BattleUtils.generateKeyGridByVal(vert, hor)).state );
+
+		 	grilleIntoPlayer.getMatrice.getValue(BattleUtils.generateKeyGridByVal(vert, hor)).updateStatus(EnumStatus.STATUS_FAIL);
+		 	console.log("hit: " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + BattleUtils.generateKeyGridByVal(vert, hor) + "; state :" + grilleIntoPlayer.getMatrice.getValue(BattleUtils.generateKeyGridByVal(vert, hor)).state );
 		 }else{
-		 	grilleIntoPlayer.getMatrice.getValue(BattleUtils.BattleUtils.generateKeyGridByVal(vert, hor)).updateStatus(EnumStatus.EnumStatus.STATUS_HIT);
+		 	console.log("before hit: " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + BattleUtils.generateKeyGridByVal(vert, hor) + "; state :" + grilleIntoPlayer.getMatrice.getValue(BattleUtils.generateKeyGridByVal(vert, hor)).state );
+
+		 	grilleIntoPlayer.getMatrice.getValue(BattleUtils.generateKeyGridByVal(vert, hor)).updateStatus(EnumStatus.STATUS_HIT);
+		 	console.log("hit: " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + BattleUtils.generateKeyGridByVal(vert, hor) + "; state :" + grilleIntoPlayer.getMatrice.getValue(BattleUtils.generateKeyGridByVal(vert, hor)).state );
 		 }
 
 	}

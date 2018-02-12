@@ -1,20 +1,20 @@
-import * as EnumStatus from "./enumStatus";
+import {EnumStatus} from "./enumStatus";
 
 
 export class MatriceCase{
 
 	hor: number;
 	vert: number;
-	state: EnumStatus.EnumStatus;
+	state: EnumStatus;
 
 
-	constructor(hor: number,vert: number,state: EnumStatus.EnumStatus){
+	constructor(hor: number,vert: number,state: EnumStatus){
 		this.hor = hor;
 		this.vert = vert;
 		this.state = state;
 	}	
 
-	updateStatus(state: EnumStatus.EnumStatus){
+	updateStatus(state: EnumStatus){
 		this.state = state;
 	}
 
