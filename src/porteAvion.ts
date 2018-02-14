@@ -1,5 +1,5 @@
 import {Ship} from "./ship";
-import * as Collections from 'typescript-collections';
+import { Dictionary }  from 'typescript-collections';
 import {MatriceCase} from "./matriceCase"; 
 import {EnumShip} from "./enumShip";
 import {EnumStatus} from "./enumStatus";
@@ -8,7 +8,7 @@ import {EnumOrientation} from "./enumOrientation";
 
 export class PorteAvion extends Ship{
 
-	constructor(shipPosition: Collections.Dictionary<string,MatriceCase>, shipOrient: EnumOrientation){
+	constructor(shipPosition: Dictionary<string,MatriceCase>, shipOrient: EnumOrientation){
 
 		const name :string = 'PorteAvion';
 

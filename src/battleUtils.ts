@@ -1,6 +1,8 @@
 import {MatriceCase} from "./matriceCase";
 
-
+/**
+ * Classe utilitaire
+ */
 export class BattleUtils {
 
 	static readonly _separator :string = "-";
