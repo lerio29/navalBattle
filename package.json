@@ -1,42 +1,51 @@
 {
-  "name": "naval-battle",
-  "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
+  "name": "navalBattle",
+  "version": "0.1.0",
+  "description": "A naval Battle library for to generate a party game",
+  "main": "dist/js/index.js",
+  "types": "dist/definitions/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha  --reporter nyan --require ts-node/register ./test/*.spec.ts"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lerio29/navalBattle.git"
   },
-  "author": "lerio29",
-  "license": "ISC",
+  "author": "Vincent VILERIO",
+  "license": "CC BY-SA)",
   "bugs": {
     "url": "https://github.com/lerio29/navalBattle/issues"
   },
   "homepage": "https://github.com/lerio29/navalBattle#readme",
   "devDependencies": {
-    "browserify": "^14.3.0",
+    "@types/chai": "^4.1.2",
+    "@types/mocha": "^2.2.48",
+    "@types/sinon": "^4.1.3",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^3.0.0",
     "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.0.4",
     "gulp-rename": "^1.2.2",
     "gulp-rollup": "^2.11.0",
     "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^2.1.2",
-    "jshint": "^2.9.4",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-tslint": "^8.1.3",
+    "gulp-typescript": "^4.0.1",
+    "merge2": "^1.2.1",
+    "mocha": "^5.0.1",
+    "sinon": "^4.3.0",
+    "sinon-chai": "^2.14.0",
+    "ts-node": "^4.1.0",
     "tsify": "^3.0.1",
+    "tslint": "^5.9.1",
     "typescript": "^2.3.2",
-    "vinyl-source-stream": "^1.1.0"
+    "typescript-collections": "^1.3.2"
   },
   "dependencies": {
-    "@types/angular": "^1.6.32",
-    "@types/jquery": "^2.0.45",
-    "@types/jsdom": "^2.0.30",
-    "angular": "^1.6.6",
-    "jquery": "^3.2.1",
-    "jsdom": "^11.0.0",
-    "typescript-collections": "^1.2.3"
+    "@types/winston": "^2.3.8",
+    "winston": "^2.4.0"
   }
 }

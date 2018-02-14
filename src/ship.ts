@@ -1,5 +1,5 @@
 
-import * as Collections from 'typescript-collections';
+import { Dictionary }  from 'typescript-collections';
 import {MatriceCase} from "./matriceCase"; 
 import {EnumShip} from "./enumShip";
 import {EnumStatus} from "./enumStatus";
@@ -12,7 +12,7 @@ import {EnumOrientation} from "./enumOrientation";
 
 		protected _shipName: string;
 		protected _shipType: EnumShip;
-		protected _shipPosition: Collections.Dictionary<string,MatriceCase>;
+		protected _shipPosition: Dictionary<string,MatriceCase>;
 		protected _shipSize: number;
 		protected _shipOrient: EnumOrientation;
 		protected _startCase: MatriceCase;
@@ -24,12 +24,12 @@ import {EnumOrientation} from "./enumOrientation";
 		 * @param {string}                                                 shipName     [description]
 		 * @param {EnumShip}                                      shipType     [description]
 		 * @param {number}                                                 shipSize     [description]
-		 * @param {Collections.Dictionary<string,MatriceCase>} shipPosition [description]
+		 * @param {Dictionary<string,MatriceCase>} shipPosition [description]
 		 * @param {MatriceCase}                                startCase    [description]
 		 * @param {MatriceCase}                                endCase      [description]
 		 */
 		constructor(shipName: string, shipType: EnumShip, shipSize: number, shipOrient: EnumOrientation,
-			shipPosition: Collections.Dictionary<string,MatriceCase> ){
+			shipPosition: Dictionary<string,MatriceCase> ){
 			
 			this._shipName = shipName;
 			this._shipType = shipType;
@@ -82,11 +82,11 @@ import {EnumOrientation} from "./enumOrientation";
 			this._shipOrient = orient;
 		}
 
-		get getPosition() :Collections.Dictionary<string,MatriceCase>{
+		get getPosition() :Dictionary<string,MatriceCase>{
 			return this._shipPosition;
 		}
 
-		set Position(position :Collections.Dictionary<string,MatriceCase>){
+		set Position(position :Dictionary<string,MatriceCase>){
 			this._shipPosition = position;
 		}
 

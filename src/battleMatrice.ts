@@ -1,8 +1,9 @@
-import * as Collections from 'typescript-collections';
+import { Dictionary, Set }  from 'typescript-collections';
 import { MatriceCase } from "./matriceCase"; 
 import { EnumStatus } from "./enumStatus";
 import {BattleUtils} from "./battleUtils";
 import {Ship} from "./ship";
+import * as logger from "winston";
 
 
 
@@ -13,7 +14,8 @@ export class BattleMatrice {
 
 	
 	// private  _matrice: Collections.Set<MatriceCase.MatriceCase>;
-	private  _matrice: Collections.Dictionary<string,MatriceCase>;
+	private  _matrice: Dictionary<string,MatriceCase>;
+	private _size: number;
 
 
 	/**
@@ -27,8 +29,9 @@ export class BattleMatrice {
 
 		let hMatrice: number = sizeMatrice;
 		let vMatrice: number = sizeMatrice;
+		this._size = sizeMatrice;
 
-		this._matrice = new Collections.Dictionary<string,MatriceCase>();
+		this._matrice = new Dictionary<string,MatriceCase>();
 
 		let caseMat: MatriceCase;
 
@@ -39,7 +42,7 @@ export class BattleMatrice {
 			while(initLoopV <= vMatrice){
 
 				caseMat = new MatriceCase(initLoopV,initLoopH,EnumStatus.STATUS_EMPTY);
-
+				
 				console.log("GenKey: " + BattleUtils.generateKeyGridByVal(initLoopV,initLoopH));
 				this._matrice.setValue(BattleUtils.generateKeyGridByVal(initLoopV,initLoopH) ,caseMat);
 		
@@ -51,6 +54,7 @@ export class BattleMatrice {
 		}
 		
 	}
+
 
 	/**
 	 * [updateMatrice description]
@@ -72,11 +76,15 @@ export class BattleMatrice {
 		//associer des bateau à une grille
 	}
 
+	get getSize() :number{
+		return  this._size;
+	}
+
 	/**
 	 * [getMatrice Retourne un set de MatriceCase correspondant à la grille de la bataille navale]
-	 * @return {Collections.Set<MatriceCase>} [description]
+	 * @return {Dictionary<MatriceCase>} [description]
 	 */
-	get getMatrice() :Collections.Dictionary<string,MatriceCase>{
+	get getMatrice() :Dictionary<string,MatriceCase>{
 		return this._matrice;
 	}
 }

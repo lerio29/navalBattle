@@ -1,69 +1,58 @@
 const gulp = require('gulp');
+const ts = require('gulp-typescript');
+const merge = require('merge2');
+const sourcemaps = require('gulp-sourcemaps');
+const clean = require('gulp-clean');
+const tslint = require("gulp-tslint");
 
-const jshint = require('gulp-jshint');
-const sass = require('gulp-sass');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
-const rename = require('gulp-rename');
-const browserify = require('browserify');
-const source = require('vinyl-source-stream');
-const tsify = require('tsify');
 
-gulp.task('lint', function() {
-	    return gulp.src('js/*.js')
-	        .pipe(jshint())
-	        .pipe(jshint.reporter('default'));
-	});
 
-gulp.task('sass', function() {
-	    return gulp.src('scss/*.scss')
-	        .pipe(sass())
-	        .pipe(gulp.dest('dist/css'));
-	});
+gulp.task('clean', function () {
+    return gulp.src('dist/*', {read: false})
+        .pipe(clean());
+});
+ 
+gulp.task("tslint", () =>
+    gulp.src("src/**/*.ts")
+        .pipe(tslint({
+            formatter: "verbose"
+        }))
+        .pipe(tslint.report())
+); 
 
-//https://www.typescriptlang.org/docs/handbook/gulp.html
-gulp.task('bundle', function () {
-    return browserify({
-        basedir: '.',
-        debug: true,
-        entries: ['src/main.ts'],
-        cache: {},
-        packageCache: {}
-    })
-    .plugin(tsify, { target: 'es5' })
-    .bundle()
-    .pipe(source('navBattle.js'))
-    .pipe(gulp.dest('dist'));
+
+gulp.task('generateLibEs6', function() {
+    var tsResult = gulp.src('src/**/*.ts')
+    	.pipe(sourcemaps.init()) // This means sourcemaps will be generated
+        .pipe(ts({
+            module: "commonjs",
+            declaration: true,
+            target: 'ES6',
+            sourceMap: true
+        }));
+ 
+    return merge([
+        tsResult.dts.pipe(gulp.dest('dist/definitions')),
+        tsResult.js.pipe(gulp.dest('dist/js'))
+    ]);
 });
 
-gulp.task('bundleEs6', function () {
-    return browserify({
-        basedir: '.',
-        debug: true,
-        entries: ['src/main.ts'],
-        cache: {},
-        packageCache: {}
-    })
-    .plugin(tsify, { target: 'es6' })
-    .bundle()
-    .pipe(source('navBattleEs6.js'))
-    .pipe(gulp.dest('dist'));
+gulp.task('generateLib', function() {
+    var tsResult = gulp.src('src/**/*.ts')
+        .pipe(ts({
+        	module: "commonjs",
+            declaration: true,
+            target: 'ES5',
+            sourceMap: true
+        }));
+ 
+    return merge([
+        tsResult.dts.pipe(gulp.dest('dist/definitions')),
+        tsResult.js.pipe(gulp.dest('dist/js'))
+    ]);
 });
 
 
-gulp.task('scripts', function() {
-	    return gulp.src('js/*.js')
-	        .pipe(concat('all.js'))
-	        .pipe(gulp.dest('dist'))
-	        .pipe(rename('all.min.js'))
-	        .pipe(uglify())
-	        .pipe(gulp.dest('dist/js'));
-	});
-
-gulp.task('watch', function() {
-	    gulp.watch('js/*.js', ['lint', 'scripts']);
-	    gulp.watch('scss/*.scss', ['sass']);
-	});
 
 
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch']);
+gulp.task('default', ['clean', 'tslint', 'generateLibEs6']);

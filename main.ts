@@ -1,14 +1,5 @@
 
-import * as Collections from 'typescript-collections';
-import {BattleMatrice} from "./battleMatrice"; 
-import {MatriceCase} from "./matriceCase"; 
-import {Ship} from "./ship";
-import {PorteAvion} from "./porteAvion";
-import {EnumOrientation} from "./enumOrientation";
-import {EnumStatus} from "./enumStatus";
-import {BattleUtils} from "./battleUtils";
-import {Player} from "./player";
-import {Party} from "./party";
+import * from 'navalBattle';
 
 //ajout des @types pour TypeScript
 import * as Jsdom from "jsdom";
@@ -20,7 +11,7 @@ let player1 :Player = new Player("player1",undefined,new BattleMatrice(10));
 
 let grillePlayer1: BattleMatrice = new BattleMatrice(10);
 
-let paPosition: Collections.Dictionary<string,MatriceCase> = new Collections.Dictionary<string,MatriceCase>(); 
+let paPosition: Dictionary<string,MatriceCase> = new Dictionary<string,MatriceCase>(); 
 paPosition.setValue(BattleUtils.generateKeyGridByVal(1,1),new MatriceCase(1,1,EnumStatus.STATUS_EMPTY));
 paPosition.setValue(BattleUtils.generateKeyGridByVal(2,1),new MatriceCase(2,1,EnumStatus.STATUS_EMPTY));
 paPosition.setValue(BattleUtils.generateKeyGridByVal(3,1),new MatriceCase(3,1,EnumStatus.STATUS_EMPTY));
@@ -36,7 +27,7 @@ grillePlayer1.addShip(player1pa);
 let player2 :Player = new Player("player2",undefined,new BattleMatrice(10));
 let grillePlayer2: BattleMatrice = new BattleMatrice(10);
 
-let paPosition2: Collections.Dictionary<string,MatriceCase> = new Collections.Dictionary<string,MatriceCase>(); 
+let paPosition2: Dictionary<string,MatriceCase> = new Dictionary<string,MatriceCase>(); 
 paPosition2.setValue(BattleUtils.generateKeyGridByVal(1,1),new MatriceCase(1,1,EnumStatus.STATUS_EMPTY));
 paPosition2.setValue(BattleUtils.generateKeyGridByVal(2,1),new MatriceCase(2,1,EnumStatus.STATUS_EMPTY));
 paPosition2.setValue(BattleUtils.generateKeyGridByVal(3,1),new MatriceCase(3,1,EnumStatus.STATUS_EMPTY));
