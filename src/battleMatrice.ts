@@ -3,7 +3,7 @@ import { MatriceCase } from "./matriceCase";
 import { EnumStatus } from "./enumStatus";
 import {BattleUtils} from "./battleUtils";
 import {Ship} from "./ship";
-import * as logger from "winston";
+import {Logger} from "./logger";
 
 
 
@@ -12,7 +12,9 @@ import * as logger from "winston";
  */
 export class BattleMatrice {
 
-	
+	private _logger :Logger;
+
+
 	// private  _matrice: Collections.Set<MatriceCase.MatriceCase>;
 	private  _matrice: Dictionary<string,MatriceCase>;
 	private _size: number;
@@ -23,7 +25,7 @@ export class BattleMatrice {
 	 * @param {number} sizeMatrice [description]
 	 */
 	constructor(sizeMatrice: number){
-
+		this._logger = new Logger();
 		
 		let initLoopH: number = 1;	
 
@@ -42,8 +44,8 @@ export class BattleMatrice {
 			while(initLoopV <= vMatrice){
 
 				caseMat = new MatriceCase(initLoopV,initLoopH,EnumStatus.STATUS_EMPTY);
+				this._logger.debug("test", "GenKey: " + BattleUtils.generateKeyGridByVal(initLoopV,initLoopH));
 				
-				console.log("GenKey: " + BattleUtils.generateKeyGridByVal(initLoopV,initLoopH));
 				this._matrice.setValue(BattleUtils.generateKeyGridByVal(initLoopV,initLoopH) ,caseMat);
 		
 				initLoopV++ ;

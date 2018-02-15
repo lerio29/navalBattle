@@ -4,6 +4,7 @@ const typescript_collections_1 = require("typescript-collections");
 const matriceCase_1 = require("./matriceCase");
 const enumStatus_1 = require("./enumStatus");
 const battleUtils_1 = require("./battleUtils");
+const logger_1 = require("./logger");
 /**
  * Classe de generation de matrice/grille de bataille navale
  */
@@ -13,6 +14,7 @@ class BattleMatrice {
      * @param {number} sizeMatrice [description]
      */
     constructor(sizeMatrice) {
+        this._logger = new logger_1.Logger();
         let initLoopH = 1;
         let hMatrice = sizeMatrice;
         let vMatrice = sizeMatrice;
@@ -23,7 +25,7 @@ class BattleMatrice {
             let initLoopV = 1;
             while (initLoopV <= vMatrice) {
                 caseMat = new matriceCase_1.MatriceCase(initLoopV, initLoopH, enumStatus_1.EnumStatus.STATUS_EMPTY);
-                console.log("GenKey: " + battleUtils_1.BattleUtils.generateKeyGridByVal(initLoopV, initLoopH));
+                this._logger.debug("test", "GenKey: " + battleUtils_1.BattleUtils.generateKeyGridByVal(initLoopV, initLoopH));
                 this._matrice.setValue(battleUtils_1.BattleUtils.generateKeyGridByVal(initLoopV, initLoopH), caseMat);
                 initLoopV++;
             }
