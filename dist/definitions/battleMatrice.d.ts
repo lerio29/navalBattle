@@ -5,6 +5,7 @@ import { Ship } from "./ship";
  * Classe de generation de matrice/grille de bataille navale
  */
 export declare class BattleMatrice {
+    private _logger;
     private _matrice;
     private _size;
     /**
