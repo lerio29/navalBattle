@@ -1,5 +1,7 @@
 import { Player } from "./player";
+import { Logger } from "./logger";
 export declare class Party {
+    _logger: Logger;
     private _players;
     private _timestamp;
     private _id;

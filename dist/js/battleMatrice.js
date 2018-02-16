@@ -13,8 +13,11 @@ class BattleMatrice {
      * [constructor description]
      * @param {number} sizeMatrice [description]
      */
-    constructor(sizeMatrice) {
+    constructor(sizeMatrice, silent) {
         this._logger = new logger_1.Logger();
+        if (!silent) {
+            this._logger.silent = false;
+        }
         let initLoopH = 1;
         let hMatrice = sizeMatrice;
         let vMatrice = sizeMatrice;
