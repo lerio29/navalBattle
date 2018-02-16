@@ -5,14 +5,14 @@
   "main": "dist/js/index.js",
   "types": "dist/definitions/index.d.ts",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha  --reporter nyan --require ts-node/register ./test/*.spec.ts"
+    "test": "./node_modules/mocha/bin/mocha  --reporter list --require ts-node/register ./test/*.spec.ts"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lerio29/navalBattle.git"
   },
   "author": "Vincent VILERIO",
-  "license": "CC BY-SA)",
+  "license": "CC BY-SA",
   "bugs": {
     "url": "https://github.com/lerio29/navalBattle/issues"
   },
@@ -36,6 +36,7 @@
     "gulp-typescript": "^4.0.1",
     "merge2": "^1.2.1",
     "mocha": "^5.0.1",
+    "semserver": "^1.0.0",
     "sinon": "^4.3.0",
     "sinon-chai": "^2.14.0",
     "ts-node": "^4.1.0",

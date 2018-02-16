@@ -2,8 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const battleUtils_1 = require("./battleUtils");
 const enumStatus_1 = require("./enumStatus");
+const logger_1 = require("./logger");
 class Party {
     constructor(player1, player2) {
+        this._logger = new logger_1.Logger();
         this._players = [];
         this._timestamp = undefined;
         this._id = undefined;
@@ -19,14 +21,14 @@ class Party {
         let grilleFromPlayer = fromPlayer.grid;
         let grilleIntoPlayer = intoPlayer.grid;
         if (grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor)).state === enumStatus_1.EnumStatus.STATUS_EMPTY) {
-            console.log("before hit  : " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor) + "; state :" + grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor)).state);
+            this._logger.debug("before hit  : " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor) + "; state :" + grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor)).state);
             grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor)).updateStatus(enumStatus_1.EnumStatus.STATUS_FAIL);
-            console.log("hit: " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor) + "; state :" + grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor)).state);
+            this._logger.debug("hit: " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor) + "; state :" + grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor)).state);
         }
         else {
-            console.log("before hit: " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor) + "; state :" + grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor)).state);
+            this._logger.debug("before hit: " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor) + "; state :" + grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor)).state);
             grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor)).updateStatus(enumStatus_1.EnumStatus.STATUS_HIT);
-            console.log("hit: " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor) + "; state :" + grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor)).state);
+            this._logger.debug("hit: " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor) + "; state :" + grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(vert, hor)).state);
         }
     }
 }

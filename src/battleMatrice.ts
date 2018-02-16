@@ -12,7 +12,7 @@ import {Logger} from "./logger";
  */
 export class BattleMatrice {
 
-	private _logger :Logger;
+	private _logger :Logger  = new Logger();
 
 
 	// private  _matrice: Collections.Set<MatriceCase.MatriceCase>;
@@ -24,9 +24,12 @@ export class BattleMatrice {
 	 * [constructor description]
 	 * @param {number} sizeMatrice [description]
 	 */
-	constructor(sizeMatrice: number){
-		this._logger = new Logger();
-		
+	constructor(sizeMatrice :number, silent :boolean){
+
+		if(!silent){
+			this._logger.silent = false;
+		}
+			
 		let initLoopH: number = 1;	
 
 		let hMatrice: number = sizeMatrice;
@@ -43,10 +46,10 @@ export class BattleMatrice {
 			let initLoopV: number = 1;	
 			while(initLoopV <= vMatrice){
 
-				caseMat = new MatriceCase(initLoopV,initLoopH,EnumStatus.STATUS_EMPTY);
-				this._logger.debug("test", "GenKey: " + BattleUtils.generateKeyGridByVal(initLoopV,initLoopH));
+				caseMat = new MatriceCase(initLoopH, initLoopV,EnumStatus.STATUS_EMPTY);
+				this._logger.debug("test", "GenKey: " + BattleUtils.generateKeyGridByVal(initLoopH, initLoopV));
 				
-				this._matrice.setValue(BattleUtils.generateKeyGridByVal(initLoopV,initLoopH) ,caseMat);
+				this._matrice.setValue(BattleUtils.generateKeyGridByVal(initLoopH, initLoopV) ,caseMat);
 		
 				initLoopV++ ;
 			}
@@ -65,7 +68,7 @@ export class BattleMatrice {
 	updateMatrice(status :MatriceCase){
 		
 		//on MAJ la case qui correspond à la cle 
-		let tmpKey: string = BattleUtils.generateKeyGridByVal(status.vert,status.hor)
+		let tmpKey: string = BattleUtils.generateKeyGridByVal(status.hor, status.vert)
 		this._matrice.setValue(tmpKey,status);
 		
 	}

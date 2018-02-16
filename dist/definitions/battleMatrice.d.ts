@@ -12,7 +12,7 @@ export declare class BattleMatrice {
      * [constructor description]
      * @param {number} sizeMatrice [description]
      */
-    constructor(sizeMatrice: number);
+    constructor(sizeMatrice: number, silent: boolean);
     /**
      * [updateMatrice description]
      * @param {MatriceCase} status [description]

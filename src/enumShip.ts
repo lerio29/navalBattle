@@ -9,6 +9,5 @@ export enum EnumShip {
 	SHIP_TORPILLEUR ,
 	SHIP_MINE
 
-
 }
 
