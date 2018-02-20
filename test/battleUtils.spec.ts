@@ -5,7 +5,7 @@ import { EnumStatus } from "../src/enumStatus";
 
 // if you used the '@types/mocha' method to install mocha type definitions, uncomment the following line
 // import 'mocha';
-describe('BattleUtils', () => {
+describe('BattleUtils Tests', () => {
 
   it('should return a good horizontal conversion', () => {
     let hor :string = BattleUtils.horizontalPositionToAlpha(1);
