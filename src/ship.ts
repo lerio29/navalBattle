@@ -42,51 +42,51 @@ import {EnumOrientation} from "./enumOrientation";
 		/**
 		 * [calCulStartCase description]
 		 */
-		abstract calCulStartCase(): void;
+		abstract calculStartCase(): void;
 
 		/**
 		 * [calCulEndCase description]
 		 */
-		abstract calCulEndCase(): void;
+		abstract calculEndCase(): void;
 		
 
-		get getShipName() :string{
+		get shipName() :string{
 			return this._shipName;
 		}
 
-		set setShipName(name :string){
+		set shipName(name :string){
 			this._shipName = name;
 		}
 
-		get getShipType() :EnumShip{
+		get shipType() :EnumShip{
 			return this._shipType;
 		}
 
-		set setShipType(type :EnumShip){
+		set shipType(type :EnumShip){
 			this._shipType = type;
 		}
 
-		get getShipSize() :number{
+		get shipSize() :number{
 			return this._shipSize;
 		}
 
-		set setShipSize(size :number){
+		set shipSize(size :number){
 			this._shipSize = size;
 		}
 
-		get getShipOrient() :EnumOrientation{
+		get shipOrient() :EnumOrientation{
 			return this._shipOrient;
 		}
 
-		set setShipOrient(orient :EnumOrientation){
+		set shipOrient(orient :EnumOrientation){
 			this._shipOrient = orient;
 		}
 
-		get getPosition() :Dictionary<string,MatriceCase>{
+		get shipPosition() :Dictionary<string,MatriceCase>{
 			return this._shipPosition;
 		}
 
-		set Position(position :Dictionary<string,MatriceCase>){
+		set shipPosition(position :Dictionary<string,MatriceCase>){
 			this._shipPosition = position;
 		}
 

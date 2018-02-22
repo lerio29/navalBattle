@@ -23,19 +23,14 @@ export declare abstract class Ship {
     /**
      * [calCulStartCase description]
      */
-    abstract calCulStartCase(): void;
+    abstract calculStartCase(): void;
     /**
      * [calCulEndCase description]
      */
-    abstract calCulEndCase(): void;
-    readonly getShipName: string;
-    setShipName: string;
-    readonly getShipType: EnumShip;
-    setShipType: EnumShip;
-    readonly getShipSize: number;
-    setShipSize: number;
-    readonly getShipOrient: EnumOrientation;
-    setShipOrient: EnumOrientation;
-    readonly getPosition: Dictionary<string, MatriceCase>;
-    Position: Dictionary<string, MatriceCase>;
+    abstract calculEndCase(): void;
+    shipName: string;
+    shipType: EnumShip;
+    shipSize: number;
+    shipOrient: EnumOrientation;
+    shipPosition: Dictionary<string, MatriceCase>;
 }

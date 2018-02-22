@@ -5,8 +5,6 @@ import {MatriceCase} from '../src/matriceCase';
 import { EnumStatus } from "../src/enumStatus";
 
 
-// if you used the '@types/mocha' method to install mocha type definitions, uncomment the following line
-// import 'mocha';
 describe('BattleMatrice Tests', () => {
 
 	const _vert :string = "2";

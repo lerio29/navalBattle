@@ -1,4 +1,5 @@
 import {MatriceCase} from "./matriceCase";
+import {Ship} from "./ship";
 
 /**
  * Classe utilitaire
@@ -15,7 +16,7 @@ export class BattleUtils {
 		return this._alphabet[position-1];
 	}
 
-	static alphaToHorizontalPosition(letter: string) :number{
+	static alphaToVerticalPosition(letter: string) :number{
 		
 		return this._alphabet.indexOf(letter) +1 ;
 	}
@@ -26,6 +27,14 @@ export class BattleUtils {
 
 	static generateKeyGridByVal(hor: number, vert: number) :string{
 		return this.horizontalPositionToAlpha(hor) + this._separator + vert;
+	}
+
+	static checkPosition(mCase :MatriceCase, gridSize :number) :boolean{
+		if(mCase.vert <= 0  || mCase.hor <= 0 || mCase.hor > gridSize || mCase.vert > gridSize ){
+			return false;
+		}
+
+		return true;
 	}
 
 

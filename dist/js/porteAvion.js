@@ -11,38 +11,56 @@ class PorteAvion extends ship_1.Ship {
     /**
      * [calCulStartCase description]
      */
-    calCulStartCase() {
-        let min = 50; //valeur simplement plus grande que la taille de la grille
+    calculStartCase() {
+        let min = -10; //valeur simplement plus grande que la taille de la grille
         if (this._shipOrient === enumOrientation_1.EnumOrientation.OR_HORIZONTAL) {
             for (let itemHor of this._shipPosition.values()) {
-                min = Math.min(min, itemHor.hor);
+                if (min <= Math.min(min, itemHor.hor)) {
+                    this._startCase = itemHor;
+                }
+                else {
+                    min = Math.min(min, itemHor.hor);
+                }
             }
-            this._startCase.hor = min;
         }
         else {
             for (let itemVert of this._shipPosition.values()) {
-                min = Math.min(min, itemVert.vert);
+                if (min <= Math.min(min, itemVert.vert)) {
+                    this._startCase = itemVert;
+                }
+                else {
+                    min = Math.min(min, itemVert.vert);
+                }
             }
-            this._startCase.vert = min;
         }
+        return this._startCase;
     }
     /**
      * [calCulEndCase description]
      */
-    calCulEndCase() {
+    calculEndCase() {
         let max = -10; //valeur simplement plus petite que la taille de la grille
         if (this._shipOrient === enumOrientation_1.EnumOrientation.OR_HORIZONTAL) {
             for (let itemHor of this._shipPosition.values()) {
-                max = Math.max(max, itemHor.hor);
+                if (max <= Math.min(max, itemHor.hor)) {
+                    this._endCase = itemHor;
+                }
+                else {
+                    max = Math.min(max, itemHor.hor);
+                }
             }
-            this._endCase.hor = max;
         }
         else {
             for (let itemVert of this._shipPosition.values()) {
-                max = Math.min(max, itemVert.vert);
+                if (max <= Math.min(max, itemVert.hor)) {
+                    this._endCase = itemVert;
+                }
+                else {
+                    max = Math.min(max, itemVert.hor);
+                }
             }
-            this._endCase.vert = max;
         }
+        return this._endCase;
     }
 }
 exports.PorteAvion = PorteAvion;
