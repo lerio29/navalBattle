@@ -7,9 +7,9 @@ export declare class PorteAvion extends Ship {
     /**
      * [calCulStartCase description]
      */
-    calCulStartCase(): void;
+    calculStartCase(): MatriceCase;
     /**
      * [calCulEndCase description]
      */
-    calCulEndCase(): void;
+    calculEndCase(): MatriceCase;
 }

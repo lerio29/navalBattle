@@ -7,14 +7,20 @@ class BattleUtils {
     static horizontalPositionToAlpha(position) {
         return this._alphabet[position - 1];
     }
-    static alphaToHorizontalPosition(letter) {
+    static alphaToVerticalPosition(letter) {
         return this._alphabet.indexOf(letter) + 1;
     }
     static generateKeyGrid(mCase) {
-        return this.horizontalPositionToAlpha(mCase.vert) + this._separator + mCase.hor;
+        return this.horizontalPositionToAlpha(mCase.hor) + this._separator + mCase.vert;
     }
-    static generateKeyGridByVal(vert, hor) {
-        return this.horizontalPositionToAlpha(vert) + this._separator + hor;
+    static generateKeyGridByVal(hor, vert) {
+        return this.horizontalPositionToAlpha(hor) + this._separator + vert;
+    }
+    static checkPosition(mCase, gridSize) {
+        if (mCase.vert <= 0 || mCase.hor <= 0 || mCase.hor > gridSize || mCase.vert > gridSize) {
+            return false;
+        }
+        return true;
     }
 }
 BattleUtils._separator = "-";

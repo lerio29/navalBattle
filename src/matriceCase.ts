@@ -5,9 +5,9 @@ import {EnumStatus} from "./enumStatus";
  */
 export class MatriceCase{
 
-	hor: number;
-	vert: number;
-	state: EnumStatus;
+	private _hor: number;
+	private _vert: number;
+	private _state: EnumStatus;
 
 
 	constructor(hor: number,vert: number,state: EnumStatus){
@@ -21,7 +21,34 @@ export class MatriceCase{
 	}
 
 
-	toString() {
-		return "hor: " + this.hor + ", vert: " + this.vert + ", state: " + this.state;
+	toString() :string{
+		return "hor: " + this._hor + ", vert: " + this._vert + ", state: " + this._state;
 	}
+
+
+	get hor() :number{
+		return this._hor;
+	}
+
+	get vert() :number{
+		return this._vert;
+	}
+
+	get state() :EnumStatus{
+		return this._state;
+	}
+
+	set hor(val :number){
+		this._hor = val;
+	}
+
+	set vert(val :number){
+		this._vert = val;
+	}
+
+	set state(val :EnumStatus){
+		this._state = val;
+	}
+
+
 }

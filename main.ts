@@ -19,8 +19,15 @@ paPosition.setValue(BattleUtils.generateKeyGridByVal(4,1),new MatriceCase(4,1,En
 paPosition.setValue(BattleUtils.generateKeyGridByVal(5,1),new MatriceCase(5,1,EnumStatus.STATUS_EMPTY));
 
 let player1pa: Ship = new PorteAvion(paPosition,EnumOrientation.OR_HORIZONTAL);
+if(BattleUtils.checkPosition(player1pa.calculStartCase(player1pa)) &&
+	BattleUtils.checkPosition(player1pa.calculEndCase(player1pa)) ){
 
-grillePlayer1.addShip(player1pa);
+	grillePlayer1.addShip(player1pa);
+}else{
+	Console.log("Navire mal positionné");
+}
+
+
 
 //////////////////////////////
 
@@ -36,7 +43,14 @@ paPosition2.setValue(BattleUtils.generateKeyGridByVal(5,1),new MatriceCase(5,1,E
 
 let player2pa: Ship = new PorteAvion(paPosition,EnumOrientation.OR_HORIZONTAL);
 
-grillePlayer2.addShip(player2pa);
+if(BattleUtils.checkPosition(player2pa.calculStartCase(player1pa)) &&
+	BattleUtils.checkPosition(player2pa.calculEndCase(player1pa)) ){
+	
+	grillePlayer2.addShip(player2pa);
+}else{
+	Console.log("Navire mal positionné");
+}
+
 
 /////////////////////////////
 

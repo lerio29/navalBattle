@@ -27,9 +27,9 @@ class BattleMatrice {
         while (initLoopH <= hMatrice) {
             let initLoopV = 1;
             while (initLoopV <= vMatrice) {
-                caseMat = new matriceCase_1.MatriceCase(initLoopV, initLoopH, enumStatus_1.EnumStatus.STATUS_EMPTY);
-                this._logger.debug("test", "GenKey: " + battleUtils_1.BattleUtils.generateKeyGridByVal(initLoopV, initLoopH));
-                this._matrice.setValue(battleUtils_1.BattleUtils.generateKeyGridByVal(initLoopV, initLoopH), caseMat);
+                caseMat = new matriceCase_1.MatriceCase(initLoopH, initLoopV, enumStatus_1.EnumStatus.STATUS_EMPTY);
+                this._logger.debug("test", "GenKey: " + battleUtils_1.BattleUtils.generateKeyGridByVal(initLoopH, initLoopV));
+                this._matrice.setValue(battleUtils_1.BattleUtils.generateKeyGridByVal(initLoopH, initLoopV), caseMat);
                 initLoopV++;
             }
             initLoopH++;
@@ -41,7 +41,7 @@ class BattleMatrice {
      */
     updateMatrice(status) {
         //on MAJ la case qui correspond à la cle 
-        let tmpKey = battleUtils_1.BattleUtils.generateKeyGridByVal(status.vert, status.hor);
+        let tmpKey = battleUtils_1.BattleUtils.generateKeyGridByVal(status.hor, status.vert);
         this._matrice.setValue(tmpKey, status);
     }
     /**

@@ -17,34 +17,34 @@ class Ship {
         this._shipOrient = shipOrient;
         this._shipPosition = shipPosition;
     }
-    get getShipName() {
+    get shipName() {
         return this._shipName;
     }
-    set setShipName(name) {
+    set shipName(name) {
         this._shipName = name;
     }
-    get getShipType() {
+    get shipType() {
         return this._shipType;
     }
-    set setShipType(type) {
+    set shipType(type) {
         this._shipType = type;
     }
-    get getShipSize() {
+    get shipSize() {
         return this._shipSize;
     }
-    set setShipSize(size) {
+    set shipSize(size) {
         this._shipSize = size;
     }
-    get getShipOrient() {
+    get shipOrient() {
         return this._shipOrient;
     }
-    set setShipOrient(orient) {
+    set shipOrient(orient) {
         this._shipOrient = orient;
     }
-    get getPosition() {
+    get shipPosition() {
         return this._shipPosition;
     }
-    set Position(position) {
+    set shipPosition(position) {
         this._shipPosition = position;
     }
 }

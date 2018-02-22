@@ -13,7 +13,25 @@ class MatriceCase {
         this.state = state;
     }
     toString() {
-        return "hor: " + this.hor + ", vert: " + this.vert + ", state: " + this.state;
+        return "hor: " + this._hor + ", vert: " + this._vert + ", state: " + this._state;
+    }
+    get hor() {
+        return this._hor;
+    }
+    get vert() {
+        return this._vert;
+    }
+    get state() {
+        return this._state;
+    }
+    set hor(val) {
+        this._hor = val;
+    }
+    set vert(val) {
+        this._vert = val;
+    }
+    set state(val) {
+        this._state = val;
     }
 }
 exports.MatriceCase = MatriceCase;
