@@ -1,4 +1,4 @@
-import { Dictionary } from 'typescript-collections';
+import { Dictionary, Set } from 'typescript-collections';
 import { MatriceCase } from "./matriceCase";
 import { Ship } from "./ship";
 /**
@@ -8,6 +8,7 @@ export declare class BattleMatrice {
     private _logger;
     private _matrice;
     private _size;
+    private _ships;
     /**
      * [constructor description]
      * @param {number} sizeMatrice [description]
@@ -23,6 +24,7 @@ export declare class BattleMatrice {
      * @param {Ship.Ship} ship [description]
      */
     addShip(ship: Ship): void;
+    addShips(ships: Set<Ship>): void;
     readonly getSize: number;
     /**
      * [getMatrice Retourne un set de MatriceCase correspondant à la grille de la bataille navale]

@@ -3,6 +3,12 @@ import {BattleUtils} from '../src/battleUtils';
 import {BattleMatrice} from '../src/battleMatrice';
 import {MatriceCase} from '../src/matriceCase';
 import { EnumStatus } from "../src/enumStatus";
+import {Ship} from "../src/ship";
+export {Submarine} from "../src/submarine";
+import { Dictionary, Set }  from 'typescript-collections';
+import {EnumOrientation} from "../src/enumOrientation";
+
+
 
 
 describe('BattleMatrice Tests', () => {
@@ -24,11 +30,21 @@ describe('BattleMatrice Tests', () => {
     expect(0).to.equal(val.state);
 
     let mc :MatriceCase =  new MatriceCase(5,2,EnumStatus.STATUS_HIT);  
-	bm.updateMatrice(mc);
+	  bm.updateMatrice(mc);
 
-	expect(1).to.equal(bm.getMatrice.getValue(_hor + "-" + _vert).state);
+	  expect(1).to.equal(bm.getMatrice.getValue(_hor + "-" + _vert).state);
 
 
+  });
+
+  it('should add correctly a ship', () => {
+    let  bm :BattleMatrice = new BattleMatrice(10, false);
+
+    let smPosition: Dictionary<string,MatriceCase> = new Dictionary<string,MatriceCase>(); 
+    smPosition.setValue(BattleUtils.generateKeyGridByVal(1,1),new MatriceCase(1,1,EnumStatus.STATUS_EMPTY));
+    let sm :Ship = new Submarine(smPosition, EnumOrientation.OR_HORIZONTAL);
+    bm.addShip(sm);
+    expect(10).to.equal(bm.getSize);
   });
 
 });
