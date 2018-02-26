@@ -23,11 +23,11 @@ export declare abstract class Ship {
     /**
      * [calCulStartCase description]
      */
-    abstract calculStartCase(): void;
+    calculStartCase(): MatriceCase;
     /**
      * [calCulEndCase description]
      */
-    abstract calculEndCase(): void;
+    calculEndCase(): MatriceCase;
     shipName: string;
     shipType: EnumShip;
     shipSize: number;

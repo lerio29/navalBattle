@@ -29,13 +29,14 @@ describe('Ships Tests', () => {
 
 
       let mctest :MatriceCase = new MatriceCase(1,1,EnumStatus.STATUS_EMPTY);
-      console.log(mctest.toString());
+      
 
       let porteAvion :PorteAvion = new PorteAvion(paPosition,EnumOrientation.OR_HORIZONTAL);
       let start :MatriceCase = porteAvion.calculStartCase();
-      console.log("start : " + start.toString());
+     
       let end :MatriceCase = porteAvion.calculEndCase();
-      console.log("end : " + end.toString());
+     
+
       expect(1).to.equal(start.hor);
       expect(5).to.equal(end.hor);
       expect(1).to.equal(start.vert);

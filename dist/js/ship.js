@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const enumOrientation_1 = require("./enumOrientation");
 class Ship {
     /**
      * [constructor description]
@@ -16,6 +17,52 @@ class Ship {
         this._shipSize = shipSize;
         this._shipOrient = shipOrient;
         this._shipPosition = shipPosition;
+    }
+    /**
+     * [calCulStartCase description]
+     */
+    calculStartCase() {
+        let min = 50; //valeur simplement plus grande que la taille de la grille
+        if (this._shipOrient === enumOrientation_1.EnumOrientation.OR_HORIZONTAL) {
+            for (let itemHor of this._shipPosition.values()) {
+                if (min > Math.min(min, itemHor.hor)) {
+                    this._startCase = itemHor;
+                    min = itemHor.hor;
+                }
+            }
+        }
+        else {
+            for (let itemVert of this._shipPosition.values()) {
+                if (min > Math.min(min, itemVert.vert)) {
+                    this._startCase = itemVert;
+                    min = itemVert.vert;
+                }
+            }
+        }
+        return this._startCase;
+    }
+    /**
+     * [calCulEndCase description]
+     */
+    calculEndCase() {
+        let max = -50; //valeur simplement plus petite que la taille de la grille
+        if (this._shipOrient === enumOrientation_1.EnumOrientation.OR_HORIZONTAL) {
+            for (let itemHor of this._shipPosition.values()) {
+                if (max <= Math.max(max, itemHor.hor)) {
+                    this._endCase = itemHor;
+                    max = itemHor.hor;
+                }
+            }
+        }
+        else {
+            for (let itemVert of this._shipPosition.values()) {
+                if (max <= Math.max(max, itemVert.vert)) {
+                    this._endCase = itemVert;
+                    max = itemVert.vert;
+                }
+            }
+        }
+        return this._endCase;
     }
     get shipName() {
         return this._shipName;
