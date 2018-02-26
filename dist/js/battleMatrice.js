@@ -50,6 +50,12 @@ class BattleMatrice {
      */
     addShip(ship) {
         //associer des bateau à une grille
+        this._ships.add(ship);
+    }
+    addShips(ships) {
+        for (let ship of ships.toArray()) {
+            this.addShip(ship);
+        }
     }
     get getSize() {
         return this._size;

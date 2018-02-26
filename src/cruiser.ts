@@ -6,13 +6,13 @@ import {EnumStatus} from "./enumStatus";
 import {EnumOrientation} from "./enumOrientation";
 
 
-export class Croiseur extends Ship{
+export class Cruiser extends Ship{
 
 	constructor(shipPosition: Dictionary<string,MatriceCase>, shipOrient: EnumOrientation){
 
-		const name :string = 'PorteAvion';
+		const name :string = 'Croiseur';
 
-		super(name, EnumShip.SHIP_CROISEUR, 5, shipOrient ,shipPosition);
+		super(name, EnumShip.SHIP_CROISEUR, 4, shipOrient ,shipPosition);
 	}
 
 	

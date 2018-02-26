@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const ship_1 = require("./ship");
 const enumShip_1 = require("./enumShip");
-class PorteAvion extends ship_1.Ship {
+class Destroyer extends ship_1.Ship {
     constructor(shipPosition, shipOrient) {
-        const name = 'PorteAvion';
-        super(name, enumShip_1.EnumShip.SHIP_PORTE_AVION, 5, shipOrient, shipPosition);
+        const name = 'Destroyer';
+        super(name, enumShip_1.EnumShip.SHIP_CONTRE_TORPILLEUR, 3, shipOrient, shipPosition);
     }
 }
-exports.PorteAvion = PorteAvion;
+exports.Destroyer = Destroyer;

@@ -4,7 +4,7 @@ import {BattleMatrice} from '../src/battleMatrice';
 import {MatriceCase} from '../src/matriceCase';
 import { EnumStatus } from "../src/enumStatus";
 import {EnumOrientation} from "../src/enumOrientation";
-import { PorteAvion } from '../src/porteAvion';
+import { AircraftCarrier } from '../src/aircraftCarrier';
 import { Dictionary, Set }  from 'typescript-collections';
 
 describe('Ships Tests', () => {
@@ -31,7 +31,7 @@ describe('Ships Tests', () => {
       let mctest :MatriceCase = new MatriceCase(1,1,EnumStatus.STATUS_EMPTY);
       
 
-      let porteAvion :PorteAvion = new PorteAvion(paPosition,EnumOrientation.OR_HORIZONTAL);
+      let porteAvion :AircraftCarrier = new AircraftCarrier(paPosition,EnumOrientation.OR_HORIZONTAL);
       let start :MatriceCase = porteAvion.calculStartCase();
      
       let end :MatriceCase = porteAvion.calculEndCase();

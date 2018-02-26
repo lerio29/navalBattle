@@ -18,6 +18,7 @@ export class BattleMatrice {
 	// private  _matrice: Collections.Set<MatriceCase.MatriceCase>;
 	private  _matrice: Dictionary<string,MatriceCase>;
 	private _size: number;
+	private _ships: Set<Ship>;
 
 
 	/**
@@ -79,6 +80,13 @@ export class BattleMatrice {
 	 */
 	addShip(ship :Ship){
 		//associer des bateau à une grille
+		this._ships.add(ship);
+	}
+
+	addShips(ships :Set<Ship>){
+		for(let ship of ships.toArray()){
+			this.addShip(ship);
+		}
 	}
 
 	get getSize() :number{

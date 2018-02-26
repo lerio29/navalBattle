@@ -7,7 +7,7 @@ import {EnumOrientation} from "./enumOrientation";
 
 
 
-export class PorteAvion extends Ship{
+export class AircraftCarrier extends Ship{
 
 	constructor(shipPosition: Dictionary<string,MatriceCase>, shipOrient: EnumOrientation){
 
