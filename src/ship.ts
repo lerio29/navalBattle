@@ -42,12 +42,68 @@ import {EnumOrientation} from "./enumOrientation";
 		/**
 		 * [calCulStartCase description]
 		 */
-		abstract calculStartCase(): void;
+		calculStartCase(): MatriceCase{
+			let min :number = 50; //valeur simplement plus grande que la taille de la grille
+
+			if(this._shipOrient === EnumOrientation.OR_HORIZONTAL){
+
+				for(let itemHor of this._shipPosition.values()){
+
+	 				if(min > Math.min(min, itemHor.hor)){
+						this._startCase = itemHor;
+						min = itemHor.hor;
+					}
+
+				}			
+			
+			}else{
+
+				for(let itemVert of this._shipPosition.values()){
+					
+					if(min > Math.min(min, itemVert.vert)){
+						this._startCase = itemVert;
+						min = itemVert.vert;
+					}
+					
+				}	
+			
+			}
+
+			return this._startCase;
+		}
 
 		/**
 		 * [calCulEndCase description]
 		 */
-		abstract calculEndCase(): void;
+		calculEndCase(): MatriceCase{
+			let max :number = -50; //valeur simplement plus petite que la taille de la grille
+
+			if(this._shipOrient === EnumOrientation.OR_HORIZONTAL){
+
+				for(let itemHor of this._shipPosition.values()){
+					
+					if(max <= Math.max(max, itemHor.hor)){
+						this._endCase = itemHor;
+						max = itemHor.hor;
+					}
+				}	
+				
+			
+			}else{
+
+				for(let itemVert of this._shipPosition.values()){
+					
+					if(max <= Math.max(max, itemVert.vert)){
+						this._endCase = itemVert;
+						max = itemVert.vert;
+					}
+					
+				}	
+				
+			}
+
+			return this._endCase;
+		}
 		
 
 		get shipName() :string{
