@@ -38,6 +38,7 @@ export class BattleMatrice {
 		this._size = sizeMatrice;
 
 		this._matrice = new Dictionary<string,MatriceCase>();
+		this._ships = new Set<Ship>();
 
 		let caseMat: MatriceCase;
 
@@ -91,6 +92,10 @@ export class BattleMatrice {
 
 	get getSize() :number{
 		return  this._size;
+	}
+
+	get getShips() :Set<Ship>{
+		return this._ships;
 	}
 
 	/**

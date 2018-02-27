@@ -1,12 +1,16 @@
 import { expect } from 'chai';
-import {BattleUtils} from '../src/battleUtils';
-import {BattleMatrice} from '../src/battleMatrice';
-import {MatriceCase} from '../src/matriceCase';
-import { EnumStatus } from "../src/enumStatus";
-import {Ship} from "../src/ship";
-export {Submarine} from "../src/submarine";
 import { Dictionary, Set }  from 'typescript-collections';
-import {EnumOrientation} from "../src/enumOrientation";
+
+import { BattleUtils } from '../src/battleUtils';
+import { BattleMatrice } from '../src/battleMatrice';
+import { MatriceCase } from '../src/matriceCase';
+import { EnumStatus } from "../src/enumStatus";
+import { EnumOrientation } from "../src/enumOrientation";
+import { Ship } from "../src/ship";
+import { Submarine } from "../src/submarine";
+import { Mine } from "../src/mine";
+
+
 
 
 
@@ -42,9 +46,17 @@ describe('BattleMatrice Tests', () => {
 
     let smPosition: Dictionary<string,MatriceCase> = new Dictionary<string,MatriceCase>(); 
     smPosition.setValue(BattleUtils.generateKeyGridByVal(1,1),new MatriceCase(1,1,EnumStatus.STATUS_EMPTY));
+    smPosition.setValue(BattleUtils.generateKeyGridByVal(1,2),new MatriceCase(1,2,EnumStatus.STATUS_EMPTY));
+    smPosition.setValue(BattleUtils.generateKeyGridByVal(1,3),new MatriceCase(1,3,EnumStatus.STATUS_EMPTY));
+
+
     let sm :Ship = new Submarine(smPosition, EnumOrientation.OR_HORIZONTAL);
     bm.addShip(sm);
     expect(10).to.equal(bm.getSize);
+    expect("Sous-marin").to.equal(bm.getShips.toArray()[0].shipName);
+    expect(3).to.equal(bm.getShips.toArray()[0].shipSize);
+
+    
   });
 
 });

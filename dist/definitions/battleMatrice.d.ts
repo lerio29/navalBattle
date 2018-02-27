@@ -26,6 +26,7 @@ export declare class BattleMatrice {
     addShip(ship: Ship): void;
     addShips(ships: Set<Ship>): void;
     readonly getSize: number;
+    readonly getShips: Set<Ship>;
     /**
      * [getMatrice Retourne un set de MatriceCase correspondant à la grille de la bataille navale]
      * @return {Dictionary<MatriceCase>} [description]

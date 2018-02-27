@@ -23,6 +23,7 @@ class BattleMatrice {
         let vMatrice = sizeMatrice;
         this._size = sizeMatrice;
         this._matrice = new typescript_collections_1.Dictionary();
+        this._ships = new typescript_collections_1.Set();
         let caseMat;
         while (initLoopH <= hMatrice) {
             let initLoopV = 1;
@@ -59,6 +60,9 @@ class BattleMatrice {
     }
     get getSize() {
         return this._size;
+    }
+    get getShips() {
+        return this._ships;
     }
     /**
      * [getMatrice Retourne un set de MatriceCase correspondant à la grille de la bataille navale]
