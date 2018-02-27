@@ -7,8 +7,10 @@ import {Logger} from "./logger";
 
 
 
+
 /**
- * Classe de generation de matrice/grille de bataille navale
+ * Create a battle matrix 
+ * @class <p>A BattleMatrice is the war floor</p>
  */
 export class BattleMatrice {
 
@@ -22,8 +24,9 @@ export class BattleMatrice {
 
 
 	/**
-	 * [constructor description]
-	 * @param {number} sizeMatrice [description]
+	 * [BattleMatrice constructor]
+	 * @param {number}  sizeMatrice [The size of th war floor : a square of value x value]
+	 * @param {boolean} silent      [Enable or disable logger]
 	 */
 	constructor(sizeMatrice :number, silent :boolean){
 
@@ -64,8 +67,8 @@ export class BattleMatrice {
 
 
 	/**
-	 * [updateMatrice description]
-	 * @param {MatriceCase} status [description]
+	 * [updateMatrice method update a box values]
+	 * @param {MatriceCase} status [Update box datas from the key]
 	 */
 	updateMatrice(status :MatriceCase){
 		
@@ -84,16 +87,28 @@ export class BattleMatrice {
 		this._ships.add(ship);
 	}
 
+	/**
+	 * [addShips description]
+	 * @param {Set<Ship>} ships [description]
+	 */
 	addShips(ships :Set<Ship>){
 		for(let ship of ships.toArray()){
 			this.addShip(ship);
 		}
 	}
 
+	/**
+	 * [getSize description]
+	 * @return {number} [description]
+	 */
 	get getSize() :number{
 		return  this._size;
 	}
 
+	/**
+	 * [getShips description]
+	 * @return {Set<Ship>} [description]
+	 */
 	get getShips() :Set<Ship>{
 		return this._ships;
 	}
