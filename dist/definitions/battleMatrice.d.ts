@@ -22,28 +22,28 @@ export declare class BattleMatrice {
      */
     updateMatrice(status: MatriceCase): void;
     /**
-     * [addShip description]
-     * @param {Ship.Ship} ship [description]
+     * [addShip add a ship to the matrix]
+     * @param {Ship.Ship} ship [A ship]
      */
     addShip(ship: Ship): void;
     /**
-     * [addShips description]
-     * @param {Set<Ship>} ships [description]
+     * [addShips add a ships set to the matrix]
+     * @param {Set<Ship>} ships [ships set]
      */
     addShips(ships: Set<Ship>): void;
     /**
-     * [getSize description]
-     * @return {number} [description]
+     * [getSize Size of matrix]
+     * @return {number} [Size of matrix]
      */
     readonly getSize: number;
     /**
-     * [getShips description]
-     * @return {Set<Ship>} [description]
+     * [getShips Return all ships hooked in the matrix]
+     * @return {Set<Ship>} [A ships set]
      */
     readonly getShips: Set<Ship>;
     /**
-     * [getMatrice Retourne un set de MatriceCase correspondant à la grille de la bataille navale]
-     * @return {Dictionary<MatriceCase>} [description]
+     * [getMatrice Return all boxes in the matrix]
+     * @return {Dictionary<MatriceCase>} [A boxes dictionnary]
      */
     readonly getMatrice: Dictionary<string, MatriceCase>;
 }

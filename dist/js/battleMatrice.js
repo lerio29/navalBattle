@@ -48,16 +48,16 @@ class BattleMatrice {
         this._matrice.setValue(tmpKey, status);
     }
     /**
-     * [addShip description]
-     * @param {Ship.Ship} ship [description]
+     * [addShip add a ship to the matrix]
+     * @param {Ship.Ship} ship [A ship]
      */
     addShip(ship) {
         //associer des bateau à une grille
         this._ships.add(ship);
     }
     /**
-     * [addShips description]
-     * @param {Set<Ship>} ships [description]
+     * [addShips add a ships set to the matrix]
+     * @param {Set<Ship>} ships [ships set]
      */
     addShips(ships) {
         for (let ship of ships.toArray()) {
@@ -65,22 +65,22 @@ class BattleMatrice {
         }
     }
     /**
-     * [getSize description]
-     * @return {number} [description]
+     * [getSize Size of matrix]
+     * @return {number} [Size of matrix]
      */
     get getSize() {
         return this._size;
     }
     /**
-     * [getShips description]
-     * @return {Set<Ship>} [description]
+     * [getShips Return all ships hooked in the matrix]
+     * @return {Set<Ship>} [A ships set]
      */
     get getShips() {
         return this._ships;
     }
     /**
-     * [getMatrice Retourne un set de MatriceCase correspondant à la grille de la bataille navale]
-     * @return {Dictionary<MatriceCase>} [description]
+     * [getMatrice Return all boxes in the matrix]
+     * @return {Dictionary<MatriceCase>} [A boxes dictionnary]
      */
     get getMatrice() {
         return this._matrice;
