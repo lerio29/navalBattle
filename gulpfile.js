@@ -28,7 +28,8 @@ gulp.task('generateLibEs6', function() {
             module: "commonjs",
             declaration: true,
             target: 'ES6',
-            sourceMap: true
+            sourceMap: true,
+            noImplicitAny:true
         }));
  
     return merge([
@@ -43,7 +44,8 @@ gulp.task('generateLib', function() {
         	module: "commonjs",
             declaration: true,
             target: 'ES5',
-            sourceMap: true
+            sourceMap: true,
+            noImplicitAny:true
         }));
  
     return merge([

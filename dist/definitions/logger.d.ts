@@ -1,8 +1,8 @@
 export declare class Logger {
-    name: any;
+    name: string;
     logger: any;
-    version: any;
-    silent: any;
+    version: string;
+    silent: boolean;
     constructor();
     info(...args: any[]): void;
     error(...args: any[]): void;

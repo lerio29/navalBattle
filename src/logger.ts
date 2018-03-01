@@ -11,10 +11,10 @@ enum LEVEL {
 
 export class Logger {
 
-	public name;
-	public logger;
-	public version;
-	public silent;
+	public name :string;
+	public logger :any;
+	public version :string;
+	public silent :boolean;
 
 	constructor() {
 	
@@ -22,37 +22,29 @@ export class Logger {
 		this.silent = true;
 	}
 
-	public info(...args) {
+	public info(...args :any[]) :void{
 		if (!this.silent) { return; }
-		this.logger(
-			this.format(LEVEL.INFO, ...args)
-		);
+		this.logger(this.format(LEVEL.INFO, ...args));
 	}
 
-	public error(...args) {
+	public error(...args:any[]) :void{
 		if (!this.silent) { return; }
-		this.logger(
-			this.format(LEVEL.ERROR, ...args)
-        );
+		this.logger(this.format(LEVEL.ERROR, ...args));
 	}
 
-	public warn(...args) {
+	public warn(...args:any[]) :void{
 		if (!this.silent) { return; }
-		this.logger(
-			this.format(LEVEL.WARN, ...args)
-		);
+		this.logger(this.format(LEVEL.WARN, ...args));
 	}
 
-	public debug(...args) {
+	public debug(...args:any[]) :void{
 		if (!this.silent) { return; }
-		this.logger(
-			this.format(LEVEL.DEBUG, ...args)
-		);
+		this.logger(this.format(LEVEL.DEBUG, ...args));
 	}
 
-	private format(level, ...args) {
+	private format(level :LEVEL, ...args :any[]) :string{
 
-		let pad = (s, l, z = '') => {
+		let pad :any = (s :any[], l:number, z :string = '') => {
 			return s + Array(Math.max(0, l - s.length + 1)).join(z);
 		};
 
