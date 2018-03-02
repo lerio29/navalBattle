@@ -87,3 +87,5 @@ class BattleMatrice {
     }
 }
 exports.BattleMatrice = BattleMatrice;
+
+//# sourceMappingURL=../maps/battleMatrice.js.map

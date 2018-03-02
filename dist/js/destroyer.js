@@ -9,3 +9,5 @@ class Destroyer extends ship_1.Ship {
     }
 }
 exports.Destroyer = Destroyer;
+
+//# sourceMappingURL=../maps/destroyer.js.map

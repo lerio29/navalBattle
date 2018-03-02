@@ -26,3 +26,5 @@ var player_1 = require("./player");
 exports.Player = player_1.Player;
 var party_1 = require("./party");
 exports.Party = party_1.Party;
+
+//# sourceMappingURL=../maps/index.js.map

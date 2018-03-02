@@ -35,3 +35,5 @@ class MatriceCase {
     }
 }
 exports.MatriceCase = MatriceCase;
+
+//# sourceMappingURL=../maps/matriceCase.js.map

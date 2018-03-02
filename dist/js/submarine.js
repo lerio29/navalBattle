@@ -9,3 +9,5 @@ class Submarine extends ship_1.Ship {
     }
 }
 exports.Submarine = Submarine;
+
+//# sourceMappingURL=../maps/submarine.js.map

@@ -1,0 +1,1 @@
+{"version":3,"sources":["enumStatus.ts"],"names":[],"mappings":";;AACA,IAAa,UAIZ;AAJD,WAAa,UAAU;IACtB,2DAAY,CAAA;IACZ,uDAAU,CAAA;IACV,yDAAW,CAAA;AACZ,CAAC,EAJY,UAAU,GAAV,kBAAU,KAAV,kBAAU,QAItB","file":"../src/enumStatus.js","sourcesContent":["\r\nexport  enum EnumStatus {\r\n\tSTATUS_EMPTY,\r\n\tSTATUS_HIT,\r\n\tSTATUS_FAIL\r\n}\r\n"]}

@@ -33,3 +33,5 @@ class Party {
     }
 }
 exports.Party = Party;
+
+//# sourceMappingURL=../maps/party.js.map

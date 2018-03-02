@@ -9,3 +9,5 @@ class Cruiser extends ship_1.Ship {
     }
 }
 exports.Cruiser = Cruiser;
+
+//# sourceMappingURL=../maps/cruiser.js.map

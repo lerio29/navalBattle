@@ -9,3 +9,5 @@ class Mine extends ship_1.Ship {
     }
 }
 exports.Mine = Mine;
+
+//# sourceMappingURL=../maps/mine.js.map

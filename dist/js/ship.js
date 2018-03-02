@@ -96,3 +96,5 @@ class Ship {
     }
 }
 exports.Ship = Ship;
+
+//# sourceMappingURL=../maps/ship.js.map

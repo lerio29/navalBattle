@@ -65,3 +65,5 @@ class Logger {
     }
 }
 exports.Logger = Logger;
+
+//# sourceMappingURL=../maps/logger.js.map

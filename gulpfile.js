@@ -20,10 +20,9 @@ gulp.task("tslint", () =>
         .pipe(tslint.report())
 ); 
 
-
 gulp.task('generateLibEs6', function() {
     var tsResult = gulp.src('src/**/*.ts')
-    	.pipe(sourcemaps.init()) // This means sourcemaps will be generated
+        .pipe(sourcemaps.init({loadMaps: true})) 
         .pipe(ts({
             module: "commonjs",
             declaration: true,
@@ -34,12 +33,15 @@ gulp.task('generateLibEs6', function() {
  
     return merge([
         tsResult.dts.pipe(gulp.dest('dist/definitions')),
-        tsResult.js.pipe(gulp.dest('dist/js'))
+        tsResult.js.pipe(sourcemaps.write('../maps')).pipe(gulp.dest('dist/js'))
     ]);
 });
 
+  
+
 gulp.task('generateLib', function() {
     var tsResult = gulp.src('src/**/*.ts')
+        .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(ts({
         	module: "commonjs",
             declaration: true,
@@ -50,7 +52,7 @@ gulp.task('generateLib', function() {
  
     return merge([
         tsResult.dts.pipe(gulp.dest('dist/definitions')),
-        tsResult.js.pipe(gulp.dest('dist/js'))
+        tsResult.js.pipe(sourcemaps.write('../maps')).pipe(gulp.dest('dist/js'))
     ]);
 });
 

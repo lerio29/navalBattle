@@ -19,3 +19,5 @@ class AircraftCarrier extends ship_1.Ship {
     }
 }
 exports.AircraftCarrier = AircraftCarrier;
+
+//# sourceMappingURL=../maps/aircraftCarrier.js.map

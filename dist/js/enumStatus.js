@@ -6,3 +6,5 @@ var EnumStatus;
     EnumStatus[EnumStatus["STATUS_HIT"] = 1] = "STATUS_HIT";
     EnumStatus[EnumStatus["STATUS_FAIL"] = 2] = "STATUS_FAIL";
 })(EnumStatus = exports.EnumStatus || (exports.EnumStatus = {}));
+
+//# sourceMappingURL=../maps/enumStatus.js.map
