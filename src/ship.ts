@@ -43,7 +43,7 @@ import {EnumOrientation} from "./enumOrientation";
 		}
 
 		/**
-		 * [calCulStartCase Calculate the first box of the ship]
+		 * @description [calCulStartCase Calculate the first box of the ship]
 		 */
 		calculStartCase(): MatriceCase{
 			let min :number = 50; //valeur simplement plus grande que la taille de la grille
@@ -76,7 +76,7 @@ import {EnumOrientation} from "./enumOrientation";
 		}
 
 		/**
-		 * [calCulEndCase Calculate the last box of the ship]
+		 * @description [calCulEndCase Calculate the last box of the ship]
 		 */
 		calculEndCase(): MatriceCase{
 			let max :number = -50; //valeur simplement plus petite que la taille de la grille

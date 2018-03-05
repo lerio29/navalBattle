@@ -16,6 +16,7 @@ import {BattleMatrice} from "./battleMatrice";
 
  	/**
  	 * [Player constructor]
+ 	 * @constructor
  	 * @param {string}        name       [Player Name]
  	 * @param {BattleMatrice} grid       [grid associated with the player]
  	 * @param {BattleMatrice} targetGrid [Fire history grid]

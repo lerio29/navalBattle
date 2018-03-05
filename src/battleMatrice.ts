@@ -67,7 +67,7 @@ export class BattleMatrice {
 
 
 	/**
-	 * [updateMatrice method update a box values]
+	 * @description [updateMatrice method update a box values]
 	 * @param {MatriceCase} status [Update box datas from the key]
 	 */
 	updateMatrice(status :MatriceCase){
@@ -79,7 +79,7 @@ export class BattleMatrice {
 	}
 
 	/**
-	 * [addShip add a ship to the matrix]
+	 * @description [addShip add a ship to the matrix]
 	 * @param {Ship.Ship} ship [A ship]
 	 */
 	addShip(ship :Ship){
@@ -88,7 +88,7 @@ export class BattleMatrice {
 	}
 
 	/**
-	 * [addShips add a ships set to the matrix]
+	 * @description [addShips add a ships set to the matrix]
 	 * @param {Set<Ship>} ships [ships set]
 	 */
 	addShips(ships :Set<Ship>){
