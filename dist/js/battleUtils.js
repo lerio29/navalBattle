@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const sha1 = require("sha1/sha1");
 /**
  * Tools class
  * @class <p>Tools class</p>
@@ -63,6 +64,9 @@ class BattleUtils {
             }
         }
         return true;
+    }
+    static createUniqueId() {
+        return sha1('uid-' + Math.random().toString(36).substr(2, 16) + new Date().getTime());
     }
 }
 BattleUtils._separator = "-";

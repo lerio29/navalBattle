@@ -21,6 +21,7 @@ export class BattleMatrice {
 	private  _matrice: Dictionary<string,MatriceCase>;
 	private _size: number;
 	private _ships: Set<Ship>;
+	private _idHash: string;
 
 
 	/**
@@ -38,6 +39,7 @@ export class BattleMatrice {
 
 		let hMatrice: number = sizeMatrice;
 		let vMatrice: number = sizeMatrice;
+		this._idHash =  BattleUtils.createUniqueId();
 		this._size = sizeMatrice;
 
 		this._matrice = new Dictionary<string,MatriceCase>();
@@ -119,6 +121,10 @@ export class BattleMatrice {
 	 */
 	get getMatrice() :Dictionary<string,MatriceCase>{
 		return this._matrice;
+	}
+
+	get getIdHash() :string {
+		return this._idHash;
 	}
 }
 

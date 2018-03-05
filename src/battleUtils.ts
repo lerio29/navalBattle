@@ -1,6 +1,7 @@
 import {MatriceCase} from "./matriceCase";
 import { Dictionary, Set }  from 'typescript-collections';
 import {Ship} from "./ship";
+import * as sha1 from 'sha1/sha1';
 
 /**
  * Tools class
@@ -80,6 +81,10 @@ export class BattleUtils {
 		}
 
 		return true;
+	}
+
+	static createUniqueId():string{
+		return sha1('uid-' + Math.random().toString(36).substr(2, 16) + new Date().getTime());
 	}
 
 }

@@ -46,4 +46,5 @@ export declare class BattleUtils {
      * @return {boolean}              [The Result]
      */
     static checkAllPositions(mCases: Set<MatriceCase>, gridSize: number): boolean;
+    static createUniqueId(): string;
 }

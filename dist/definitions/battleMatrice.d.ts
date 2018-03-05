@@ -10,6 +10,7 @@ export declare class BattleMatrice {
     private _matrice;
     private _size;
     private _ships;
+    private _idHash;
     /**
      * [BattleMatrice constructor]
      * @param {number}  sizeMatrice [The size of th war floor : a square of value x value]
@@ -46,4 +47,5 @@ export declare class BattleMatrice {
      * @return {Dictionary<MatriceCase>} [A boxes dictionnary]
      */
     readonly getMatrice: Dictionary<string, MatriceCase>;
+    readonly getIdHash: string;
 }

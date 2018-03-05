@@ -23,6 +23,7 @@ class BattleMatrice {
         let initLoopH = 1;
         let hMatrice = sizeMatrice;
         let vMatrice = sizeMatrice;
+        this._idHash = battleUtils_1.BattleUtils.createUniqueId();
         this._size = sizeMatrice;
         this._matrice = new typescript_collections_1.Dictionary();
         this._ships = new typescript_collections_1.Set();
@@ -84,6 +85,9 @@ class BattleMatrice {
      */
     get getMatrice() {
         return this._matrice;
+    }
+    get getIdHash() {
+        return this._idHash;
     }
 }
 exports.BattleMatrice = BattleMatrice;
