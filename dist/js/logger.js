@@ -8,7 +8,15 @@ var LEVEL;
     LEVEL[LEVEL["WARN"] = 2] = "WARN";
     LEVEL[LEVEL["ERROR"] = 3] = "ERROR";
 })(LEVEL || (LEVEL = {}));
+/**
+ * Create a Logger object
+ * @class <p>A AircraftCarrier is a Ship with a lenght of 5</p>
+ */
 class Logger {
+    /**
+     * [Logger constructor]
+     * @constructor
+     */
     constructor() {
         this.logger = console.log;
         this.silent = true;

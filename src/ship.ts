@@ -7,7 +7,10 @@ import {EnumOrientation} from "./enumOrientation";
 
 
 
-
+	/**
+	 * Create an Ship object
+	 * @class <p>The ship skeleton</p>
+	 */
 	export abstract class Ship {
 
 		protected _shipName: string;
@@ -20,13 +23,13 @@ import {EnumOrientation} from "./enumOrientation";
 
 
 		/**
-		 * [constructor description]
-		 * @param {string}                                                 shipName     [description]
-		 * @param {EnumShip}                                      shipType     [description]
-		 * @param {number}                                                 shipSize     [description]
-		 * @param {Dictionary<string,MatriceCase>} shipPosition [description]
-		 * @param {MatriceCase}                                startCase    [description]
-		 * @param {MatriceCase}                                endCase      [description]
+		 * [Ship constructor]
+		 * @param {string} shipName     [the ship's name]
+		 * @param {EnumShip} shipType     [the ship's type]
+		 * @param {number} shipSize     [the ship's size]
+		 * @param {Dictionary<string,MatriceCase>} shipPosition [All ship's boxes]
+		 * @param {MatriceCase} startCase    [The fist ship's box]
+		 * @param {MatriceCase} endCase      [The last ship's box]
 		 */
 		constructor(shipName: string, shipType: EnumShip, shipSize: number, shipOrient: EnumOrientation,
 			shipPosition: Dictionary<string,MatriceCase> ){
@@ -40,7 +43,7 @@ import {EnumOrientation} from "./enumOrientation";
 		}
 
 		/**
-		 * [calCulStartCase description]
+		 * [calCulStartCase Calculate the first box of the ship]
 		 */
 		calculStartCase(): MatriceCase{
 			let min :number = 50; //valeur simplement plus grande que la taille de la grille
@@ -73,7 +76,7 @@ import {EnumOrientation} from "./enumOrientation";
 		}
 
 		/**
-		 * [calCulEndCase description]
+		 * [calCulEndCase Calculate the last box of the ship]
 		 */
 		calculEndCase(): MatriceCase{
 			let max :number = -50; //valeur simplement plus petite que la taille de la grille

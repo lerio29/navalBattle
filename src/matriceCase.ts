@@ -1,7 +1,8 @@
 import {EnumStatus} from "./enumStatus";
 
 /**
- * Représentation d'une case de la grille de jeu
+ * Create a matrix box object
+ * @class <p>A MatriceCase contains all information for a matrix box.</p>
  */
 export class MatriceCase{
 
@@ -9,20 +10,33 @@ export class MatriceCase{
 	private _vert: number;
 	private _state: EnumStatus;
 
-
+	/**
+	 * [MatriceCase constructor]
+	 * @param {number}  hor [The horizontal value]
+	 * @param {number}  vert [The vertical value]
+	 * @param {EnumStatus} state [The state value]
+	 */
 	constructor(hor: number,vert: number,state: EnumStatus){
 		this.hor = hor;
 		this.vert = vert;
 		this.state = state;
 	}	
 
+	/**
+	 * [updateStatus Update a box state]
+	 * @param {EnumStatus} state ][The update state}
+	 */
 	updateStatus(state: EnumStatus){
 		this.state = state;
 	}
 
 
+	/**
+	 * [toString Informations about a MatriceCase object ]
+	 * @return {string} [MatriceCase informations]
+	 */
 	toString() :string{
-		return "hor: " + this._hor + ", vert: " + this._vert + ", state: " + this._state;
+		return "MatriceCase Infos, hor: " + this._hor + ", vert: " + this._vert + ", state: " + this._state;
 	}
 
 

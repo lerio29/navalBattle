@@ -1,4 +1,5 @@
 import { MatriceCase } from "./matriceCase";
+import { Set } from 'typescript-collections';
 /**
  * Tools class
  * @class <p>Tools class</p>
@@ -19,23 +20,30 @@ export declare class BattleUtils {
      */
     static alphaToVerticalPosition(letter: string): number;
     /**
-     * [generateKeyGrid description]
-     * @param  {MatriceCase} mCase [description]
-     * @return {string}            [description]
+     * [generateKeyGrid Generate a key from a MatriceCase object]
+     * @param  {MatriceCase} mCase [A matrix box object]
+     * @return {string}            [The key generated]
      */
     static generateKeyGrid(mCase: MatriceCase): string;
     /**
-     * [generateKeyGridByVal description]
-     * @param  {number} hor  [description]
-     * @param  {number} vert [description]
-     * @return {string}      [description]
+     * [generateKeyGridByVal Generate a key from vertical/horizontal values]
+     * @param  {number} hor  [horizontal value]
+     * @param  {number} vert [vertical value]
+     * @return {string}      [The key generated]
      */
     static generateKeyGridByVal(hor: number, vert: number): string;
     /**
-     * [checkPosition description]
-     * @param  {MatriceCase} mCase    [description]
-     * @param  {number}      gridSize [description]
-     * @return {boolean}              [description]
+     * [checkPosition Check the existence of a box]
+     * @param  {MatriceCase} mCase    [Box to verify]
+     * @param  {number}      gridSize [The matrix size]
+     * @return {boolean}              [The Result]
      */
     static checkPosition(mCase: MatriceCase, gridSize: number): boolean;
+    /**
+     * [checkPosition Check the existence of boxes]
+     * @param  {Set<MatriceCase>} mCase    [Boxes to verify]
+     * @param  {number}      gridSize [The matrix size]
+     * @return {boolean}              [The Result]
+     */
+    static checkAllPositions(mCases: Set<MatriceCase>, gridSize: number): boolean;
 }

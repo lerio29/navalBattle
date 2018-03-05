@@ -3,7 +3,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const battleUtils_1 = require("./battleUtils");
 const enumStatus_1 = require("./enumStatus");
 const logger_1 = require("./logger");
+/**
+ * Create an Party object
+ * @class <p>A Party</p>
+ */
 class Party {
+    /**
+     * [Party constructor]
+     * @constructor
+     * @param {Player} player1 [The first player]
+     * @param {Player} player2 [The second player]
+     */
     constructor(player1, player2) {
         this._logger = new logger_1.Logger();
         this._players = [];
@@ -14,22 +24,25 @@ class Party {
         this._players.push(player2.name);
         this._id = this._players.toString().trim() + this._timestamp.toString();
     }
-    get getId() {
-        return this._id;
-    }
+    /**
+     * [hit For to shoot on a enemy ship ]
+     * @param {Player} fromPlayer [Player behind the shot]
+     * @param {Player} intoPlayer [Player undergoing shooting]
+     * @param {number} hor        [Horizontal target]
+     * @param {number} vert       [Vertical targer]
+     */
     hit(fromPlayer, intoPlayer, hor, vert) {
         let grilleFromPlayer = fromPlayer.grid;
         let grilleIntoPlayer = intoPlayer.grid;
         if (grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert)).state === enumStatus_1.EnumStatus.STATUS_EMPTY) {
-            this._logger.debug("before hit  : " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert) + "; state :" + grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert)).state);
             grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert)).updateStatus(enumStatus_1.EnumStatus.STATUS_FAIL);
-            this._logger.debug("hit: " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert) + "; state :" + grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert)).state);
         }
         else {
-            this._logger.debug("before hit: " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert) + "; state :" + grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert)).state);
             grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert)).updateStatus(enumStatus_1.EnumStatus.STATUS_HIT);
-            this._logger.debug("hit: " + " fromPlayer : " + fromPlayer.name + " into : " + intoPlayer.name + " " + battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert) + "; state :" + grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert)).state);
         }
+    }
+    get getId() {
+        return this._id;
     }
 }
 exports.Party = Party;

@@ -9,6 +9,10 @@ enum LEVEL {
 	
 }
 
+/**
+ * Create a Logger object
+ * @class <p>A AircraftCarrier is a Ship with a lenght of 5</p>
+ */
 export class Logger {
 
 	public name :string;
@@ -16,6 +20,10 @@ export class Logger {
 	public version :string;
 	public silent :boolean;
 
+	/**
+	 * [Logger constructor]
+	 * @constructor
+	 */
 	constructor() {
 	
 		this.logger = console.log;

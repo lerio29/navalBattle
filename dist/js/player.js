@@ -1,12 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Create an Player object
+ * @class <p>A Player</p>
+ */
 class Player {
     //TODO ajouter une deuxième grid pour avoir le bilan du tir sur la grid ennemie
     /**
-     * [Constructeur du joueur et des grilles de jeu associées]
-     * @param {string}                      name       [Nom du joueur]
-     * @param {BattleMatrice} grid       [Grille du joueur]
-     * @param {BattleMatrice} targetGrid [Grille recapitulative des tirs sur l ennemi ]
+     * [Player constructor]
+     * @param {string}        name       [Player Name]
+     * @param {BattleMatrice} grid       [grid associated with the player]
+     * @param {BattleMatrice} targetGrid [Fire history grid]
      */
     constructor(name, grid, targetGrid) {
         this._name = undefined;

@@ -2,6 +2,10 @@ import { Dictionary } from 'typescript-collections';
 import { MatriceCase } from "./matriceCase";
 import { EnumShip } from "./enumShip";
 import { EnumOrientation } from "./enumOrientation";
+/**
+ * Create an Ship object
+ * @class <p>The ship skeleton</p>
+ */
 export declare abstract class Ship {
     protected _shipName: string;
     protected _shipType: EnumShip;
@@ -11,21 +15,21 @@ export declare abstract class Ship {
     protected _startCase: MatriceCase;
     protected _endCase: MatriceCase;
     /**
-     * [constructor description]
-     * @param {string}                                                 shipName     [description]
-     * @param {EnumShip}                                      shipType     [description]
-     * @param {number}                                                 shipSize     [description]
-     * @param {Dictionary<string,MatriceCase>} shipPosition [description]
-     * @param {MatriceCase}                                startCase    [description]
-     * @param {MatriceCase}                                endCase      [description]
+     * [Ship constructor]
+     * @param {string} shipName     [the ship's name]
+     * @param {EnumShip} shipType     [the ship's type]
+     * @param {number} shipSize     [the ship's size]
+     * @param {Dictionary<string,MatriceCase>} shipPosition [All ship's boxes]
+     * @param {MatriceCase} startCase    [The fist ship's box]
+     * @param {MatriceCase} endCase      [The last ship's box]
      */
     constructor(shipName: string, shipType: EnumShip, shipSize: number, shipOrient: EnumOrientation, shipPosition: Dictionary<string, MatriceCase>);
     /**
-     * [calCulStartCase description]
+     * [calCulStartCase Calculate the first box of the ship]
      */
     calculStartCase(): MatriceCase;
     /**
-     * [calCulEndCase description]
+     * [calCulEndCase Calculate the last box of the ship]
      */
     calculEndCase(): MatriceCase;
     shipName: string;

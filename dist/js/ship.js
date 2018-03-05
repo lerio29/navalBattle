@@ -1,15 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const enumOrientation_1 = require("./enumOrientation");
+/**
+ * Create an Ship object
+ * @class <p>The ship skeleton</p>
+ */
 class Ship {
     /**
-     * [constructor description]
-     * @param {string}                                                 shipName     [description]
-     * @param {EnumShip}                                      shipType     [description]
-     * @param {number}                                                 shipSize     [description]
-     * @param {Dictionary<string,MatriceCase>} shipPosition [description]
-     * @param {MatriceCase}                                startCase    [description]
-     * @param {MatriceCase}                                endCase      [description]
+     * [Ship constructor]
+     * @param {string} shipName     [the ship's name]
+     * @param {EnumShip} shipType     [the ship's type]
+     * @param {number} shipSize     [the ship's size]
+     * @param {Dictionary<string,MatriceCase>} shipPosition [All ship's boxes]
+     * @param {MatriceCase} startCase    [The fist ship's box]
+     * @param {MatriceCase} endCase      [The last ship's box]
      */
     constructor(shipName, shipType, shipSize, shipOrient, shipPosition) {
         this._shipName = shipName;
@@ -19,7 +23,7 @@ class Ship {
         this._shipPosition = shipPosition;
     }
     /**
-     * [calCulStartCase description]
+     * [calCulStartCase Calculate the first box of the ship]
      */
     calculStartCase() {
         let min = 50; //valeur simplement plus grande que la taille de la grille
@@ -42,7 +46,7 @@ class Ship {
         return this._startCase;
     }
     /**
-     * [calCulEndCase description]
+     * [calCulEndCase Calculate the last box of the ship]
      */
     calculEndCase() {
         let max = -50; //valeur simplement plus petite que la taille de la grille
