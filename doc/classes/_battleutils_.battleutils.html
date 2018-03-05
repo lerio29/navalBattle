@@ -104,6 +104,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_battleutils_.battleutils.html#alphatoverticalposition" class="tsd-kind-icon">alpha<wbr>ToVertical<wbr>Position</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_battleutils_.battleutils.html#checkallpositions" class="tsd-kind-icon">check<wbr>All<wbr>Positions</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_battleutils_.battleutils.html#checkposition" class="tsd-kind-icon">check<wbr>Position</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_battleutils_.battleutils.html#generatekeygrid" class="tsd-kind-icon">generate<wbr>Key<wbr>Grid</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_battleutils_.battleutils.html#generatekeygridbyval" class="tsd-kind-icon">generate<wbr>Key<wbr>Grid<wbr>ByVal</a></li>
@@ -121,7 +122,7 @@
 					<div class="tsd-signature tsd-kind-icon">_alphabet<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;,&quot;E&quot;,&quot;F&quot;,&quot;G&quot;,&quot;H&quot;,&quot;I&quot;,&quot;J&quot;,&quot;K&quot;,&quot;L&quot;,&quot;M&quot;,&quot;N&quot;,&quot;O&quot;,&quot;P&quot;,&quot;Q&quot;,&quot;R&quot;,&quot;S&quot;,&quot;T&quot;,&quot;U&quot;,&quot;V&quot;,&quot;W&quot;,&quot;X&quot;,&quot;Y&quot;,&quot;Z&quot;]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lerio29/navalBattle/blob/bd2ce195/src/battleUtils.ts#L12">battleUtils.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/lerio29/navalBattle/blob/d71c7ed2/src/battleUtils.ts#L13">battleUtils.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -131,7 +132,7 @@
 					<div class="tsd-signature tsd-kind-icon">_separator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;-&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lerio29/navalBattle/blob/bd2ce195/src/battleUtils.ts#L10">battleUtils.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/lerio29/navalBattle/blob/d71c7ed2/src/battleUtils.ts#L11">battleUtils.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -148,13 +149,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/lerio29/navalBattle/blob/bd2ce195/src/battleUtils.ts#L30">battleUtils.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/lerio29/navalBattle/blob/d71c7ed2/src/battleUtils.ts#L31">battleUtils.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>[alphaToVerticalPosition Convert a character into a horizontal number position]</p>
-								</div>
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>[alphaToVerticalPosition Convert a character into a horizontal number position]</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -168,6 +171,40 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="checkallpositions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> check<wbr>All<wbr>Positions</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">check<wbr>All<wbr>Positions<span class="tsd-signature-symbol">(</span>mCases<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><a href="_matricecase_.matricecase.html" class="tsd-signature-type">MatriceCase</a><span class="tsd-signature-symbol">&gt;</span>, gridSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/lerio29/navalBattle/blob/d71c7ed2/src/battleUtils.ts#L75">battleUtils.ts:75</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>[checkPosition Check the existence of boxes]</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>mCases: <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><a href="_matricecase_.matricecase.html" class="tsd-signature-type">MatriceCase</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5>gridSize: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>[The Result]</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a name="checkposition" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> check<wbr>Position</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
@@ -177,13 +214,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/lerio29/navalBattle/blob/bd2ce195/src/battleUtils.ts#L60">battleUtils.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/lerio29/navalBattle/blob/d71c7ed2/src/battleUtils.ts#L61">battleUtils.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>[checkPosition description]</p>
-								</div>
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>[checkPosition Check the existence of a box]</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -195,7 +234,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>[description]</p>
+							<p>[The Result]</p>
 						</li>
 					</ul>
 				</section>
@@ -209,13 +248,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/lerio29/navalBattle/blob/bd2ce195/src/battleUtils.ts#L40">battleUtils.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/lerio29/navalBattle/blob/d71c7ed2/src/battleUtils.ts#L41">battleUtils.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>[generateKeyGrid description]</p>
-								</div>
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>[generateKeyGrid Generate a key from a MatriceCase object]</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -224,7 +265,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>[description]</p>
+							<p>[The key generated]</p>
 						</li>
 					</ul>
 				</section>
@@ -238,13 +279,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/lerio29/navalBattle/blob/bd2ce195/src/battleUtils.ts#L50">battleUtils.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/lerio29/navalBattle/blob/d71c7ed2/src/battleUtils.ts#L51">battleUtils.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>[generateKeyGridByVal description]</p>
-								</div>
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>[generateKeyGridByVal Generate a key from vertical/horizontal values]</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -256,7 +299,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>[description]</p>
+							<p>[The key generated]</p>
 						</li>
 					</ul>
 				</section>
@@ -270,13 +313,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/lerio29/navalBattle/blob/bd2ce195/src/battleUtils.ts#L20">battleUtils.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/lerio29/navalBattle/blob/d71c7ed2/src/battleUtils.ts#L21">battleUtils.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>[horizontalPositionToAlpha Convert a number into a horizontal alphaNumeric position]</p>
-								</div>
+								<dl class="tsd-comment-tags">
+									<dt>description</dt>
+									<dd><p>[horizontalPositionToAlpha Convert a number into a horizontal alphaNumeric position]</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -362,6 +407,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="_battleutils_.battleutils.html#alphatoverticalposition" class="tsd-kind-icon">alpha<wbr>ToVertical<wbr>Position</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_battleutils_.battleutils.html#checkallpositions" class="tsd-kind-icon">check<wbr>All<wbr>Positions</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="_battleutils_.battleutils.html#checkposition" class="tsd-kind-icon">check<wbr>Position</a>
