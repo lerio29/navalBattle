@@ -39,7 +39,7 @@ class BattleMatrice {
         }
     }
     /**
-     * [updateMatrice method update a box values]
+     * @description [updateMatrice method update a box values]
      * @param {MatriceCase} status [Update box datas from the key]
      */
     updateMatrice(status) {
@@ -48,7 +48,7 @@ class BattleMatrice {
         this._matrice.setValue(tmpKey, status);
     }
     /**
-     * [addShip add a ship to the matrix]
+     * @description [addShip add a ship to the matrix]
      * @param {Ship.Ship} ship [A ship]
      */
     addShip(ship) {
@@ -56,7 +56,7 @@ class BattleMatrice {
         this._ships.add(ship);
     }
     /**
-     * [addShips add a ships set to the matrix]
+     * @description [addShips add a ships set to the matrix]
      * @param {Set<Ship>} ships [ships set]
      */
     addShips(ships) {

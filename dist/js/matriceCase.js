@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 class MatriceCase {
     /**
-     * [MatriceCase constructor]
+     * @constructor [MatriceCase constructor]
      * @param {number}  hor [The horizontal value]
      * @param {number}  vert [The vertical value]
      * @param {EnumStatus} state [The state value]
@@ -17,14 +17,14 @@ class MatriceCase {
         this.state = state;
     }
     /**
-     * [updateStatus Update a box state]
+     * @description [updateStatus Update a box state]
      * @param {EnumStatus} state ][The update state}
      */
     updateStatus(state) {
         this.state = state;
     }
     /**
-     * [toString Informations about a MatriceCase object ]
+     * @description [toString Informations about a MatriceCase object ]
      * @return {string} [MatriceCase informations]
      */
     toString() {

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 class BattleUtils {
     /**
-     * [horizontalPositionToAlpha Convert a number into a horizontal alphaNumeric position]
+     * @description [horizontalPositionToAlpha Convert a number into a horizontal alphaNumeric position]
      * @param  {number} position [A number position]
      * @return {string}          [A character representation of the horizontal position]
      */
@@ -14,7 +14,7 @@ class BattleUtils {
         return this._alphabet[position - 1];
     }
     /**
-     * [alphaToVerticalPosition Convert a character into a horizontal number position]
+     * @description [alphaToVerticalPosition Convert a character into a horizontal number position]
      * @param  {string} letter [A character representation of the horizontal position]
      * @return {number}        [A number representation of the horizontal position]
      */
@@ -22,7 +22,7 @@ class BattleUtils {
         return this._alphabet.indexOf(letter) + 1;
     }
     /**
-     * [generateKeyGrid Generate a key from a MatriceCase object]
+     * @description [generateKeyGrid Generate a key from a MatriceCase object]
      * @param  {MatriceCase} mCase [A matrix box object]
      * @return {string}            [The key generated]
      */
@@ -30,7 +30,7 @@ class BattleUtils {
         return this.horizontalPositionToAlpha(mCase.hor) + this._separator + mCase.vert;
     }
     /**
-     * [generateKeyGridByVal Generate a key from vertical/horizontal values]
+     * @description [generateKeyGridByVal Generate a key from vertical/horizontal values]
      * @param  {number} hor  [horizontal value]
      * @param  {number} vert [vertical value]
      * @return {string}      [The key generated]
@@ -39,7 +39,7 @@ class BattleUtils {
         return this.horizontalPositionToAlpha(hor) + this._separator + vert;
     }
     /**
-     * [checkPosition Check the existence of a box]
+     * @description [checkPosition Check the existence of a box]
      * @param  {MatriceCase} mCase    [Box to verify]
      * @param  {number}      gridSize [The matrix size]
      * @return {boolean}              [The Result]
@@ -51,7 +51,7 @@ class BattleUtils {
         return true;
     }
     /**
-     * [checkPosition Check the existence of boxes]
+     * @description [checkPosition Check the existence of boxes]
      * @param  {Set<MatriceCase>} mCase    [Boxes to verify]
      * @param  {number}      gridSize [The matrix size]
      * @return {boolean}              [The Result]

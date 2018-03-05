@@ -23,7 +23,7 @@ class Ship {
         this._shipPosition = shipPosition;
     }
     /**
-     * [calCulStartCase Calculate the first box of the ship]
+     * @description [calCulStartCase Calculate the first box of the ship]
      */
     calculStartCase() {
         let min = 50; //valeur simplement plus grande que la taille de la grille
@@ -46,7 +46,7 @@ class Ship {
         return this._startCase;
     }
     /**
-     * [calCulEndCase Calculate the last box of the ship]
+     * @description [calCulEndCase Calculate the last box of the ship]
      */
     calculEndCase() {
         let max = -50; //valeur simplement plus petite que la taille de la grille

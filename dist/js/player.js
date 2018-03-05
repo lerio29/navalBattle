@@ -8,6 +8,7 @@ class Player {
     //TODO ajouter une deuxième grid pour avoir le bilan du tir sur la grid ennemie
     /**
      * [Player constructor]
+     * @constructor
      * @param {string}        name       [Player Name]
      * @param {BattleMatrice} grid       [grid associated with the player]
      * @param {BattleMatrice} targetGrid [Fire history grid]

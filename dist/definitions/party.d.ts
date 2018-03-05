@@ -17,7 +17,7 @@ export declare class Party {
      */
     constructor(player1: Player, player2: Player);
     /**
-     * [hit For to shoot on a enemy ship ]
+     * @description [hit For to shoot on a enemy ship ]
      * @param {Player} fromPlayer [Player behind the shot]
      * @param {Player} intoPlayer [Player undergoing shooting]
      * @param {number} hor        [Horizontal target]

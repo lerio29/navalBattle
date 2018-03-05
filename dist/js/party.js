@@ -25,7 +25,7 @@ class Party {
         this._id = this._players.toString().trim() + this._timestamp.toString();
     }
     /**
-     * [hit For to shoot on a enemy ship ]
+     * @description [hit For to shoot on a enemy ship ]
      * @param {Player} fromPlayer [Player behind the shot]
      * @param {Player} intoPlayer [Player undergoing shooting]
      * @param {number} hor        [Horizontal target]

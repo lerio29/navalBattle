@@ -25,11 +25,11 @@ export declare abstract class Ship {
      */
     constructor(shipName: string, shipType: EnumShip, shipSize: number, shipOrient: EnumOrientation, shipPosition: Dictionary<string, MatriceCase>);
     /**
-     * [calCulStartCase Calculate the first box of the ship]
+     * @description [calCulStartCase Calculate the first box of the ship]
      */
     calculStartCase(): MatriceCase;
     /**
-     * [calCulEndCase Calculate the last box of the ship]
+     * @description [calCulEndCase Calculate the last box of the ship]
      */
     calculEndCase(): MatriceCase;
     shipName: string;
