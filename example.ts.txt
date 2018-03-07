@@ -68,7 +68,7 @@ player2.grid = grillePlayer2;
 
 let party :Party = new Party(player1,player2);
 
-party.hit(player1, player2, 1, 1);
+let resultatAction :EnumStatus = party.hit(player1, player2, 1, 1); //faire une queue des actions si necessaire
 party.hit(player2, player1, 1, 1);
 
 

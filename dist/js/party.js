@@ -2,7 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const battleUtils_1 = require("./battleUtils");
 const enumStatus_1 = require("./enumStatus");
+const matriceCase_1 = require("./matriceCase");
 const logger_1 = require("./logger");
+const typescript_collections_1 = require("typescript-collections");
 /**
  * Create an Party object
  * @class <p>A Party</p>
@@ -16,12 +18,12 @@ class Party {
      */
     constructor(player1, player2) {
         this._logger = new logger_1.Logger();
-        this._players = [];
         this._timestamp = undefined;
         this._id = undefined;
         this._timestamp = Date.now();
-        this._players.push(player1.name);
-        this._players.push(player2.name);
+        this._players = new typescript_collections_1.Dictionary();
+        this._players.setValue(player1.uid, player1);
+        this._players.setValue(player2.uid, player2);
         this._id = this._players.toString().trim() + this._timestamp.toString();
     }
     /**
@@ -32,15 +34,35 @@ class Party {
      * @param {number} vert       [Vertical targer]
      */
     hit(fromPlayer, intoPlayer, hor, vert) {
-        let grilleFromPlayer = fromPlayer.grid;
-        let grilleIntoPlayer = intoPlayer.grid;
-        if (grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert)).state === enumStatus_1.EnumStatus.STATUS_EMPTY) {
-            grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert)).updateStatus(enumStatus_1.EnumStatus.STATUS_FAIL);
+        let currentStatus = intoPlayer.grid.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert)).state;
+        if (currentStatus === enumStatus_1.EnumStatus.STATUS_EMPTY) {
+            const tmpBox = new matriceCase_1.MatriceCase(hor, vert, enumStatus_1.EnumStatus.STATUS_FAIL);
+            fromPlayer.targetGrid.updateMatrice(tmpBox);
+            intoPlayer.grid.updateMatrice(tmpBox);
+            //update des joueurs de la partie
+            this._players.setValue(fromPlayer.uid, fromPlayer);
+            this._players.setValue(intoPlayer.uid, intoPlayer);
+            return enumStatus_1.EnumStatus.STATUS_FAIL;
         }
         else {
-            grilleIntoPlayer.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert)).updateStatus(enumStatus_1.EnumStatus.STATUS_HIT);
+            if (currentStatus != fromPlayer.targetGrid.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert)).state) {
+                const tmpBox = new matriceCase_1.MatriceCase(hor, vert, enumStatus_1.EnumStatus.STATUS_HIT);
+                fromPlayer.targetGrid.updateMatrice(tmpBox);
+                intoPlayer.grid.updateMatrice(tmpBox);
+                //update des joueurs de la partie
+                this._players.setValue(fromPlayer.uid, fromPlayer);
+                this._players.setValue(intoPlayer.uid, intoPlayer);
+                return enumStatus_1.EnumStatus.STATUS_HIT;
+            }
+            else {
+                return enumStatus_1.EnumStatus.STATUS_ALREADY;
+            }
         }
     }
+    /**
+     * [getId description]
+     * @return {string} [description]
+     */
     get getId() {
         return this._id;
     }

@@ -7,6 +7,7 @@ export declare class Player {
     private _name;
     private _grid;
     private _targetGrid;
+    private _uid;
     /**
      * [Player constructor]
      * @constructor
@@ -17,5 +18,6 @@ export declare class Player {
     constructor(name: string, grid?: BattleMatrice, targetGrid?: BattleMatrice);
     name: string;
     grid: BattleMatrice;
+    readonly uid: string;
     targetGrid: BattleMatrice;
 }

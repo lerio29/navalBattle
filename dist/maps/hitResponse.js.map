@@ -1,0 +1,1 @@
+{"version":3,"sources":["hitResponse.ts"],"names":[],"mappings":"","file":"../src/hitResponse.js","sourcesContent":["import {EnumStatus} from \"./enumStatus\";\nimport {Player} from \"./player\";\n\nexport interface HitResponse {\n\n\tstatus :EnumStatus;\n\tfromPlayer :Player;\n\tintoPlayer :Player;\n\n\t\n}"]}

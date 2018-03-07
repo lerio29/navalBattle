@@ -60,8 +60,7 @@ describe('BattleMatrice Tests', () => {
   });
 
   it('should return a hash sha1', () => {
-    let  bm :BattleMatrice =  new BattleMatrice(10, false);
-    console.log("test uid : " + bm.getIdHash);
+    let  bm :BattleMatrice =  new BattleMatrice(10, false);    
     expect(bm.getIdHash).not.null;
   });
 

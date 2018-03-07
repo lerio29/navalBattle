@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const battleUtils_1 = require("./battleUtils");
 /**
  * Create an Player object
  * @class <p>A Player</p>
@@ -17,6 +18,8 @@ class Player {
         this._name = undefined;
         this._grid = undefined;
         this._targetGrid = undefined;
+        this._uid = undefined;
+        this._uid = battleUtils_1.BattleUtils.createUniqueId();
         this._name = name;
         this._grid = grid;
         this._targetGrid = targetGrid;
@@ -29,6 +32,9 @@ class Player {
     }
     get grid() {
         return this._grid;
+    }
+    get uid() {
+        return this._uid;
     }
     set grid(grid) {
         this._grid = grid;

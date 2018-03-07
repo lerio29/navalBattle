@@ -1,4 +1,5 @@
 import {BattleMatrice} from "./battleMatrice"; 
+import {BattleUtils} from "./battleUtils";
 
 
 /**
@@ -10,6 +11,7 @@ import {BattleMatrice} from "./battleMatrice";
  	private _name :string = undefined;
  	private _grid :BattleMatrice = undefined;
  	private _targetGrid :BattleMatrice = undefined;
+ 	private _uid :string = undefined;
 
  	//TODO ajouter une deuxième grid pour avoir le bilan du tir sur la grid ennemie
  	
@@ -22,6 +24,7 @@ import {BattleMatrice} from "./battleMatrice";
  	 * @param {BattleMatrice} targetGrid [Fire history grid]
  	 */
  	constructor(name :string, grid ?:BattleMatrice, targetGrid ?:BattleMatrice){
+ 		this._uid = BattleUtils.createUniqueId();
  		this._name = name;
  		this._grid = grid;
  		this._targetGrid = targetGrid;
@@ -31,7 +34,7 @@ import {BattleMatrice} from "./battleMatrice";
 
  	get name() :string{
 			return this._name;
-		}
+	}
 
 	set name(name :string){
 		this._name = name;
@@ -39,7 +42,11 @@ import {BattleMatrice} from "./battleMatrice";
 
 	get grid() :BattleMatrice{
 			return this._grid;
-		}
+	}
+
+	get uid() :string{
+		return this._uid;
+	}
 
 	set grid(grid :BattleMatrice){
 		this._grid = grid;
@@ -52,8 +59,6 @@ import {BattleMatrice} from "./battleMatrice";
 	set targetGrid(targetGrid :BattleMatrice){
 		this._targetGrid = targetGrid;
 	}
-
-
 
 
 

@@ -16,8 +16,6 @@ export class BattleMatrice {
 
 	private _logger :Logger  = new Logger();
 
-
-	// private  _matrice: Collections.Set<MatriceCase.MatriceCase>;
 	private  _matrice: Dictionary<string,MatriceCase>;
 	private _size: number;
 	private _ships: Set<Ship>;

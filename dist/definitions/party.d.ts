@@ -1,4 +1,5 @@
 import { Player } from "./player";
+import { EnumStatus } from "./enumStatus";
 import { Logger } from "./logger";
 /**
  * Create an Party object
@@ -23,6 +24,10 @@ export declare class Party {
      * @param {number} hor        [Horizontal target]
      * @param {number} vert       [Vertical targer]
      */
-    hit(fromPlayer: Player, intoPlayer: Player, hor: number, vert: number): void;
+    hit(fromPlayer: Player, intoPlayer: Player, hor: number, vert: number): EnumStatus;
+    /**
+     * [getId description]
+     * @return {string} [description]
+     */
     readonly getId: string;
 }
