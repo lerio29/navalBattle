@@ -2,8 +2,8 @@
 
 export enum EnumOrientation {
 
-	OR_VERTICAL,
-	OR_HORIZONTAL
+	OR_VERTICAL = 0,
+	OR_HORIZONTAL = 1
 
 }
 

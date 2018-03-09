@@ -1,6 +1,7 @@
 import { Dictionary, Set }  from 'typescript-collections';
 import { MatriceCase } from "./matriceCase"; 
 import { EnumStatus } from "./enumStatus";
+import { EnumShip } from "./enumShip";
 import {BattleUtils} from "./battleUtils";
 import {Ship} from "./ship";
 import {Logger} from "./logger";
@@ -70,11 +71,12 @@ export class BattleMatrice {
 	 * @description [updateMatrice method update a box values]
 	 * @param {MatriceCase} status [Update box datas from the key]
 	 */
-	updateMatrice(status :MatriceCase){
+	updateMatrice(status :MatriceCase) :Dictionary<string,MatriceCase>{
 		
 		//on MAJ la case qui correspond à la cle 
 		let tmpKey: string = BattleUtils.generateKeyGridByVal(status.hor, status.vert)
 		this._matrice.setValue(tmpKey,status);
+		return this._matrice;
 		
 	}
 
@@ -95,6 +97,31 @@ export class BattleMatrice {
 		for(let ship of ships.toArray()){
 			this.addShip(ship);
 		}
+	}
+
+	/**
+	 * [checkShipIsSet description]
+	 * @param  {number}   hor  [description]
+	 * @param  {number}   vert [description]
+	 * @return {EnumShip}      [description]
+	 */
+	checkShipIsSet(hor :number, vert :number) :EnumShip {
+
+		let result :EnumShip = undefined;
+
+		//on parcourt les navires presents
+		this._ships.forEach(ship => {
+
+			//on verifie les coordonnees
+    		if(ship.shipPosition.containsKey(BattleUtils.generateKeyGridByVal(hor,vert))){
+    			result = ship.shipType;
+    		}
+    			
+    		
+		});
+
+		return result;    		
+
 	}
 
 	/**

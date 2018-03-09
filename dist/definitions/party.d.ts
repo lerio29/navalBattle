@@ -1,6 +1,7 @@
 import { Player } from "./player";
 import { EnumStatus } from "./enumStatus";
 import { Logger } from "./logger";
+import { Dictionary } from 'typescript-collections';
 /**
  * Create an Party object
  * @class <p>A Party</p>
@@ -24,10 +25,11 @@ export declare class Party {
      * @param {number} hor        [Horizontal target]
      * @param {number} vert       [Vertical targer]
      */
-    hit(fromPlayer: Player, intoPlayer: Player, hor: number, vert: number): EnumStatus;
+    hit(fromPlayerUid: string, intoPlayerUid: string, hor: number, vert: number): EnumStatus;
     /**
      * [getId description]
      * @return {string} [description]
      */
     readonly getId: string;
+    readonly getPlayers: Dictionary<string, Player>;
 }

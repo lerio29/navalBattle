@@ -33,30 +33,25 @@ class Party {
      * @param {number} hor        [Horizontal target]
      * @param {number} vert       [Vertical targer]
      */
-    hit(fromPlayer, intoPlayer, hor, vert) {
-        let currentStatus = intoPlayer.grid.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert)).state;
-        if (currentStatus === enumStatus_1.EnumStatus.STATUS_EMPTY) {
+    hit(fromPlayerUid, intoPlayerUid, hor, vert) {
+        let EnnemyStatus = this._players.getValue(fromPlayerUid).targetGrid.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert)).state;
+        //verif si presence bateau
+        let shipIsSet = this._players.getValue(intoPlayerUid).grid.checkShipIsSet(hor, vert);
+        if (EnnemyStatus === enumStatus_1.EnumStatus.STATUS_EMPTY && typeof (shipIsSet) == "undefined") {
             const tmpBox = new matriceCase_1.MatriceCase(hor, vert, enumStatus_1.EnumStatus.STATUS_FAIL);
-            fromPlayer.targetGrid.updateMatrice(tmpBox);
-            intoPlayer.grid.updateMatrice(tmpBox);
-            //update des joueurs de la partie
-            this._players.setValue(fromPlayer.uid, fromPlayer);
-            this._players.setValue(intoPlayer.uid, intoPlayer);
+            this._players.getValue(fromPlayerUid).targetGrid.updateMatrice(tmpBox);
             return enumStatus_1.EnumStatus.STATUS_FAIL;
         }
-        else {
-            if (currentStatus != fromPlayer.targetGrid.getMatrice.getValue(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert)).state) {
-                const tmpBox = new matriceCase_1.MatriceCase(hor, vert, enumStatus_1.EnumStatus.STATUS_HIT);
-                fromPlayer.targetGrid.updateMatrice(tmpBox);
-                intoPlayer.grid.updateMatrice(tmpBox);
-                //update des joueurs de la partie
-                this._players.setValue(fromPlayer.uid, fromPlayer);
-                this._players.setValue(intoPlayer.uid, intoPlayer);
-                return enumStatus_1.EnumStatus.STATUS_HIT;
-            }
-            else {
-                return enumStatus_1.EnumStatus.STATUS_ALREADY;
-            }
+        else if (EnnemyStatus === enumStatus_1.EnumStatus.STATUS_EMPTY && typeof (shipIsSet) != "undefined") {
+            // if(EnnemyStatus != this._players.getValue(fromPlayerUid).targetGrid.getMatrice.getValue(BattleUtils.generateKeyGridByVal(hor,vert)).state ){
+            const tmpBox = new matriceCase_1.MatriceCase(hor, vert, enumStatus_1.EnumStatus.STATUS_HIT);
+            this._players.getValue(fromPlayerUid).targetGrid.updateMatrice(tmpBox);
+            this._players.getValue(intoPlayerUid).grid.updateMatrice(tmpBox);
+            return enumStatus_1.EnumStatus.STATUS_HIT;
+            // }
+        }
+        else if (EnnemyStatus !== enumStatus_1.EnumStatus.STATUS_EMPTY) {
+            return enumStatus_1.EnumStatus.STATUS_ALREADY;
         }
     }
     /**
@@ -65,6 +60,9 @@ class Party {
      */
     get getId() {
         return this._id;
+    }
+    get getPlayers() {
+        return this._players;
     }
 }
 exports.Party = Party;

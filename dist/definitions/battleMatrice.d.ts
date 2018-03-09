@@ -1,5 +1,6 @@
 import { Dictionary, Set } from 'typescript-collections';
 import { MatriceCase } from "./matriceCase";
+import { EnumShip } from "./enumShip";
 import { Ship } from "./ship";
 /**
  * Create a battle matrix
@@ -21,7 +22,7 @@ export declare class BattleMatrice {
      * @description [updateMatrice method update a box values]
      * @param {MatriceCase} status [Update box datas from the key]
      */
-    updateMatrice(status: MatriceCase): void;
+    updateMatrice(status: MatriceCase): Dictionary<string, MatriceCase>;
     /**
      * @description [addShip add a ship to the matrix]
      * @param {Ship.Ship} ship [A ship]
@@ -32,6 +33,13 @@ export declare class BattleMatrice {
      * @param {Set<Ship>} ships [ships set]
      */
     addShips(ships: Set<Ship>): void;
+    /**
+     * [checkShipIsSet description]
+     * @param  {number}   hor  [description]
+     * @param  {number}   vert [description]
+     * @return {EnumShip}      [description]
+     */
+    checkShipIsSet(hor: number, vert: number): EnumShip;
     /**
      * [getSize Size of matrix]
      * @return {number} [Size of matrix]

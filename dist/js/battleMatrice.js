@@ -47,6 +47,7 @@ class BattleMatrice {
         //on MAJ la case qui correspond à la cle 
         let tmpKey = battleUtils_1.BattleUtils.generateKeyGridByVal(status.hor, status.vert);
         this._matrice.setValue(tmpKey, status);
+        return this._matrice;
     }
     /**
      * @description [addShip add a ship to the matrix]
@@ -64,6 +65,23 @@ class BattleMatrice {
         for (let ship of ships.toArray()) {
             this.addShip(ship);
         }
+    }
+    /**
+     * [checkShipIsSet description]
+     * @param  {number}   hor  [description]
+     * @param  {number}   vert [description]
+     * @return {EnumShip}      [description]
+     */
+    checkShipIsSet(hor, vert) {
+        let result = undefined;
+        //on parcourt les navires presents
+        this._ships.forEach(ship => {
+            //on verifie les coordonnees
+            if (ship.shipPosition.containsKey(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert))) {
+                result = ship.shipType;
+            }
+        });
+        return result;
     }
     /**
      * [getSize Size of matrix]

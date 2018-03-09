@@ -7,7 +7,7 @@ var EnumShip;
     EnumShip[EnumShip["SHIP_CONTRE_TORPILLEUR"] = 2] = "SHIP_CONTRE_TORPILLEUR";
     EnumShip[EnumShip["SHIP_SUBMARINE"] = 3] = "SHIP_SUBMARINE";
     EnumShip[EnumShip["SHIP_TORPILLEUR"] = 4] = "SHIP_TORPILLEUR";
-    EnumShip[EnumShip["SHIP_MINE"] = 5] = "SHIP_MINE";
+    EnumShip[EnumShip["SHIP_MINE"] = 5] = "SHIP_MINE"; //5
 })(EnumShip = exports.EnumShip || (exports.EnumShip = {}));
 
 //# sourceMappingURL=../maps/enumShip.js.map
