@@ -5,6 +5,7 @@ import { Dictionary } from 'typescript-collections';
 /**
  * Create an Party object
  * @class <p>A Party</p>
+ * @author Vincent VILERIO
  */
 export declare class Party {
     _logger: Logger;

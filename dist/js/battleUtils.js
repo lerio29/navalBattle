@@ -4,6 +4,7 @@ const sha1 = require("sha1/sha1");
 /**
  * Tools class
  * @class <p>Tools class</p>
+ * @author Vincent VILERIO
  */
 class BattleUtils {
     /**

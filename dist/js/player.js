@@ -4,6 +4,7 @@ const battleUtils_1 = require("./battleUtils");
 /**
  * Create an Player object
  * @class <p>A Player</p>
+ * @author Vincent VILERIO
  */
 class Player {
     //TODO ajouter une deuxième grid pour avoir le bilan du tir sur la grid ennemie

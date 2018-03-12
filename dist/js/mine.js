@@ -5,6 +5,7 @@ const enumShip_1 = require("./enumShip");
 /**
  * Create an Mine object
  * @class <p>A Mine is a Ship with a lenght of 1</p>
+ * @author Vincent VILERIO
  */
 class Mine extends ship_1.Ship {
     /**

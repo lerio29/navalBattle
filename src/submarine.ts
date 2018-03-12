@@ -8,6 +8,7 @@ import {EnumOrientation} from "./enumOrientation";
 /**
  * Create an Submarine object
  * @class <p>A Submarine is a Ship with a lenght of 3</p>
+ * @author Vincent VILERIO
  */
 export class Submarine  extends Ship{
 

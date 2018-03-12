@@ -1,6 +1,9 @@
 import * as chalk from 'chalk';
 
 
+/**
+ * @author Vincent VILERIO
+ */
 enum LEVEL {
 	INFO,
 	DEBUG,

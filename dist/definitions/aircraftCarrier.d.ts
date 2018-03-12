@@ -5,6 +5,7 @@ import { EnumOrientation } from "./enumOrientation";
 /**
  * Create an AircraftCarrier object
  * @class <p>A AircraftCarrier is a Ship with a lenght of 5</p>
+ * @author Vincent VILERIO
  */
 export declare class AircraftCarrier extends Ship {
     /**

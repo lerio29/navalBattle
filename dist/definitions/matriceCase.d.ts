@@ -2,6 +2,7 @@ import { EnumStatus } from "./enumStatus";
 /**
  * Create a matrix box object
  * @class <p>A MatriceCase contains all information for a matrix box.</p>
+ * @author Vincent VILERIO
  */
 export declare class MatriceCase {
     private _hor;

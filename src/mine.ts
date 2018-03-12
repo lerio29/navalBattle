@@ -9,6 +9,7 @@ import {EnumOrientation} from "./enumOrientation";
 /**
  * Create an Mine object
  * @class <p>A Mine is a Ship with a lenght of 1</p>
+ * @author Vincent VILERIO
  */
 export class Mine extends Ship{
 

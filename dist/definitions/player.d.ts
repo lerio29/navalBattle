@@ -2,6 +2,7 @@ import { BattleMatrice } from "./battleMatrice";
 /**
  * Create an Player object
  * @class <p>A Player</p>
+ * @author Vincent VILERIO
  */
 export declare class Player {
     private _name;

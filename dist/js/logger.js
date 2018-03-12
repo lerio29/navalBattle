@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const chalk = require("chalk");
+/**
+ * @author Vincent VILERIO
+ */
 var LEVEL;
 (function (LEVEL) {
     LEVEL[LEVEL["INFO"] = 0] = "INFO";

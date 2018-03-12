@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * @author Vincent VILERIO
+ */
 var EnumStatus;
 (function (EnumStatus) {
     EnumStatus[EnumStatus["STATUS_EMPTY"] = 0] = "STATUS_EMPTY";

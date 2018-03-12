@@ -5,6 +5,7 @@ const enumShip_1 = require("./enumShip");
 /**
  * Create an AircraftCarrier object
  * @class <p>A AircraftCarrier is a Ship with a lenght of 5</p>
+ * @author Vincent VILERIO
  */
 class AircraftCarrier extends ship_1.Ship {
     /**

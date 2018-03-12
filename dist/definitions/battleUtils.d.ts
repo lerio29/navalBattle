@@ -3,6 +3,7 @@ import { Set } from 'typescript-collections';
 /**
  * Tools class
  * @class <p>Tools class</p>
+ * @author Vincent VILERIO
  */
 export declare class BattleUtils {
     static readonly _separator: string;

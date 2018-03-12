@@ -5,6 +5,7 @@ import {BattleUtils} from "./battleUtils";
 /**
  * Create an Player object
  * @class <p>A Player</p>
+ * @author Vincent VILERIO
  */
  export class Player {
 

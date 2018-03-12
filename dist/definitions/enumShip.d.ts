@@ -1,3 +1,6 @@
+/**
+ * @author Vincent VILERIO
+ */
 export declare enum EnumShip {
     SHIP_PORTE_AVION = 0,
     SHIP_CROISEUR = 1,

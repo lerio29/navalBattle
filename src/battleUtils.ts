@@ -6,6 +6,7 @@ import * as sha1 from 'sha1/sha1';
 /**
  * Tools class
  * @class <p>Tools class</p>
+ * @author Vincent VILERIO
  */
 export class BattleUtils {
 

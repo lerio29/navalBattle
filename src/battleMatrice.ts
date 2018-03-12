@@ -12,6 +12,7 @@ import {Logger} from "./logger";
 /**
  * Create a battle matrix 
  * @class <p>A BattleMatrice is the war floor</p>
+ * @author Vincent VILERIO
  */
 export class BattleMatrice {
 
@@ -27,6 +28,8 @@ export class BattleMatrice {
 	 * [BattleMatrice constructor]
 	 * @param {number}  sizeMatrice [The size of th war floor : a square of value x value]
 	 * @param {boolean} silent      [Enable or disable logger]
+	 *
+	 * 
 	 */
 	constructor(sizeMatrice :number, silent :boolean){
 

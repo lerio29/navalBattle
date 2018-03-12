@@ -5,6 +5,7 @@ const enumShip_1 = require("./enumShip");
 /**
  * Create an Cruiser object
  * @class <p>A Cruiser is a Ship with a lenght of 4</p>
+ * @author Vincent VILERIO
  */
 class Cruiser extends ship_1.Ship {
     /**

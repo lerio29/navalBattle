@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Create a matrix box object
  * @class <p>A MatriceCase contains all information for a matrix box.</p>
+ * @author Vincent VILERIO
  */
 class MatriceCase {
     /**

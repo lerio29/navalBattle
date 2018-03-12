@@ -8,6 +8,7 @@ const typescript_collections_1 = require("typescript-collections");
 /**
  * Create an Party object
  * @class <p>A Party</p>
+ * @author Vincent VILERIO
  */
 class Party {
     /**

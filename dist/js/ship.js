@@ -4,6 +4,7 @@ const enumOrientation_1 = require("./enumOrientation");
 /**
  * Create an Ship object
  * @class <p>The ship skeleton</p>
+ * @author Vincent VILERIO
  */
 class Ship {
     /**

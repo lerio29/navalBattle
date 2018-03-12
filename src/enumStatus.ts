@@ -1,4 +1,7 @@
 
+/**
+ * @author Vincent VILERIO
+ */
 export  enum EnumStatus {
 	STATUS_EMPTY = 0,
 	STATUS_HIT = 1,

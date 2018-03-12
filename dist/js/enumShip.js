@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * @author Vincent VILERIO
+ */
 var EnumShip;
 (function (EnumShip) {
     EnumShip[EnumShip["SHIP_PORTE_AVION"] = 0] = "SHIP_PORTE_AVION";

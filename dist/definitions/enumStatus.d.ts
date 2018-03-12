@@ -1,3 +1,6 @@
+/**
+ * @author Vincent VILERIO
+ */
 export declare enum EnumStatus {
     STATUS_EMPTY = 0,
     STATUS_HIT = 1,

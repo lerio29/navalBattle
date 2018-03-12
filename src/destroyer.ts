@@ -9,6 +9,7 @@ import {EnumOrientation} from "./enumOrientation";
 /**
  * Create an Destroyer object
  * @class <p>A Destroyer is a Ship with a lenght of 3</p>
+ * @author Vincent VILERIO
  */
 export class Destroyer  extends Ship{
 

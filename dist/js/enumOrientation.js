@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * @author Vincent VILERIO
+ */
 var EnumOrientation;
 (function (EnumOrientation) {
     EnumOrientation[EnumOrientation["OR_VERTICAL"] = 0] = "OR_VERTICAL";

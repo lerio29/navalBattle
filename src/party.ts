@@ -11,6 +11,7 @@ import { Dictionary, Set }  from 'typescript-collections';
 /**
  * Create an Party object
  * @class <p>A Party</p>
+ * @author Vincent VILERIO
  */
 export class Party {
 	

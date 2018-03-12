@@ -10,6 +10,7 @@ import {EnumOrientation} from "./enumOrientation";
 	/**
 	 * Create an Ship object
 	 * @class <p>The ship skeleton</p>
+	 * @author Vincent VILERIO
 	 */
 	export abstract class Ship {
 
