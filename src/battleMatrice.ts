@@ -69,6 +69,10 @@ export class BattleMatrice {
 		
 	}
 
+	autoInstallShip(){
+		//TODO
+	}
+
 
 	/**
 	 * @description [updateMatrice method update a box values]

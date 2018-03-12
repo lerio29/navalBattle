@@ -31,12 +31,12 @@ describe('BattleMatrice Tests', () => {
     let  bm :BattleMatrice =  new BattleMatrice(10, false);   
     let val :MatriceCase = bm.getMatrice.getValue(_hor + "-" + _vert);
 
-    expect(0).to.equal(val.state);
+    expect("E").to.equal(val.state);
 
     let mc :MatriceCase =  new MatriceCase(5,2,EnumStatus.STATUS_HIT);  
 	  bm.updateMatrice(mc);
 
-	  expect(1).to.equal(bm.getMatrice.getValue(_hor + "-" + _vert).state);
+	  expect("H").to.equal(bm.getMatrice.getValue(_hor + "-" + _vert).state);
 
 
   });

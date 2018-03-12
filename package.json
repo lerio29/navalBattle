@@ -10,16 +10,16 @@
     "test": "./node_modules/mocha/bin/mocha  --reporter spec --require ts-node/register ./test/*.spec.ts"
   },
   "keywords": [
-      "battleShip",
-      "typescript",
-      "game",
-      "library",
-      "module",
-      "engine",
-      "dependencies",
-      "spaceship",
-      "tools"
-],
+    "battleShip",
+    "typescript",
+    "game",
+    "library",
+    "module",
+    "engine",
+    "dependencies",
+    "spaceship",
+    "tools"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lerio29/navalBattle.git"
