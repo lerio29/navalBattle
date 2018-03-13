@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import {BattleUtils} from '../src/battleUtils';
 import { EnumStatus } from "../src/enumStatus";
+import {JsonConfig, ShipsConfig} from "../src/jsonConfig";
 
 
 
@@ -23,5 +24,10 @@ describe('BattleUtils Tests', () => {
 
     expect("E-2").to.equal(val);
   });
+
+  // it('should return a good object from config1.json', () => {
+  //   let size :number = BattleUtils.getMetaGridSize();   
+  //   expect(10).to.equal(size);
+  // });
 
 });

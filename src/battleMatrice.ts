@@ -31,10 +31,13 @@ export class BattleMatrice {
 	 *
 	 * 
 	 */
-	constructor(sizeMatrice :number, silent :boolean){
+	constructor(sizeMatrice? :number, silent? :boolean){
 
-		if(!silent){
-			this._logger.silent = false;
+		
+
+		if((typeof(sizeMatrice) == "undefined") || sizeMatrice == null ){
+	
+			sizeMatrice = 10 ///BattleUtils.getMeta().gridSize;
 		}
 			
 		let initLoopH: number = 1;	
@@ -55,7 +58,7 @@ export class BattleMatrice {
 			let initLoopV: number = 1;	
 			while(initLoopV <= vMatrice){
 
-				caseMat = new MatriceCase(initLoopH, initLoopV,EnumStatus.STATUS_EMPTY);
+				caseMat = new MatriceCase(initLoopH, initLoopV);
 				this._logger.debug("test", "GenKey: " + BattleUtils.generateKeyGridByVal(initLoopH, initLoopV));
 				
 				this._matrice.setValue(BattleUtils.generateKeyGridByVal(initLoopH, initLoopV) ,caseMat);

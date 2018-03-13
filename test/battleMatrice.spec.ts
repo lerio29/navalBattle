@@ -21,14 +21,14 @@ describe('BattleMatrice Tests', () => {
 	const _hor :string = "E";
 
   it('should return a size of 10', () => {
-    let  bm :BattleMatrice =  new BattleMatrice(10, false);
+    let  bm :BattleMatrice =  new BattleMatrice(10);
 
     expect(10).to.equal(bm.getSize);
   });
 
   it('should change the status MatriceCase', () => {
     
-    let  bm :BattleMatrice =  new BattleMatrice(10, false);   
+    let  bm :BattleMatrice =  new BattleMatrice();   
     let val :MatriceCase = bm.getMatrice.getValue(_hor + "-" + _vert);
 
     expect("E").to.equal(val.state);
@@ -42,12 +42,12 @@ describe('BattleMatrice Tests', () => {
   });
 
   it('should add correctly a ship', () => {
-    let  bm :BattleMatrice = new BattleMatrice(10, false);
+    let  bm :BattleMatrice = new BattleMatrice(10);
 
     let smPosition: Dictionary<string,MatriceCase> = new Dictionary<string,MatriceCase>(); 
-    smPosition.setValue(BattleUtils.generateKeyGridByVal(1,1),new MatriceCase(1,1,EnumStatus.STATUS_EMPTY));
-    smPosition.setValue(BattleUtils.generateKeyGridByVal(1,2),new MatriceCase(1,2,EnumStatus.STATUS_EMPTY));
-    smPosition.setValue(BattleUtils.generateKeyGridByVal(1,3),new MatriceCase(1,3,EnumStatus.STATUS_EMPTY));
+    smPosition.setValue(BattleUtils.generateKeyGridByVal(1,1),new MatriceCase(1,1));
+    smPosition.setValue(BattleUtils.generateKeyGridByVal(1,2),new MatriceCase(1,2));
+    smPosition.setValue(BattleUtils.generateKeyGridByVal(1,3),new MatriceCase(1,3));
 
 
     let sm :Ship = new Submarine(smPosition, EnumOrientation.OR_HORIZONTAL);
@@ -60,7 +60,7 @@ describe('BattleMatrice Tests', () => {
   });
 
   it('should return a hash sha1', () => {
-    let  bm :BattleMatrice =  new BattleMatrice(10, false);    
+    let  bm :BattleMatrice =  new BattleMatrice(10);    
     expect(bm.getIdHash).not.null;
   });
 

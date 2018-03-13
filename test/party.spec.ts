@@ -27,14 +27,14 @@ describe('Party Tests', () => {
 
       //emplacement du cruiser
       cruiserPosition = new Dictionary<string,MatriceCase>(); 
-      cruiserPosition.setValue(BattleUtils.generateKeyGridByVal(2,1),new MatriceCase(2,1,EnumStatus.STATUS_EMPTY));
-      cruiserPosition.setValue(BattleUtils.generateKeyGridByVal(2,2),new MatriceCase(2,2,EnumStatus.STATUS_EMPTY));
-      cruiserPosition.setValue(BattleUtils.generateKeyGridByVal(2,3),new MatriceCase(2,3,EnumStatus.STATUS_EMPTY));
-      cruiserPosition.setValue(BattleUtils.generateKeyGridByVal(2,4),new MatriceCase(2,4,EnumStatus.STATUS_EMPTY));
+      cruiserPosition.setValue(BattleUtils.generateKeyGridByVal(2,1),new MatriceCase(2,1));
+      cruiserPosition.setValue(BattleUtils.generateKeyGridByVal(2,2),new MatriceCase(2,2));
+      cruiserPosition.setValue(BattleUtils.generateKeyGridByVal(2,3),new MatriceCase(2,3));
+      cruiserPosition.setValue(BattleUtils.generateKeyGridByVal(2,4),new MatriceCase(2,4));
 
       //emplacement de la mine
       minePosition = new Dictionary<string,MatriceCase>(); 
-      minePosition.setValue(BattleUtils.generateKeyGridByVal(9,7),new MatriceCase(9,7,EnumStatus.STATUS_EMPTY));
+      minePosition.setValue(BattleUtils.generateKeyGridByVal(9,7),new MatriceCase(9,7));
 
       name1 = Faker.name.findName();
       name2 = Faker.name.findName();
@@ -48,8 +48,8 @@ describe('Party Tests', () => {
       let player2 :Player = new Player(name2);      
 
       //initialisation matrices de jeux
-      let matricePlayer1 :BattleMatrice = new BattleMatrice(10,false);
-      let matricePlayer2 :BattleMatrice = new BattleMatrice(10,false);
+      let matricePlayer1 :BattleMatrice = new BattleMatrice();
+      let matricePlayer2 :BattleMatrice = new BattleMatrice(10);
 
 
       //creations des navires

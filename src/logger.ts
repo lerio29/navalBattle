@@ -30,7 +30,7 @@ export class Logger {
 	constructor() {
 	
 		this.logger = console.log;
-		this.silent = true;
+		this.silent = false;
 	}
 
 	public info(...args :any[]) :void{

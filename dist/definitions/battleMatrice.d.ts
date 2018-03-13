@@ -20,7 +20,7 @@ export declare class BattleMatrice {
      *
      *
      */
-    constructor(sizeMatrice: number, silent: boolean);
+    constructor(sizeMatrice?: number, silent?: boolean);
     autoInstallShip(): void;
     /**
      * @description [updateMatrice method update a box values]

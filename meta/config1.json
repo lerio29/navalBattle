@@ -1,0 +1,10 @@
+{
+	"gridSize": 10,
+	"ships": {
+		"aircraftCarrier": 1,
+		"cruiser":1,    
+		"destroyer": 1,
+		"submarine":1,
+		"mine":2
+	}
+}

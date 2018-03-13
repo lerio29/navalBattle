@@ -14,7 +14,7 @@ export declare class MatriceCase {
      * @param {number}  vert [The vertical value]
      * @param {EnumStatus} state [The state value]
      */
-    constructor(hor: number, vert: number, state: EnumStatus);
+    constructor(hor: number, vert: number, state?: EnumStatus);
     /**
      * @description [updateStatus Update a box state]
      * @param {EnumStatus} state ][The update state}

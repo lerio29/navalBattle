@@ -2,6 +2,9 @@ import {MatriceCase} from "./matriceCase";
 import { Dictionary, Set }  from 'typescript-collections';
 import {Ship} from "./ship";
 import * as sha1 from 'sha1/sha1';
+import * as loadJsonFile from 'load-json-file';
+import {JsonConfig, ShipsConfig} from "./jsonConfig";
+import {JsonConvert} from "json2typescript";
 
 /**
  * Tools class
@@ -87,5 +90,19 @@ export class BattleUtils {
 	static createUniqueId():string{
 		return sha1('uid-' + Math.random().toString(36).substr(2, 16) + new Date().getTime());
 	}
+
+	// static getMetaGridSize():number{
+	// 	let res :number = undefined;
+	// 	loadJsonFile('meta/config1.json').then(json => {
+	// 		console.log("toto" + json.gridSize)
+	// 		res = Number(json.gridSize);
+		   
+	// 	}).catch(err => {
+	// 		console.error("Method getMeta error : " + err);
+			
+	// 	});
+	// 	return res;
+		
+	// }
 
 }

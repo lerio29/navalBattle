@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const typescript_collections_1 = require("typescript-collections");
 const matriceCase_1 = require("./matriceCase");
-const enumStatus_1 = require("./enumStatus");
 const battleUtils_1 = require("./battleUtils");
 const logger_1 = require("./logger");
 /**
@@ -20,8 +19,8 @@ class BattleMatrice {
      */
     constructor(sizeMatrice, silent) {
         this._logger = new logger_1.Logger();
-        if (!silent) {
-            this._logger.silent = false;
+        if ((typeof (sizeMatrice) == "undefined") || sizeMatrice == null) {
+            sizeMatrice = 10; ///BattleUtils.getMeta().gridSize;
         }
         let initLoopH = 1;
         let hMatrice = sizeMatrice;
@@ -34,7 +33,7 @@ class BattleMatrice {
         while (initLoopH <= hMatrice) {
             let initLoopV = 1;
             while (initLoopV <= vMatrice) {
-                caseMat = new matriceCase_1.MatriceCase(initLoopH, initLoopV, enumStatus_1.EnumStatus.STATUS_EMPTY);
+                caseMat = new matriceCase_1.MatriceCase(initLoopH, initLoopV);
                 this._logger.debug("test", "GenKey: " + battleUtils_1.BattleUtils.generateKeyGridByVal(initLoopH, initLoopV));
                 this._matrice.setValue(battleUtils_1.BattleUtils.generateKeyGridByVal(initLoopH, initLoopV), caseMat);
                 initLoopV++;

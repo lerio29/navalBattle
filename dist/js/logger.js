@@ -22,7 +22,7 @@ class Logger {
      */
     constructor() {
         this.logger = console.log;
-        this.silent = true;
+        this.silent = false;
     }
     info(...args) {
         if (!this.silent) {

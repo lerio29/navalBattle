@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const enumStatus_1 = require("./enumStatus");
 /**
  * Create a matrix box object
  * @class <p>A MatriceCase contains all information for a matrix box.</p>
@@ -15,7 +16,12 @@ class MatriceCase {
     constructor(hor, vert, state) {
         this.hor = hor;
         this.vert = vert;
-        this.state = state;
+        if ((typeof (state) == "undefined") || (state === null)) {
+            this.state = enumStatus_1.EnumStatus.STATUS_EMPTY;
+        }
+        else {
+            this.state = state;
+        }
     }
     /**
      * @description [updateStatus Update a box state]

@@ -17,10 +17,16 @@ export class MatriceCase{
 	 * @param {number}  vert [The vertical value]
 	 * @param {EnumStatus} state [The state value]
 	 */
-	constructor(hor: number,vert: number,state: EnumStatus){
+	constructor(hor: number,vert: number,state?: EnumStatus){
 		this.hor = hor;
 		this.vert = vert;
-		this.state = state;
+
+		if((typeof(state) == "undefined") || (state === null) ){
+			this.state = EnumStatus.STATUS_EMPTY;
+		}else{
+			this.state = state;
+		}
+		
 	}	
 
 	/**

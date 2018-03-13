@@ -21,14 +21,14 @@ describe('Ships Tests', () => {
 
       //on créé une liste de cases
       let paPosition: Dictionary<string,MatriceCase> = new Dictionary<string,MatriceCase>(); 
-      paPosition.setValue(BattleUtils.generateKeyGridByVal(1,1),new MatriceCase(1,1,EnumStatus.STATUS_EMPTY));
-      paPosition.setValue(BattleUtils.generateKeyGridByVal(2,1),new MatriceCase(2,1,EnumStatus.STATUS_EMPTY));
-      paPosition.setValue(BattleUtils.generateKeyGridByVal(3,1),new MatriceCase(3,1,EnumStatus.STATUS_EMPTY));
-      paPosition.setValue(BattleUtils.generateKeyGridByVal(4,1),new MatriceCase(4,1,EnumStatus.STATUS_EMPTY));
-      paPosition.setValue(BattleUtils.generateKeyGridByVal(5,1),new MatriceCase(5,1,EnumStatus.STATUS_EMPTY));
+      paPosition.setValue(BattleUtils.generateKeyGridByVal(1,1),new MatriceCase(1,1));
+      paPosition.setValue(BattleUtils.generateKeyGridByVal(2,1),new MatriceCase(2,1));
+      paPosition.setValue(BattleUtils.generateKeyGridByVal(3,1),new MatriceCase(3,1));
+      paPosition.setValue(BattleUtils.generateKeyGridByVal(4,1),new MatriceCase(4,1));
+      paPosition.setValue(BattleUtils.generateKeyGridByVal(5,1),new MatriceCase(5,1));
 
 
-      let mctest :MatriceCase = new MatriceCase(1,1,EnumStatus.STATUS_EMPTY);
+      let mctest :MatriceCase = new MatriceCase(1,1);
       
 
       let porteAvion :AircraftCarrier = new AircraftCarrier(paPosition,EnumOrientation.OR_HORIZONTAL);

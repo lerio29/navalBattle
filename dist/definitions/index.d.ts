@@ -11,3 +11,4 @@ export { EnumStatus } from "./enumStatus";
 export { BattleUtils } from "./battleUtils";
 export { Player } from "./player";
 export { Party } from "./party";
+export { JsonConfig, ShipsConfig } from "./jsonConfig";
