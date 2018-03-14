@@ -48,6 +48,10 @@ class Party {
             const tmpBox = new matriceCase_1.MatriceCase(hor, vert, enumStatus_1.EnumStatus.STATUS_HIT);
             this._players.getValue(fromPlayerUid).targetGrid.updateMatrice(tmpBox);
             this._players.getValue(intoPlayerUid).grid.updateMatrice(tmpBox);
+            //MAJ hit state
+            this._players.getValue(fromPlayerUid).targetGrid.updateShip(hor, vert);
+            this._players.getValue(intoPlayerUid).grid.updateShip(hor, vert);
+            this._players.getValue(intoPlayerUid).grid.getShips;
             return enumStatus_1.EnumStatus.STATUS_HIT;
             // }
         }

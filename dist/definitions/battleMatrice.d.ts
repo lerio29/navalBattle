@@ -54,6 +54,7 @@ export declare class BattleMatrice {
      * @return {Set<Ship>} [A ships set]
      */
     readonly getShips: Set<Ship>;
+    updateShip(hor: number, vert: number): boolean;
     /**
      * [getMatrice Return all boxes in the matrix]
      * @return {Dictionary<MatriceCase>} [A boxes dictionnary]

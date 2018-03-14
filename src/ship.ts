@@ -14,13 +14,16 @@ import {EnumOrientation} from "./enumOrientation";
 	 */
 	export abstract class Ship {
 
-		protected _shipName: string;
-		protected _shipType: EnumShip;
-		protected _shipPosition: Dictionary<string,MatriceCase>;
-		protected _shipSize: number;
-		protected _shipOrient: EnumOrientation;
-		protected _startCase: MatriceCase;
-		protected _endCase: MatriceCase;
+		private _shipName: string;
+		private _shipType: EnumShip;
+		private _shipPosition: Dictionary<string,MatriceCase>;
+		private _shipSize: number;
+		private _shipOrient: EnumOrientation;
+		private _startCase: MatriceCase;
+		private _endCase: MatriceCase;
+		private _sunk: boolean;
+		private _hits: number;
+
 
 
 		/**
@@ -40,7 +43,20 @@ import {EnumOrientation} from "./enumOrientation";
 			this._shipSize = shipSize;
 			this._shipOrient = shipOrient;
 			this._shipPosition = shipPosition;
+			this._sunk = false;
+			this._hits = 0;
 
+		}
+
+		incrementHits(){
+			this._hits++;			
+			if(this._hits === this._shipSize){
+				this._sunk = true;
+			}
+		}
+
+		checkSunk() :boolean{
+			return this._sunk;
 		}
 
 		/**

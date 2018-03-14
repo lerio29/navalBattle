@@ -64,6 +64,12 @@ export class Party {
 		 		this._players.getValue(fromPlayerUid).targetGrid.updateMatrice(tmpBox);
 		 		this._players.getValue(intoPlayerUid).grid.updateMatrice(tmpBox);
 
+		 		//MAJ hit state
+		 		this._players.getValue(fromPlayerUid).targetGrid.updateShip(hor,vert);
+		 		this._players.getValue(intoPlayerUid).grid.updateShip(hor,vert);
+		 		
+
+		 		this._players.getValue(intoPlayerUid).grid.getShips
 		 		
 		 		return EnumStatus.STATUS_HIT;
 

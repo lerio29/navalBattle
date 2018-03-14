@@ -20,7 +20,7 @@ class BattleMatrice {
     constructor(sizeMatrice, silent) {
         this._logger = new logger_1.Logger();
         if ((typeof (sizeMatrice) == "undefined") || sizeMatrice == null) {
-            sizeMatrice = 10; ///BattleUtils.getMeta().gridSize;
+            sizeMatrice = 10;
         }
         let initLoopH = 1;
         let hMatrice = sizeMatrice;
@@ -101,6 +101,15 @@ class BattleMatrice {
      */
     get getShips() {
         return this._ships;
+    }
+    updateShip(hor, vert) {
+        this._ships.forEach(ship => {
+            if (ship.shipPosition.containsKey(battleUtils_1.BattleUtils.generateKeyGridByVal(hor, vert))) {
+                ship.incrementHits();
+                return ship.checkSunk();
+            }
+        });
+        return false;
     }
     /**
      * [getMatrice Return all boxes in the matrix]

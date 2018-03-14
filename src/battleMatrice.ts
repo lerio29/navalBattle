@@ -37,7 +37,7 @@ export class BattleMatrice {
 
 		if((typeof(sizeMatrice) == "undefined") || sizeMatrice == null ){
 	
-			sizeMatrice = 10 ///BattleUtils.getMeta().gridSize;
+			sizeMatrice = 10; 
 		}
 			
 		let initLoopH: number = 1;	
@@ -148,6 +148,21 @@ export class BattleMatrice {
 	 */
 	get getShips() :Set<Ship>{
 		return this._ships;
+	}
+
+	updateShip(hor :number, vert :number) :boolean{
+		
+
+		this._ships.forEach(ship => {
+			if(ship.shipPosition.containsKey(BattleUtils.generateKeyGridByVal(hor,vert))){
+    			ship.incrementHits();
+    			return ship.checkSunk();
+    		}
+
+		});
+		
+		return false;
+
 	}
 
 	/**

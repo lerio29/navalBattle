@@ -8,13 +8,15 @@ import { EnumOrientation } from "./enumOrientation";
  * @author Vincent VILERIO
  */
 export declare abstract class Ship {
-    protected _shipName: string;
-    protected _shipType: EnumShip;
-    protected _shipPosition: Dictionary<string, MatriceCase>;
-    protected _shipSize: number;
-    protected _shipOrient: EnumOrientation;
-    protected _startCase: MatriceCase;
-    protected _endCase: MatriceCase;
+    private _shipName;
+    private _shipType;
+    private _shipPosition;
+    private _shipSize;
+    private _shipOrient;
+    private _startCase;
+    private _endCase;
+    private _sunk;
+    private _hits;
     /**
      * [Ship constructor]
      * @param {string} shipName     [the ship's name]
@@ -25,6 +27,8 @@ export declare abstract class Ship {
      * @param {MatriceCase} endCase      [The last ship's box]
      */
     constructor(shipName: string, shipType: EnumShip, shipSize: number, shipOrient: EnumOrientation, shipPosition: Dictionary<string, MatriceCase>);
+    incrementHits(): void;
+    checkSunk(): boolean;
     /**
      * @description [calCulStartCase Calculate the first box of the ship]
      */

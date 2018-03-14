@@ -22,6 +22,17 @@ class Ship {
         this._shipSize = shipSize;
         this._shipOrient = shipOrient;
         this._shipPosition = shipPosition;
+        this._sunk = false;
+        this._hits = 0;
+    }
+    incrementHits() {
+        this._hits++;
+        if (this._hits === this._shipSize) {
+            this._sunk = true;
+        }
+    }
+    checkSunk() {
+        return this._sunk;
     }
     /**
      * @description [calCulStartCase Calculate the first box of the ship]
