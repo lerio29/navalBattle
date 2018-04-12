@@ -41,9 +41,6 @@ class BattleMatrice {
             initLoopH++;
         }
     }
-    autoInstallShip() {
-        //TODO
-    }
     /**
      * @description [updateMatrice method update a box values]
      * @param {MatriceCase} status [Update box datas from the key]

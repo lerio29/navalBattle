@@ -64,4 +64,7 @@ describe('BattleMatrice Tests', () => {
     expect(bm.getIdHash).not.null;
   });
 
+
+  
+
 });

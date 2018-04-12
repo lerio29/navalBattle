@@ -1,9 +1,14 @@
 import {MatriceCase} from "./matriceCase";
 import { Dictionary, Set }  from 'typescript-collections';
+import { EnumOrientation } from "./enumOrientation";
 import {Ship} from "./ship";
 import * as sha1 from 'sha1/sha1';
 import * as loadJsonFile from 'load-json-file';
 import {JsonConvert} from "json2typescript";
+import {BattleMatrice} from "./battleMatrice"; 
+import { EnumShip } from "./enumShip";
+
+
 
 /**
  * Tools class
@@ -88,6 +93,93 @@ export class BattleUtils {
 
 	static createUniqueId():string{
 		return sha1('uid-' + Math.random().toString(36).substr(2, 16) + new Date().getTime());
+	}
+
+/**
+ * [autoInstallShip description]
+ * @param  {number}    size  [Matrix size]
+ * @param  {Set<Ship>} ships [ships' list to be deployed]
+ * @return {Set<Ship>}       [populated list of ships]
+ */
+	static autoInstallShip(size :number, ships :Set<Ship>) :Set<Ship>{
+		
+		
+
+		//orientation initiale en mode random
+		let orientationRandom :EnumOrientation = EnumOrientation[Math.floor(Math.random() * 2 + 1).toString()];
+		// let res :Set<Ship> = new Set<Ship>();
+
+		let busyBox :Set<string> = new Set<string>();
+
+		ships.forEach(ship => {	
+
+			
+
+			// let key :string = BattleUtils.generateKeyGrid(initCase);
+			// tant que la case de depart est déjà occupée, on génère une autre
+			// while(busyBox.contains(key)){
+			// 	let horRandom :number = Math.floor(Math.random() * (size - 1) + 1);
+			// 	let vertRandom :number = Math.floor(Math.random() * (size - 1) + 1);
+			// 	initCase = new MatriceCase(horRandom,vertRandom);
+			// }	
+
+			let checkShip :boolean = BattleUtils.checkInstallShip(size, orientationRandom, ship, busyBox);
+
+			if(checkShip){
+
+				let num :number = 1;
+				while(num <= ship.shipSize){
+
+					
+
+					//on verifie que les cases ne sont pas deja utilisées
+					// if(!busyBox.contains(key)){
+						ship.shipPosition.setValue(key, initCase);
+						busyBox.add(key);
+					// }			
+
+
+					num++;
+				}
+		}
+
+
+		});
+
+
+		
+
+		return ships;
+	}
+
+	static checkInstallShip(size :number, orientation :EnumOrientation, ship :Ship, busyBox :Set<string>) :boolean {
+		let res :boolean = false;
+
+		//case initiale au hasard
+		//// On renvoie un nombre aléatoire entre le nombre 1 (inclus) 
+		// et une valeur max (exclue)
+		let horRandom :number = Math.floor(Math.random() * (size - 1) + 1);
+		let vertRandom :number = Math.floor(Math.random() * (size - 1) + 1);
+		let initCase :MatriceCase = new MatriceCase(horRandom,vertRandom);
+
+		let num :number = 1;
+		while(num <= ship.shipSize){
+
+			let key :string = BattleUtils.generateKeyGrid(initCase);
+
+			//on verifie que les cases ne sont pas deja utilisées
+			// if(!busyBox.contains(key)){
+				ship.shipPosition.setValue(key, initCase);
+				busyBox.add(key);
+			// }			
+
+
+			num++;
+		}
+
+
+
+		return res;
 	}
 
 	

@@ -72,10 +72,7 @@ export class BattleMatrice {
 		
 	}
 
-	autoInstallShip(){
-		//TODO
-	}
-
+	
 
 	/**
 	 * @description [updateMatrice method update a box values]
@@ -133,6 +130,8 @@ export class BattleMatrice {
 		return result;    		
 
 	}
+
+	
 
 	/**
 	 * [getSize Size of matrix]

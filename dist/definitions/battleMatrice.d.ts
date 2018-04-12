@@ -21,7 +21,6 @@ export declare class BattleMatrice {
      *
      */
     constructor(sizeMatrice?: number, silent?: boolean);
-    autoInstallShip(): void;
     /**
      * @description [updateMatrice method update a box values]
      * @param {MatriceCase} status [Update box datas from the key]

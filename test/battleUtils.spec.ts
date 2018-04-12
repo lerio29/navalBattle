@@ -1,7 +1,9 @@
 import { expect } from 'chai';
 import {BattleUtils} from '../src/battleUtils';
 import { EnumStatus } from "../src/enumStatus";
-import {JsonConfig, ShipsConfig} from "../src/jsonConfig";
+// import {JsonConfig, ShipsConfig} from "../src/jsonConfig";
+import { BattleMatrice } from '../src/battleMatrice';
+import { MatriceCase } from '../src/matriceCase';
 
 
 
@@ -23,6 +25,17 @@ describe('BattleUtils Tests', () => {
     let val :string = BattleUtils.generateKeyGridByVal(5,2);
 
     expect("E-2").to.equal(val);
+  });
+
+  it('should return a matrice box from autoInstallShip method ', () => {
+    let box :MatriceCase = BattleUtils.autoInstallShip(10);
+    expect(box.hor).to.be.not.null;
+    expect(box.vert).to.be.not.null;
+
+   
+
+
+
   });
 
   // it('should return a good object from config1.json', () => {

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const matriceCase_1 = require("./matriceCase");
 const sha1 = require("sha1/sha1");
 /**
  * Tools class
@@ -68,6 +69,15 @@ class BattleUtils {
     }
     static createUniqueId() {
         return sha1('uid-' + Math.random().toString(36).substr(2, 16) + new Date().getTime());
+    }
+    static autoInstallShip(max) {
+        // On renvoie un nombre aléatoire entre le nombre 1 (inclus) 
+        // et une valeur max (exclue)
+        let horRandom = Math.floor(Math.random() * (max - 1) + 1);
+        let vertRandom = Math.floor(Math.random() * (max - 1) + 1);
+        let positionRandom = Math.floor(Math.random() * 2 + 1);
+        let initCase = new matriceCase_1.MatriceCase(horRandom, vertRandom);
+        return initCase;
     }
 }
 BattleUtils._separator = "-";

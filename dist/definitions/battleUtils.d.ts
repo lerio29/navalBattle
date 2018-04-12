@@ -48,4 +48,5 @@ export declare class BattleUtils {
      */
     static checkAllPositions(mCases: Set<MatriceCase>, gridSize: number): boolean;
     static createUniqueId(): string;
+    static autoInstallShip(max: number): MatriceCase;
 }
